@@ -1,8 +1,6 @@
 package com.example.sessions;
 
-import com.example.actions.BattleAction;
-import com.example.actions.SwordAttack;
-import com.example.actions.FireBall;
+
 import com.example.commands.HelpCommand;
 import com.example.commands.QuitCommand;
 
@@ -34,14 +32,7 @@ public class BattleActionSelectionSession extends Session {
     public void setParentLog(String text) {
         parentSession.setLogText(text);
     }
-    
-    /**
-     * BattleActionのみを受け入れるaddCommandメソッドをオーバーライド
-     * @param action 追加するバトルアクション
-     */
-    public void addCommand(BattleAction action) {
-        super.addCommand(action);
-    }
+
     
     /**
      * コマンド実行後にセッションを停止するprocessInputメソッドをオーバーライド
@@ -81,11 +72,24 @@ public class BattleActionSelectionSession extends Session {
     
     @Override
     protected void initializeCommands() {
-        // 剣攻撃コマンド（親セッション参照を渡す）
-        addCommand(new SwordAttack(parentSession, this));
-        
-        // ファイアボールコマンド（親セッション参照を渡す）
-        addCommand(new FireBall(parentSession, this));
+        // 剣攻撃コマンド（ラムダ式で実装）
+        addCommand(new com.example.utils.Command("sword", "剣で攻撃する", "sword") {
+            @Override
+            public boolean execute(String[] args) {
+                // バトル状態チェック
+                if (!parentSession.checkBattleState()) {
+                    setParentLog("バトルが終了しています。");
+                    return false;
+                }
+                int damage = parentSession.getPlayer().getAttack();
+                String actionMessage = "剣で攻撃！ ";
+                boolean result = parentSession.executeBattleAction(damage, actionMessage);
+                if (result) {
+                    setParentLog("剣で攻撃した！");
+                }
+                return result;
+            }
+        });
         
         addCommand(new HelpCommand(commandManager));
         addCommand(new QuitCommand(this::stop));
