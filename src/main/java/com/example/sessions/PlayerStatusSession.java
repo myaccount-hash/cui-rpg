@@ -1,0 +1,28 @@
+package com.example.sessions;
+import com.example.commands.QuitCommand;
+import com.example.utils.Player;
+import com.example.utils.SaveDataManager;
+
+/**
+ * プレイヤーデータ確認セッション
+ */
+public class PlayerStatusSession extends Session {
+    
+    private final Player player;
+    
+    public PlayerStatusSession() {
+        super("PlayerStatus", "プレイヤーデータ確認セッション");
+        this.player = SaveDataManager.loadPlayer();
+    }
+    
+    @Override
+    protected void initializeCommands() {
+        addCommand(new QuitCommand(this::stop));
+        
+        // 初期表示テキストを設定
+        setDisplayText(
+                      "名前: " + player.getName() + "\n" +
+                      "HP: " + player.getHp() + "/" + player.getMaxHp() + "\n" +
+                      "攻撃力: " + player.getAttack());
+    }
+} 

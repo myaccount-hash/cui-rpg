@@ -1,0 +1,4 @@
+name=プレイヤー
+hp=100
+maxHp=100
+attack=15

@@ -1,0 +1,152 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "TestAsciiArt",
+            "request": "launch",
+            "mainClass": "com.example.pkg2.TestAsciiArt",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "InteractiveCUI",
+            "request": "launch",
+            "mainClass": "com.example.InteractiveCUI",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "InteractiveCUI",
+            "request": "launch",
+            "mainClass": "com.example.pkg1.InteractiveCUI",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "ConcurrentModificationTest",
+            "request": "launch",
+            "mainClass": "com.example.pkg1.ConcurrentModificationTest",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Main3",
+            "request": "launch",
+            "mainClass": "com.example.pkg1.Main3",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "com.example.Test",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Test3",
+            "request": "launch",
+            "mainClass": "com.example.pkg3.Test3",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Test2",
+            "request": "launch",
+            "mainClass": "com.example.pkg1.Test2",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Main1",
+            "request": "launch",
+            "mainClass": "com.example.pkg1.Main1",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.example.Main",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Class",
+            "request": "launch",
+            "mainClass": "com.example.pkg1.Class",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.example.pkg1.Main",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Sample",
+            "request": "launch",
+            "mainClass": "com.example.Sample",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "ExceptionFlow",
+            "request": "launch",
+            "mainClass": "com.example.ExceptionFlow",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "FunctionalInterfaceDemo",
+            "request": "launch",
+            "mainClass": "com.example.FunctionalInterfaceDemo",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Demo2",
+            "request": "launch",
+            "mainClass": "com.example.Demo2",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Demo1",
+            "request": "launch",
+            "mainClass": "com.example.Demo1",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "ExtendDemo",
+            "request": "launch",
+            "mainClass": "com.example.extend.ExtendDemo",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "ImplementDemo",
+            "request": "launch",
+            "mainClass": "com.example.implement.ImplementDemo",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.example.Main",
+            "projectName": "maven-java"
+        },
+        {
+            "type": "java",
+            "name": "Debug DebugExample",
+            "request": "launch",
+            "mainClass": "com.example.DebugExample",
+            "projectName": "maven-java"
+        }
+    ]
+} 
