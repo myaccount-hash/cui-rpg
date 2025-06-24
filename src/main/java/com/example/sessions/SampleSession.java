@@ -10,8 +10,8 @@ import java.time.format.DateTimeFormatter;
  */
 public class SampleSession extends Session {
     
-    public SampleSession() {
-        super("Sample", "サンプルセッション");
+    public SampleSession(Session parentSession) {
+        super("Sample", "サンプルセッション", parentSession);
     }
     
     @Override

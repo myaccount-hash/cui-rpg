@@ -9,8 +9,8 @@ import com.example.monsters.Dragon;
 
 public class MainSession extends Session {
     
-    public MainSession() {
-        super("Main", "メイン対話型CUIプログラム");
+    public MainSession(Session parentSession) {
+        super("Main", "メイン対話型CUIプログラム", parentSession);
     }
     
     @Override
@@ -36,8 +36,7 @@ public class MainSession extends Session {
         
         @Override
         public boolean execute(String[] args) {
-            
-            SampleSession session = new SampleSession();
+            SampleSession session = new SampleSession(MainSession.this);
             session.start();
             
             return true;
@@ -56,7 +55,7 @@ public class MainSession extends Session {
         @Override
         public boolean execute(String[] args) {
             
-            BattleSession session = new BattleSession("DragonBattle", "ドラゴンバトルセッション", new Dragon());
+            BattleSession session = new BattleSession("DragonBattle", "ドラゴンバトルセッション", new Dragon(), MainSession.this);
             session.start();
             
             return true;

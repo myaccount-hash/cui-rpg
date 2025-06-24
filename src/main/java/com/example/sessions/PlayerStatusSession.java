@@ -10,8 +10,8 @@ public class PlayerStatusSession extends Session {
     
     private final Player player;
     
-    public PlayerStatusSession() {
-        super("PlayerStatus", "プレイヤーデータ確認セッション");
+    public PlayerStatusSession(Session parentSession) {
+        super("PlayerStatus", "プレイヤーデータ確認セッション", parentSession);
         this.player = SaveDataManager.loadPlayer();
     }
     

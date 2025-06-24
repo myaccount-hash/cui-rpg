@@ -24,7 +24,7 @@ public class PlayerStatusCommand extends Command {
         System.out.println("攻撃力: " + player.getAttack());
         
         // プレイヤーデータ確認セッションを開始
-        PlayerStatusSession session = new PlayerStatusSession();
+        PlayerStatusSession session = new PlayerStatusSession(null);
         session.start();
         
         return true;

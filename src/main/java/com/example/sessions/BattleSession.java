@@ -21,8 +21,8 @@ public class BattleSession extends Session {
     protected Monster monster;
     protected Player player;
     
-    public BattleSession(String name, String description, Monster monster) {
-        super(name, description);
+    public BattleSession(String name, String description, Monster monster, Session parentSession) {
+        super(name, description, parentSession);
         this.monster = monster;
         this.player = SaveDataManager.loadPlayer();
     }

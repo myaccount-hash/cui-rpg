@@ -17,14 +17,15 @@ public abstract class Session {
     protected String displayText;
     protected String logText;
     protected boolean logDisplaying;
-    
-    public Session(String name, String description) {
+    protected Session parentSession;
+    public Session(String name, String description, Session parentSession) {
         this.name = name;
         this.scanner = new Scanner(System.in);
         this.commandManager = new CommandManager();
         this.commandOrder = new ArrayList<>();
         this.displayText = "";
         this.logText = "";
+        this.parentSession = parentSession;
     }
     
     public String getName() { return name; }

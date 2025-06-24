@@ -12,9 +12,9 @@ public class BattleActionSelectionSession extends Session {
     
     private BattleSession parentSession; // 親セッション参照
     
-    public BattleActionSelectionSession(BattleSession battleSession) {
-        super("アクション選択", "攻撃方法を選択してください");
-        this.parentSession = battleSession; // 親セッションを保存
+    public BattleActionSelectionSession(Session parentSession) {
+        super("アクション選択", "攻撃方法を選択してください", parentSession);
+        this.parentSession = (BattleSession) parentSession; // 親セッションを保存
     }
     
     /**
