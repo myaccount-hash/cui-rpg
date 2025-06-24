@@ -1,49 +1,24 @@
 package com.example.sessions;
 
-
 import com.example.commands.HelpCommand;
 import com.example.commands.QuitCommand;
 
-/**
- * バトルアクション選択セッション
- * 攻撃方法を選択するためのセッション
- */
 public class BattleActionSelectionSession extends Session {
-    
-    private BattleSession parentSession; // 親セッション参照
+    private BattleSession parentSession;
     
     public BattleActionSelectionSession(Session parentSession) {
         super("アクション選択", "攻撃方法を選択してください", parentSession);
-        this.parentSession = (BattleSession) parentSession; // 親セッションを保存
+        this.parentSession = (BattleSession) parentSession;
     }
     
-    /**
-     * 親セッションを取得
-     * @return 親セッション
-     */
-    public BattleSession getParentSession() {
-        return parentSession;
-    }
+    public BattleSession getParentSession() { return parentSession; }
+    public void setParentLog(String text) { parentSession.setLogText(text); }
     
-    /**
-     * 親セッションにログを設定
-     * @param text ログメッセージ
-     */
-    public void setParentLog(String text) {
-        parentSession.setLogText(text);
-    }
-
-    
-    /**
-     * コマンド実行後にセッションを停止するprocessInputメソッドをオーバーライド
-     * @param input ユーザー入力
-     */
     @Override
     protected void processInput(String input) {
         String commandName = null;
         String[] args = new String[0];
         
-        // 入力が数字ならコマンド名に変換
         if (input.matches("\\d+")) {
             int idx = Integer.parseInt(input) - 1;
             if (idx >= 0 && idx < commandOrder.size()) {
@@ -61,18 +36,13 @@ public class BattleActionSelectionSession extends Session {
             }
         }
         
-        // コマンドを実行
-        boolean executed = commandManager.executeCommand(commandName, args);
-        
-        // コマンドが実行された場合はセッションを停止
-        if (executed) {
+        if (commandManager.executeCommand(commandName, args)) {
             stop();
         }
     }
     
     @Override
     protected void initializeCommands() {
-        // 剣攻撃コマンド（ラムダ式で実装）
         addCommand(new com.example.commands.Command("sword", "剣で攻撃する", "sword", this) {
             @Override
             public boolean execute(String[] args) {
@@ -83,8 +53,6 @@ public class BattleActionSelectionSession extends Session {
         
         addCommand(new HelpCommand(commandManager));
         addCommand(new QuitCommand(this::stop));
-        
-        // 初期表示テキストを設定
         setDisplayText("攻撃方法を選択してください");
     }
 }
