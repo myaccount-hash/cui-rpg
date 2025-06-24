@@ -3,7 +3,7 @@ package com.example.sessions;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.utils.Command;
+import com.example.commands.Command;
 
 import java.util.Collection;
 

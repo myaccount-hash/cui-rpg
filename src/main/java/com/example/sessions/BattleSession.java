@@ -1,5 +1,6 @@
 package com.example.sessions;
 
+import com.example.commands.Command;
 import com.example.commands.PlayerStatusCommand;
 import com.example.commands.QuitCommand;
 import com.example.commands.SaveCommand;
@@ -202,7 +203,7 @@ public class BattleSession extends Session {
      */
     private class PlayerActionSelection extends Command {
         public PlayerActionSelection() {
-            super("attack", "攻撃方法を選択する", "attack");
+            super("attack", "攻撃方法を選択する", "attack", BattleSession.this);
         }
         
         @Override
@@ -214,7 +215,7 @@ public class BattleSession extends Session {
             
             // アクション選択セッションを開始
             BattleActionSelectionSession actionSession = 
-                new BattleActionSelectionSession(BattleSession.this);
+            new BattleActionSelectionSession(BattleSession.this);
             actionSession.start();
             
             // モンスターの攻撃を実行（プレイヤーアクション後）

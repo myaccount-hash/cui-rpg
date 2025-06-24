@@ -1,9 +1,9 @@
 package com.example.sessions;
 
+import com.example.commands.Command;
 import com.example.commands.HelpCommand;
 import com.example.commands.QuitCommand;
 import com.example.commands.PlayerStatusCommand;
-import com.example.utils.Command;
 import com.example.utils.SaveDataManager;
 import com.example.monsters.Dragon;
 

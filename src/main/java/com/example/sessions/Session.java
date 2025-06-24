@@ -1,7 +1,9 @@
 package com.example.sessions;
 
 import java.util.Scanner;
-import com.example.utils.Command;
+
+import com.example.commands.Command;
+
 import java.util.List;
 import java.util.ArrayList;
 

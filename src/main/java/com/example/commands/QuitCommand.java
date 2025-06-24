@@ -1,7 +1,5 @@
 package com.example.commands;
 
-import com.example.utils.Command;
-
 /**
  * プログラムを終了するコマンド
  */

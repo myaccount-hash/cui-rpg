@@ -98,4 +98,9 @@ public abstract class Monster {
     public void setIcon(String icon) {
         this.icon = icon;
     }
+    
+    public void takeDamage(int damage) {
+        this.hp -= damage;
+    }
+
 }

@@ -1,7 +1,8 @@
 package com.example.sessions;
 
+import com.example.commands.Command;
 import com.example.commands.QuitCommand;
-import com.example.utils.Command;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 

@@ -1,7 +1,6 @@
 package com.example.commands;
 
 import com.example.sessions.CommandManager;
-import com.example.utils.Command;
 
 /**
  * ヘルプを表示するコマンド

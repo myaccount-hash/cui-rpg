@@ -73,21 +73,11 @@ public class BattleActionSelectionSession extends Session {
     @Override
     protected void initializeCommands() {
         // 剣攻撃コマンド（ラムダ式で実装）
-        addCommand(new com.example.utils.Command("sword", "剣で攻撃する", "sword") {
+        addCommand(new com.example.commands.Command("sword", "剣で攻撃する", "sword", this) {
             @Override
             public boolean execute(String[] args) {
-                // バトル状態チェック
-                if (!parentSession.checkBattleState()) {
-                    setParentLog("バトルが終了しています。");
-                    return false;
-                }
-                int damage = parentSession.getPlayer().getAttack();
-                String actionMessage = "剣で攻撃！ ";
-                boolean result = parentSession.executeBattleAction(damage, actionMessage);
-                if (result) {
-                    setParentLog("剣で攻撃した！");
-                }
-                return result;
+                parentSession.getMonster().takeDamage(20);
+                return true;
             }
         });
         
