@@ -16,14 +16,15 @@ public abstract class Session {
     protected Scanner scanner;
     protected CommandManager commandManager;
     protected List<String> commandOrder;
-    protected String displayText;
+
     protected Queue<String> logQueue; // FIFOログキュー
     protected boolean logDisplaying;
+
     protected Session parentSession;
-    
-    // メニュー内容を保持
     protected List<String> menuLines;
-    
+    protected List<String> menuText;
+    protected String displayText;
+
     public Session(String name, String description, Session parentSession) {
         this.name = name;
         this.scanner = new Scanner(System.in);
@@ -41,42 +42,28 @@ public abstract class Session {
         
         while (isRunning()) {
             String input = scanner.nextLine();
-            
             // ログ表示中の場合は次のログを表示
             if (isLogDisplaying()) {
-                if (!logQueue.isEmpty()) {
-                    refreshDisplay();
-                } else {
-                    this.logDisplaying = false;
-                    refreshDisplay();
-                }
+                showLog();
                 continue;
             }
-            
             if (!input.trim().isEmpty()) {
                 processInput(input.trim());
             }
         }
     }
-    
-    public void stop() { 
-        running = false; 
-    }
-    // レイアウトの表示
-    private void showLayout() {
-        String[] display = getDisplayText().split("\n");
-        List<String> menu = getMenuLinesForDisplay();
-        int maxLines = Math.max(display.length, menu.size());
-        int half = SCREEN_WIDTH / 2;
-        
-        System.out.printf("%-" + half + "s " + SEPARATOR + " %s%n", "--- Display ---", "--- Menu ---");
-        
-        for (int i = 0; i < maxLines; i++) {
-            String left = i < display.length ? display[i] : "";
-            String right = i < menu.size() ? menu.get(i) : "";
-            System.out.printf("%-" + half + "s " + SEPARATOR + " %s%n", left, right);
+
+    protected void showLog(){
+        if (!logQueue.isEmpty()) {
+            refreshDisplay();
+        } else {
+            this.logDisplaying = false;
+            refreshDisplay();
         }
     }
+
+    public void stop() { running = false; }
+
     // ゲッターメソッド
     public String getName() { return name; }
     public boolean isRunning() { return running; }
@@ -100,14 +87,26 @@ public abstract class Session {
     // 画面全体更新（状態に応じて適切な内容を表示）
     protected void refreshDisplay() {
         System.out.print("\033[H\033[2J");
-        showLayout();
+        String[] display = getDisplayText().split("\n");
+        refreshMenu();
+        List<String> menu = menuText;
+        int maxLines = Math.max(display.length, menu.size());
+        int half = SCREEN_WIDTH / 2;
+        
+        System.out.printf("%-" + half + "s " + SEPARATOR + " %s%n", "--- Display ---", "--- Menu ---");
+        
+        for (int i = 0; i < maxLines; i++) {
+            String left = i < display.length ? display[i] : "";
+            String right = i < menu.size() ? menu.get(i) : "";
+            System.out.printf("%-" + half + "s " + SEPARATOR + " %s%n", left, right);
+        }
         System.out.print(logDisplaying ? getLogText() + " (↵で続行) > " : getName() + "> ");
     }
 
     /*
      * ログ系メソッド
      */
-    // ログテキストのみ更新（Enter入力まで待機）
+    // サブクラス用のログセッター
     public void setLogText(String text) {
         logQueue.offer(text);
         if (logQueue.size() > 100) logQueue.poll(); // 最大100件まで保持
@@ -126,6 +125,9 @@ public abstract class Session {
         this.logDisplaying = false;
         refreshDisplay();
     }
+
+
+
     // 入力を判定し実行
     protected void processInput(String input) {
         String commandName = null;
@@ -151,11 +153,12 @@ public abstract class Session {
      * メニュー系メソッド
      */
     // メニュー生成
-    private List<String> getMenuLinesForDisplay() {
+    private void refreshMenu() {
         if (isLogDisplaying()) {
-            return List.of("ログ表示中...");
+            menuText = List.of("ログ表示中...");
         }
-        return getMenuLines();
+        menuText = getMenuLines();
+        return;
     }
     // メニュー内容更新
     private void updateMenuLines() {
