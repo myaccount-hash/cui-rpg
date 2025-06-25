@@ -54,7 +54,7 @@ public abstract class Session {
         refreshDisplay();
     }
     
-    private void clearLog() {
+    public void clearLog() {
         this.logText = "";
         this.logDisplaying = false;
         refreshDisplay();
