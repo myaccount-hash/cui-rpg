@@ -6,6 +6,7 @@ import com.example.commands.QuitCommand;
 import com.example.commands.SaveCommand;
 import com.example.monsters.Monster;
 import com.example.utils.*;
+import java.util.ArrayList;
 
 public class BattleSession extends Session {
     public enum BattleState { ONGOING, PLAYER_VICTORY, PLAYER_DEFEAT }
@@ -38,40 +39,24 @@ public class BattleSession extends Session {
         
         while (running) {
             String input = scanner.nextLine();
-            
-            if (logDisplaying) {
-                clearLog();
-                continue;
-            }
-            
-            if (!input.trim().isEmpty()) {
-                processInput(input.trim());
-            }
+            if (logDisplaying) { clearLog(); continue; }
+            if (!input.trim().isEmpty()) processInput(input.trim());
             refreshDisplay();
+            setLogText("攻撃！ ");
             executeMonsterAction();
         }
     }
 
     public String getBattleStartMessage() {
-        return monster.getIcon() + "\n\n" +
-               "名前: " + monster.getName() + "\n" +
-               "HP: " + monster.getHp() + "/" + monster.getMaxHp() + "\n" +
-               "攻撃力: " + monster.getAttack() + "\n\n" +
-               "HP: " + player.getHp() + "/" + player.getMaxHp() + "\n";
-    }
-    
-    public BattleState getBattleState() {
-        if (player.getHp() <= 0) return BattleState.PLAYER_DEFEAT;
-        if (monster.getHp() <= 0) return BattleState.PLAYER_VICTORY;
-        return BattleState.ONGOING;
+        return monster.getIcon() + "\n\n名前: " + monster.getName() + 
+               "\nHP: " + monster.getHp() + "/" + monster.getMaxHp() + 
+               "\n攻撃力: " + monster.getAttack() + 
+               "\n\nHP: " + player.getHp() + "/" + player.getMaxHp() + "\n";
     }
 
-    
-    
     public void executeMonsterAction() {
-        if (getBattleState() != BattleState.ONGOING) return;
-        
         int monsterDamage = monster.getAttack();
+        player.takeDamage(monsterDamage);
         setLogText(monster.getName() + "の攻撃！" + monsterDamage + "ダメージを受けました。");
         refreshDisplay();
     }
@@ -83,10 +68,46 @@ public class BattleSession extends Session {
         
         @Override
         public boolean execute(String[] args) {
-            BattleActionSelectionSession actionSession = 
-                new BattleActionSelectionSession(BattleSession.this);
-            actionSession.start();
+            new BattleActionSelectionSession(BattleSession.this).start();
             return true;
+        }
+    }
+
+    public class BattleActionSelectionSession extends Session {
+        private BattleSession parentSession;
+        
+        public BattleActionSelectionSession(Session parentSession) {
+            super("アクション選択", "攻撃方法を選択してください", parentSession);
+            this.parentSession = (BattleSession) parentSession;
+            this.displayText = parentSession.displayText;
+        }
+        
+        
+        @Override
+        protected void initializeCommands() {
+            // 既存のメニューに追加（上書きではなく）
+            addCommand(new Command("sword", "剣で攻撃する", "sword", this) {
+                @Override
+                public boolean execute(String[] args) {
+                    parentSession.getMonster().takeDamage(20);
+                    BattleActionSelectionSession.this.refreshDisplay();
+                    BattleActionSelectionSession.this.stop();
+                    return true;
+                }
+            });
+            addCommand(new QuitCommand(this::stop));
+        }
+        
+        @Override
+        public void setDisplayText(String text) {
+            parentSession.setDisplayText(text);
+            return;
+        }
+        
+        @Override
+        public void setLogText(String text) {
+            parentSession.setLogText(text);
+            return;
         }
     }
 }

@@ -1,9 +1,7 @@
 package com.example.sessions;
 
 import java.util.Scanner;
-
 import com.example.commands.Command;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -20,6 +18,10 @@ public abstract class Session {
     protected String logText;
     protected boolean logDisplaying;
     protected Session parentSession;
+    
+    // メニュー内容を保持
+    protected List<String> menuLines;
+    
     public Session(String name, String description, Session parentSession) {
         this.name = name;
         this.scanner = new Scanner(System.in);
@@ -28,38 +30,56 @@ public abstract class Session {
         this.displayText = "";
         this.logText = "";
         this.parentSession = parentSession;
+        this.menuLines = new ArrayList<>();
     }
     
+    // ゲッターメソッド
     public String getName() { return name; }
     public boolean isRunning() { return running; }
     public boolean isLogDisplaying() { return logDisplaying; }
+    public String getDisplayText() { return displayText; }
+    public String getLogText() { return logText; }
+    public List<String> getMenuLines() { return menuLines; }
+    public Session getParentSession() { return parentSession; }
     
     public void addCommand(Command command) {
         commandManager.registerCommand(command);
         commandOrder.add(command.getName().toLowerCase());
+        updateMenuLines(); // メニュー内容を更新
     }
     
     public String getPrompt() {
-        return logDisplaying ? logText + " (↵で続行) > " : name + "> ";
+        return logDisplaying ? getLogText() + " (↵で続行) > " : getName() + "> ";
     }
     
+    // ディスプレイテキストのみ更新
     public void setDisplayText(String text) {
         this.displayText = text;
         refreshDisplay();
     }
     
+    // ログテキストのみ更新（Enter入力まで待機）
     public void setLogText(String text) {
         this.logText = text;
         this.logDisplaying = true;
         refreshDisplay();
+        waitForEnter(); // Enter入力まで処理停止
     }
     
+    // ログクリア
     public void clearLog() {
         this.logText = "";
         this.logDisplaying = false;
         refreshDisplay();
     }
     
+    // Enter入力まで待機
+    private void waitForEnter() {
+        scanner.nextLine(); // Enter入力を待つ
+        clearLog(); // Enter押下後にログをクリア
+    }
+    
+    // 画面全体更新（状態に応じて適切な内容を表示）
     protected void refreshDisplay() {
         System.out.print("\033[H\033[2J");
         showLayout();
@@ -67,8 +87,8 @@ public abstract class Session {
     }
     
     private void showLayout() {
-        String[] display = displayText.split("\n");
-        List<String> menu = getMenuLines();
+        String[] display = getDisplayText().split("\n");
+        List<String> menu = getMenuLinesForDisplay();
         int maxLines = Math.max(display.length, menu.size());
         int half = SCREEN_WIDTH / 2;
         
@@ -81,28 +101,35 @@ public abstract class Session {
         }
     }
     
-    private List<String> getMenuLines() {
-        List<String> lines = new ArrayList<>();
-        if (logDisplaying) {
-            lines.add("ログ表示中...");
-            return lines;
-        }
-        
+    // メニュー内容更新
+    private void updateMenuLines() {
+        menuLines = new ArrayList<>();
         for (int i = 0; i < commandOrder.size(); i++) {
             Command cmd = commandManager.getCommand(commandOrder.get(i));
-            if (cmd != null) lines.add((i + 1) + ": " + cmd.getName());
+            if (cmd != null) {
+                menuLines.add((i + 1) + ": " + cmd.getName());
+            }
         }
-        return lines;
+    }
+    
+    // 表示用メニュー生成（ログ表示状態を考慮）
+    private List<String> getMenuLinesForDisplay() {
+        if (isLogDisplaying()) {
+            return List.of("ログ表示中...");
+        }
+        return getMenuLines();
     }
     
     public void start() {
         running = true;
         initializeCommands();
+        refreshDisplay();
         
-        while (running) {
+        while (isRunning()) {
             String input = scanner.nextLine();
             
-            if (logDisplaying) {
+            // ログ表示中の場合は既にwaitForEnter()で処理済み
+            if (isLogDisplaying()) {
                 clearLog();
                 continue;
             }
@@ -110,11 +137,12 @@ public abstract class Session {
             if (!input.trim().isEmpty()) {
                 processInput(input.trim());
             }
-            refreshDisplay();
         }
     }
     
-    public void stop() { running = false; }
+    public void stop() { 
+        running = false; 
+    }
     
     protected abstract void initializeCommands();
     
