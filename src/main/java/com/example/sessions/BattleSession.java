@@ -25,7 +25,15 @@ public class BattleSession extends Session {
     
     @Override
     protected void initializeCommands() {
-        addCommand(new PlayerActionSelection());
+        addCommand(new MasicSelection());
+        // 既存のメニューに追加（上書きではなく）
+        addCommand(new Command("sword", "剣で攻撃する", "sword", this) {
+            @Override
+            public boolean execute(String[] args) {
+                BattleSession.this.getMonster().takeDamage(20);
+                return true;
+            }
+        });
         addCommand(new SaveCommand(player));
         addCommand(new QuitCommand(this::stop));
         addCommand(new PlayerStatusCommand(player));
@@ -40,10 +48,12 @@ public class BattleSession extends Session {
         while (running) {
             String input = scanner.nextLine();
             if (logDisplaying) { clearLog(); continue; }
-            if (!input.trim().isEmpty()) processInput(input.trim());
-            setDisplayText(getBattleStartMessage());
-            refreshDisplay();
-            setLogText("攻撃！ ");
+            if (!input.trim().isEmpty()) {
+                processInput(input.trim());
+                setLogText("攻撃！ ");
+                setDisplayText(getBattleStartMessage());
+                refreshDisplay();
+            }
             executeMonsterAction();
             setDisplayText(getBattleStartMessage());
             
@@ -65,9 +75,9 @@ public class BattleSession extends Session {
         refreshDisplay();
     }
 
-    private class PlayerActionSelection extends Command {
-        public PlayerActionSelection() {
-            super("attack", "攻撃方法を選択する", "attack", BattleSession.this);
+    private class MasicSelection extends Command {
+        public MasicSelection() {
+            super("magic", "魔法を使う", "magic", BattleSession.this);
         }
         
         @Override
@@ -81,7 +91,7 @@ public class BattleSession extends Session {
         private BattleSession parentSession;
         
         public BattleActionSelectionSession(Session parentSession) {
-            super("アクション選択", "攻撃方法を選択してください", parentSession);
+            super(null, null, parentSession);
             this.parentSession = (BattleSession) parentSession;
             this.displayText = parentSession.displayText;
         }
@@ -89,12 +99,18 @@ public class BattleSession extends Session {
         
         @Override
         protected void initializeCommands() {
-            // 既存のメニューに追加（上書きではなく）
-            addCommand(new Command("sword", "剣で攻撃する", "sword", this) {
+            addCommand(new Command("fireball", "ファイアボールを使う", "fireball", this) {
                 @Override
                 public boolean execute(String[] args) {
                     parentSession.getMonster().takeDamage(20);
-                    BattleActionSelectionSession.this.refreshDisplay();
+                    BattleActionSelectionSession.this.stop();
+                    return true;
+                }
+            });
+            addCommand(new Command("heal", "回復魔法を使う", "heal", this) {
+                @Override
+                public boolean execute(String[] args) {
+                    parentSession.getPlayer().heal(20);
                     BattleActionSelectionSession.this.stop();
                     return true;
                 }
@@ -103,15 +119,9 @@ public class BattleSession extends Session {
         }
         
         @Override
-        public void setDisplayText(String text) {
-            parentSession.setDisplayText(text);
-            return;
-        }
+        public void setDisplayText(String text) { parentSession.setDisplayText(text); }
         
         @Override
-        public void setLogText(String text) {
-            parentSession.setLogText(text);
-            return;
-        }
+        public void setLogText(String text) { parentSession.setLogText(text); }
     }
 }

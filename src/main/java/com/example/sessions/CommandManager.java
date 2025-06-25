@@ -44,15 +44,6 @@ public class CommandManager {
     }
     
     /**
-     * コマンドが存在するかチェック
-     * @param name コマンド名
-     * @return 存在する場合はtrue
-     */
-    public boolean hasCommand(String name) {
-        return commands.containsKey(name.toLowerCase());
-    }
-    
-    /**
      * コマンドを実行
      * @param name コマンド名
      * @param args 引数
