@@ -11,6 +11,21 @@ public class MainSession extends Session {
     
     public MainSession(Session parentSession) {
         super("Main", "メイン対話型CUIプログラム", parentSession);
+        running = true;
+        initializeCommands();
+        refreshDisplay();
+        
+        while (isRunning()) {
+            String input = scanner.nextLine();
+            // ログ表示中の場合は次のログを表示
+            if (isLogDisplaying()) {
+                showLog();
+                continue;
+            }
+            if (!input.trim().isEmpty()) {
+                processInput(input.trim());
+            }
+        }
     }
     
     @Override
@@ -37,8 +52,6 @@ public class MainSession extends Session {
         @Override
         public boolean execute(String[] args) {
             SampleSession session = new SampleSession(MainSession.this);
-            session.start();
-            
             return true;
         }
     }
@@ -55,8 +68,7 @@ public class MainSession extends Session {
         @Override
         public boolean execute(String[] args) {
             
-            BattleSession session = new BattleSession("DragonBattle", "ドラゴンバトルセッション", new Dragon(), MainSession.this);
-            session.start();
+            new BattleSession("DragonBattle", "ドラゴンバトルセッション", new Dragon(), MainSession.this);
             
             return true;
         }

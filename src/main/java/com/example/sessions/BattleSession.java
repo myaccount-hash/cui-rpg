@@ -19,6 +19,20 @@ public class BattleSession extends Session {
         super(name, description, parentSession);
         this.monster = monster;
         this.player = SaveDataManager.loadPlayer();
+        running = true;
+        initializeCommands();
+        
+        while (running) {
+            String input = scanner.nextLine();
+            if (logDisplaying) { clearLog(); continue; }
+            if (!input.trim().isEmpty()) {
+                processInput(input.trim());
+                setDisplayText(getBattleStartMessage());
+                refreshDisplay();
+            }
+            executeMonsterAction();
+            setDisplayText(getBattleStartMessage());
+        }
     }
     
     public Monster getMonster() { return monster; }
@@ -42,24 +56,6 @@ public class BattleSession extends Session {
         setDisplayText(getBattleStartMessage());
     }
     
-    @Override
-    public void start() {
-        running = true;
-        initializeCommands();
-        
-        while (running) {
-            String input = scanner.nextLine();
-            if (logDisplaying) { clearLog(); continue; }
-            if (!input.trim().isEmpty()) {
-                processInput(input.trim());
-                setDisplayText(getBattleStartMessage());
-                refreshDisplay();
-            }
-            executeMonsterAction();
-            setDisplayText(getBattleStartMessage());
-        }
-    }
-
     
     public String getBattleStartMessage() {
         return monster.getIcon() + "\n\n名前: " + monster.getName() + 
@@ -82,7 +78,7 @@ public class BattleSession extends Session {
         
         @Override
         public boolean execute(String[] args) {
-            new BattleActionSelectionSession(BattleSession.this).start();
+            new BattleActionSelectionSession(BattleSession.this);
             return true;
         }
     }

@@ -35,23 +35,7 @@ public abstract class Session {
         this.parentSession = parentSession;
         this.menuLines = new ArrayList<>();
     }
-    public void start() {
-        running = true;
-        initializeCommands();
-        refreshDisplay();
-        
-        while (isRunning()) {
-            String input = scanner.nextLine();
-            // ログ表示中の場合は次のログを表示
-            if (isLogDisplaying()) {
-                showLog();
-                continue;
-            }
-            if (!input.trim().isEmpty()) {
-                processInput(input.trim());
-            }
-        }
-    }
+
 
     protected void showLog(){
         if (!logQueue.isEmpty()) {
