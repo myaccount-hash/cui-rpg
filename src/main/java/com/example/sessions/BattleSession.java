@@ -6,7 +6,7 @@ import com.example.commands.QuitCommand;
 import com.example.commands.SaveCommand;
 import com.example.monsters.Monster;
 import com.example.utils.*;
-import java.util.ArrayList;
+
 
 public class BattleSession extends Session {
     public enum BattleState { ONGOING, PLAYER_VICTORY, PLAYER_DEFEAT }
@@ -41,12 +41,16 @@ public class BattleSession extends Session {
             String input = scanner.nextLine();
             if (logDisplaying) { clearLog(); continue; }
             if (!input.trim().isEmpty()) processInput(input.trim());
+            setDisplayText(getBattleStartMessage());
             refreshDisplay();
             setLogText("攻撃！ ");
             executeMonsterAction();
+            setDisplayText(getBattleStartMessage());
+            
         }
     }
 
+    
     public String getBattleStartMessage() {
         return monster.getIcon() + "\n\n名前: " + monster.getName() + 
                "\nHP: " + monster.getHp() + "/" + monster.getMaxHp() + 
