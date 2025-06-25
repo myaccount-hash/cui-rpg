@@ -65,8 +65,6 @@ public abstract class Session {
         updateMenuLines(); // メニュー内容を更新
     }
     
-    // Session.javaのサブクラスはこのメソッドでコマンド登録
-    protected abstract void initializeCommands();
 
     // 画面全体更新（状態に応じて適切な内容を表示）
     protected void refreshDisplay() {

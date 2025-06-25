@@ -14,7 +14,11 @@ public class SampleSession extends Session {
     public SampleSession(Session parentSession) {
         super("Sample", "サンプルセッション", parentSession);
         running = true;
-        initializeCommands();
+        addCommand(new DateCommand());
+        addCommand(new VersionCommand());
+        addCommand(new ClearCommand());
+        addCommand(new QuitCommand(() -> stop()));
+        setDisplayText("サンプルセッションが開始されました。");
         refreshDisplay();
         
         while (isRunning()) {
@@ -30,14 +34,6 @@ public class SampleSession extends Session {
         }
     }
     
-    @Override
-    protected void initializeCommands() {
-        addCommand(new DateCommand());
-        addCommand(new VersionCommand());
-        addCommand(new ClearCommand());
-        addCommand(new QuitCommand(() -> stop()));
-        setDisplayText("サンプルセッションが開始されました。");
-    }
     
     /**
      * 現在の日時を表示するコマンド（内部クラス）

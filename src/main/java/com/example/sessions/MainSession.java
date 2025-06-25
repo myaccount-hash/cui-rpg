@@ -12,7 +12,14 @@ public class MainSession extends Session {
     public MainSession(Session parentSession) {
         super("Main", "メイン対話型CUIプログラム", parentSession);
         running = true;
-        initializeCommands();
+        addCommand(new NewSessionCommand());
+        addCommand(new DragonBattleCommand());
+        addCommand(new PlayerStatusCommand(SaveDataManager.loadPlayer()));
+        addCommand(new HelpCommand(commandManager));
+        addCommand(new QuitCommand(this::stop));
+        
+        // 初期表示テキストを設定
+        setDisplayText("ゲームを開始しました。");
         refreshDisplay();
         
         while (isRunning()) {
@@ -28,17 +35,7 @@ public class MainSession extends Session {
         }
     }
     
-    @Override
-    protected void initializeCommands() {
-        addCommand(new NewSessionCommand());
-        addCommand(new DragonBattleCommand());
-        addCommand(new PlayerStatusCommand(SaveDataManager.loadPlayer()));
-        addCommand(new HelpCommand(commandManager));
-        addCommand(new QuitCommand(this::stop));
-        
-        // 初期表示テキストを設定
-        setDisplayText("ゲームを開始しました。");
-    }
+
     
     /**
      * 新しい対話セッションを開始するコマンド（内部クラス）

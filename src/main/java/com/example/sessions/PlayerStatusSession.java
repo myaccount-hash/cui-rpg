@@ -14,7 +14,13 @@ public class PlayerStatusSession extends Session {
         super("PlayerStatus", "プレイヤーデータ確認セッション", parentSession);
         this.player = SaveDataManager.loadPlayer();
         running = true;
-        initializeCommands();
+        addCommand(new QuitCommand(this::stop));
+        
+        // 初期表示テキストを設定
+        setDisplayText(
+                      "名前: " + player.getName() + "\n" +
+                      "HP: " + player.getHp() + "/" + player.getMaxHp() + "\n" +
+                      "攻撃力: " + player.getAttack());
         refreshDisplay();
         
         while (isRunning()) {
@@ -29,15 +35,6 @@ public class PlayerStatusSession extends Session {
             }
         }
     }
-    
-    @Override
-    protected void initializeCommands() {
-        addCommand(new QuitCommand(this::stop));
-        
-        // 初期表示テキストを設定
-        setDisplayText(
-                      "名前: " + player.getName() + "\n" +
-                      "HP: " + player.getHp() + "/" + player.getMaxHp() + "\n" +
-                      "攻撃力: " + player.getAttack());
-    }
+
+
 } 

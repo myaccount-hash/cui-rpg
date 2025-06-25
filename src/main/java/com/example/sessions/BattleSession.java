@@ -20,7 +20,19 @@ public class BattleSession extends Session {
         this.monster = monster;
         this.player = SaveDataManager.loadPlayer();
         running = true;
-        initializeCommands();
+        addCommand(new Command("attack", "通常攻撃", "attack", this) {
+            @Override
+            public boolean execute(String[] args) {
+                BattleSession.this.getMonster().takeDamage(20);
+                BattleSession.this.setLogText(player.getName() + "は通常攻撃をした！");
+                return true;
+            }
+        });
+        addCommand(new MasicSelection());
+        addCommand(new SaveCommand(player));
+        addCommand(new QuitCommand(this::stop));
+        addCommand(new PlayerStatusCommand(player));
+        setDisplayText(getBattleStartMessage());
         
         while (running) {
             String input = scanner.nextLine();
@@ -40,24 +52,7 @@ public class BattleSession extends Session {
     
     public Monster getMonster() { return monster; }
     public Player getPlayer() { return player; }
-    
-    @Override
-    protected void initializeCommands() {
 
-        addCommand(new Command("attack", "通常攻撃", "attack", this) {
-            @Override
-            public boolean execute(String[] args) {
-                BattleSession.this.getMonster().takeDamage(20);
-                BattleSession.this.setLogText(player.getName() + "は通常攻撃をした！");
-                return true;
-            }
-        });
-        addCommand(new MasicSelection());
-        addCommand(new SaveCommand(player));
-        addCommand(new QuitCommand(this::stop));
-        addCommand(new PlayerStatusCommand(player));
-        setDisplayText(getBattleStartMessage());
-    }
     
     
     public String getBattleStartMessage() {
@@ -93,15 +88,12 @@ public class BattleSession extends Session {
             super(null, null, parentSession);
             this.parentSession = (BattleSession) parentSession;
             this.displayText = parentSession.displayText;
-        }
-        
-        
-        @Override
-        protected void initializeCommands() {
             addCommand(new FireBall(BattleActionSelectionSession.this));
             addCommand(new Heal(BattleActionSelectionSession.this));
             addCommand(new QuitCommand(this::stop));
         }
+        
+        
         
         @Override
         public void setDisplayText(String text) { parentSession.setDisplayText(text); }
