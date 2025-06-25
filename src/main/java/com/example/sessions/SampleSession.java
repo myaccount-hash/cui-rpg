@@ -13,6 +13,21 @@ public class SampleSession extends Session {
     
     public SampleSession(Session parentSession) {
         super("Sample", "サンプルセッション", parentSession);
+        running = true;
+        initializeCommands();
+        refreshDisplay();
+        
+        while (isRunning()) {
+            String input = scanner.nextLine();
+            // ログ表示中の場合は次のログを表示
+            if (isLogDisplaying()) {
+                showLog();
+                continue;
+            }
+            if (!input.trim().isEmpty()) {
+                processInput(input.trim());
+            }
+        }
     }
     
     @Override
@@ -21,8 +36,6 @@ public class SampleSession extends Session {
         addCommand(new VersionCommand());
         addCommand(new ClearCommand());
         addCommand(new QuitCommand(() -> stop()));
-        
-        // 初期表示テキストを設定
         setDisplayText("サンプルセッションが開始されました。");
     }
     

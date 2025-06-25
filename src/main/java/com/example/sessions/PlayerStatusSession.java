@@ -13,6 +13,21 @@ public class PlayerStatusSession extends Session {
     public PlayerStatusSession(Session parentSession) {
         super("PlayerStatus", "プレイヤーデータ確認セッション", parentSession);
         this.player = SaveDataManager.loadPlayer();
+        running = true;
+        initializeCommands();
+        refreshDisplay();
+        
+        while (isRunning()) {
+            String input = scanner.nextLine();
+            // ログ表示中の場合は次のログを表示
+            if (isLogDisplaying()) {
+                showLog();
+                continue;
+            }
+            if (!input.trim().isEmpty()) {
+                processInput(input.trim());
+            }
+        }
     }
     
     @Override

@@ -24,7 +24,10 @@ public class BattleSession extends Session {
         
         while (running) {
             String input = scanner.nextLine();
-            if (logDisplaying) { clearLog(); continue; }
+            if (logDisplaying) { 
+                clearLog(); 
+                continue; 
+            }
             if (!input.trim().isEmpty()) {
                 processInput(input.trim());
                 setDisplayText(getBattleStartMessage());

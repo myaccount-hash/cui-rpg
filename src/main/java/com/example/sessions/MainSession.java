@@ -51,7 +51,7 @@ public class MainSession extends Session {
         
         @Override
         public boolean execute(String[] args) {
-            SampleSession session = new SampleSession(MainSession.this);
+            new SampleSession(MainSession.this);
             return true;
         }
     }
