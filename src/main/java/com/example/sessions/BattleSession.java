@@ -6,7 +6,6 @@ import com.example.commands.QuitCommand;
 import com.example.commands.SaveCommand;
 import com.example.monsters.Monster;
 import com.example.utils.*;
-import com.example.masics.*;
 
 
 public class BattleSession extends Session {
@@ -79,26 +78,5 @@ public class BattleSession extends Session {
             new BattleActionSelectionSession(BattleSession.this);
             return true;
         }
-    }
-
-    public class BattleActionSelectionSession extends Session {
-        private BattleSession parentSession;
-        
-        public BattleActionSelectionSession(Session parentSession) {
-            super(null, null, parentSession);
-            this.parentSession = (BattleSession) parentSession;
-            this.displayText = parentSession.displayText;
-            addCommand(new FireBall(BattleActionSelectionSession.this));
-            addCommand(new Heal(BattleActionSelectionSession.this));
-            addCommand(new QuitCommand(this::stop));
-        }
-        
-        
-        
-        @Override
-        public void setDisplayText(String text) { parentSession.setDisplayText(text); }
-        
-        @Override
-        public void setLogText(String text) { parentSession.setLogText(text); }
     }
 }

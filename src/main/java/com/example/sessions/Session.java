@@ -57,9 +57,9 @@ public abstract class Session {
     public Session getParentSession() { return parentSession; }
     
 
-    public void setDisplayText(String text) { this.displayText = text; refreshDisplay(); }
+    protected void setDisplayText(String text) { this.displayText = text; refreshDisplay(); }
     // Session.javaのサブクラスはこのメソッドで任意のコマンドを登録
-    public void addCommand(Command command) {
+    protected void addCommand(Command command) {
         commandManager.registerCommand(command);
         commandOrder.add(command.getName().toLowerCase());
         updateMenuLines(); // メニュー内容を更新
@@ -102,13 +102,11 @@ public abstract class Session {
         refreshDisplay();
     }
     // ログクリア
-    public void clearLog() {
+    protected void clearLog() {
         this.logQueue.clear();
         this.logDisplaying = false;
         refreshDisplay();
     }
-
-
 
     // 入力を判定し実行
     protected void processInput(String input) {
@@ -135,7 +133,7 @@ public abstract class Session {
      * メニュー系メソッド
      */
     // メニュー生成
-    private void refreshMenu() {
+    protected void refreshMenu() {
         if (isLogDisplaying()) {
             menuText = List.of("ログ表示中...");
         }
@@ -154,7 +152,7 @@ public abstract class Session {
     }
 
     // 現在のログを文字列として取得
-    public String getLogText() {
+    private String getLogText() {
         if (logQueue.isEmpty()) return "";
         return String.join("\n", logQueue);
     }
