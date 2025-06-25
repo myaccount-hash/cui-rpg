@@ -26,15 +26,16 @@ public class BattleSession extends Session {
     
     @Override
     protected void initializeCommands() {
-        addCommand(new MasicSelection());
-        // 既存のメニューに追加（上書きではなく）
-        addCommand(new Command("sword", "剣で攻撃する", "sword", this) {
+
+        addCommand(new Command("attack", "通常攻撃", "attack", this) {
             @Override
             public boolean execute(String[] args) {
                 BattleSession.this.getMonster().takeDamage(20);
+                BattleSession.this.setLogText(player.getName() + "は通常攻撃をした！");
                 return true;
             }
         });
+        addCommand(new MasicSelection());
         addCommand(new SaveCommand(player));
         addCommand(new QuitCommand(this::stop));
         addCommand(new PlayerStatusCommand(player));
@@ -56,7 +57,6 @@ public class BattleSession extends Session {
             }
             executeMonsterAction();
             setDisplayText(getBattleStartMessage());
-            
         }
     }
 
@@ -66,7 +66,7 @@ public class BattleSession extends Session {
                "\nHP: " + monster.getHp() + "/" + monster.getMaxHp() + 
                "\n攻撃力: " + monster.getAttack() + 
                "\n\nHP: " + player.getHp() + "/" + player.getMaxHp() + "\n";
-    }
+    } 
 
     public void executeMonsterAction() {
         int monsterDamage = monster.getAttack();
