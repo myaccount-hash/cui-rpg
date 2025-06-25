@@ -6,6 +6,7 @@ import com.example.commands.QuitCommand;
 import com.example.commands.SaveCommand;
 import com.example.monsters.Monster;
 import com.example.utils.*;
+import com.example.masics.*;
 
 
 public class BattleSession extends Session {
@@ -50,7 +51,6 @@ public class BattleSession extends Session {
             if (logDisplaying) { clearLog(); continue; }
             if (!input.trim().isEmpty()) {
                 processInput(input.trim());
-                setLogText("攻撃！ ");
                 setDisplayText(getBattleStartMessage());
                 refreshDisplay();
             }
@@ -99,22 +99,8 @@ public class BattleSession extends Session {
         
         @Override
         protected void initializeCommands() {
-            addCommand(new Command("fireball", "ファイアボールを使う", "fireball", this) {
-                @Override
-                public boolean execute(String[] args) {
-                    parentSession.getMonster().takeDamage(20);
-                    BattleActionSelectionSession.this.stop();
-                    return true;
-                }
-            });
-            addCommand(new Command("heal", "回復魔法を使う", "heal", this) {
-                @Override
-                public boolean execute(String[] args) {
-                    parentSession.getPlayer().heal(20);
-                    BattleActionSelectionSession.this.stop();
-                    return true;
-                }
-            });
+            addCommand(new FireBall(BattleActionSelectionSession.this));
+            addCommand(new Heal(BattleActionSelectionSession.this));
             addCommand(new QuitCommand(this::stop));
         }
         

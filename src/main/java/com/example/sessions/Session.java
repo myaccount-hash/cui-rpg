@@ -4,6 +4,8 @@ import java.util.Scanner;
 import com.example.commands.Command;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public abstract class Session {
     private static final int SCREEN_WIDTH = 80;
@@ -15,7 +17,7 @@ public abstract class Session {
     protected CommandManager commandManager;
     protected List<String> commandOrder;
     protected String displayText;
-    protected String logText;
+    protected Queue<String> logQueue; // FIFOログキュー
     protected boolean logDisplaying;
     protected Session parentSession;
     
@@ -28,7 +30,7 @@ public abstract class Session {
         this.commandManager = new CommandManager();
         this.commandOrder = new ArrayList<>();
         this.displayText = "";
-        this.logText = "";
+        this.logQueue = new LinkedList<>();
         this.parentSession = parentSession;
         this.menuLines = new ArrayList<>();
     }
@@ -38,7 +40,13 @@ public abstract class Session {
     public boolean isRunning() { return running; }
     public boolean isLogDisplaying() { return logDisplaying; }
     public String getDisplayText() { return displayText; }
-    public String getLogText() { return logText; }
+    
+    // 現在のログを文字列として取得
+    public String getLogText() {
+        if (logQueue.isEmpty()) return "";
+        return String.join("\n", logQueue);
+    }
+    
     public List<String> getMenuLines() { return menuLines; }
     public Session getParentSession() { return parentSession; }
     
@@ -60,7 +68,8 @@ public abstract class Session {
     
     // ログテキストのみ更新（Enter入力まで待機）
     public void setLogText(String text) {
-        this.logText = text;
+        logQueue.offer(text);
+        if (logQueue.size() > 100) logQueue.poll(); // 最大100件まで保持
         this.logDisplaying = true;
         refreshDisplay();
         waitForEnter(); // Enter入力まで処理停止
@@ -68,7 +77,7 @@ public abstract class Session {
     
     // ログクリア
     public void clearLog() {
-        this.logText = "";
+        this.logQueue.clear();
         this.logDisplaying = false;
         refreshDisplay();
     }
@@ -76,7 +85,11 @@ public abstract class Session {
     // Enter入力まで待機
     private void waitForEnter() {
         scanner.nextLine(); // Enter入力を待つ
-        clearLog(); // Enter押下後にログをクリア
+        logQueue.poll(); // 表示済みログを削除
+        if (logQueue.isEmpty()) {
+            this.logDisplaying = false; // キューが空なら表示終了
+        }
+        refreshDisplay();
     }
     
     // 画面全体更新（状態に応じて適切な内容を表示）
@@ -128,9 +141,14 @@ public abstract class Session {
         while (isRunning()) {
             String input = scanner.nextLine();
             
-            // ログ表示中の場合は既にwaitForEnter()で処理済み
+            // ログ表示中の場合は次のログを表示
             if (isLogDisplaying()) {
-                clearLog();
+                if (!logQueue.isEmpty()) {
+                    refreshDisplay();
+                } else {
+                    this.logDisplaying = false;
+                    refreshDisplay();
+                }
                 continue;
             }
             
