@@ -13,21 +13,13 @@ public class CommandManager {
     public void registerCommand(Command command) {
         commands.put(command.getName().toLowerCase(), command);
     }
-    public Command getCommand(String name) {
+    Command getCommand(String name) {
         return commands.get(name.toLowerCase());
     }
-    
-    /**
-     * すべてのコマンドを取得
-     */
-    public Collection<Command> getAllCommands() {
+    Collection<Command> getAllCommands() {
         return commands.values();
     }
-    
-    /**
-     * コマンドを実行
-     */
-    public boolean executeCommand(String name, String[] args) {
+    boolean executeCommand(String name, String[] args) {
         Command command = getCommand(name);
         if (command != null) {
             return command.execute(args);
