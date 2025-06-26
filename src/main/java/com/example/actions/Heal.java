@@ -1,25 +1,18 @@
 package com.example.actions;
 
 import com.example.entities.Entity;
-import com.example.sessions.Session;
 
-public class Heal extends Masic {
-    public Heal(Session selectSession) {
-        super("heal", "回復魔法を使う", "heal", selectSession);
+public class Heal extends Action {
+    public Heal(Entity source, Entity target) {
+        super("heal", "回復魔法を使う", "heal", source, target);
     }
     @Override
     public boolean execute(String[] args) {
-        action(player, monster);
-        selectSession.stop();
+        target.heal(20);
         return true;
     }
     @Override
-    public boolean action(Entity source, Entity target) {
-       target.heal(20);
-       return true;
-    }
-    @Override
     public String getActionLog() {
-       return player.getName() + "は回復魔法を使った！";
+       return source.getName() + "は回復魔法を使った！";
     }
 }

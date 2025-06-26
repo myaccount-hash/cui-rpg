@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// TODO: コマンドからログを受け取る機能追加
+
 public abstract class Session {
     private static final int SCREEN_WIDTH = 80;
     private static final String SEPARATOR = "│";
