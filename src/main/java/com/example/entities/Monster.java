@@ -1,11 +1,7 @@
 package com.example.entities;
 
 public abstract class Monster extends Entity{
-    protected String name;
-    protected int hp;
-    protected int maxHp;
-    protected int attack;
-    protected String icon;
+    private String icon;
     
     public Monster(String name, int hp, int attack,int defence, String icon) {
         super(name, hp, attack, defence);

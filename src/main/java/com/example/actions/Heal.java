@@ -12,5 +12,4 @@ public class Heal extends Action {
         setCommandLog(source.getName() + "は回復魔法を使った！");
         return true;
     }
-
 }
