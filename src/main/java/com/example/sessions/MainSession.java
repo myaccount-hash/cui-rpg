@@ -3,7 +3,6 @@ package com.example.sessions;
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
 import com.example.entities.Dragon;
-import com.example.commands.PlayerStatusCommand;
 
 public class MainSession extends Session {
     

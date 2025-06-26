@@ -1,8 +1,6 @@
 package com.example.actions;
 
 import com.example.entities.Entity;
-import com.example.entities.Player;
-import com.example.items.Weapon;
 
 public class SwordAttack extends Action {
     public SwordAttack(Entity source, Entity target) {
