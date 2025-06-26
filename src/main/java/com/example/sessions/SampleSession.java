@@ -1,7 +1,6 @@
 package com.example.sessions;
 
 import com.example.commands.Command;
-import com.example.commands.QuitCommand;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -17,7 +16,7 @@ public class SampleSession extends Session {
         addCommand(new DateCommand());
         addCommand(new VersionCommand());
         addCommand(new ClearCommand());
-        addCommand(new QuitCommand(() -> stop()));
+        addCommand(new QuitCommand());
         setDisplayText("サンプルセッションが開始されました。");
         refreshDisplay();
         

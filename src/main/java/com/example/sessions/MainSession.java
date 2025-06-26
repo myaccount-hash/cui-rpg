@@ -1,8 +1,9 @@
 package com.example.sessions;
 
 import com.example.commands.Command;
-import com.example.commands.QuitCommand;
 import com.example.entities.Dragon;
+import com.example.entities.Player;
+
 
 public class MainSession extends Session {
     
@@ -11,8 +12,14 @@ public class MainSession extends Session {
         running = true;
         addCommand(new NewSessionCommand());
         addCommand(new DragonBattleCommand());
-        addCommand(new QuitCommand(this::stop));
-        
+        addCommand(new QuitCommand());
+        addCommand(new Command("items", "所持アイテム一覧を表示", "items", this) {
+            @Override
+            public boolean execute(String[] args) {
+                new PlayerItemListSession(new Player(), MainSession.this);
+                return true;
+            }
+        });
         // 初期表示テキストを設定
         setDisplayText("ゲームを開始しました。");
         refreshDisplay();

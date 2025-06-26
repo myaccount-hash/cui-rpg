@@ -144,4 +144,20 @@ public abstract class Session {
             return false;
         }
     }
+
+    // --- 内部クラス: セッション終了コマンド ---
+    public class QuitCommand extends Command {
+        public QuitCommand() {
+            super("quit", "セッションを終了します", "quit");
+        }
+        @Override
+        public boolean execute(String[] args) {
+            System.out.println("セッションを終了します");
+            stop();
+            if (getParentSession() != null) {
+                getParentSession().refreshDisplay();
+            }
+            return true;
+        }
+    }
 }

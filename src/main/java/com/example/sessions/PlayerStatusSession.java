@@ -1,5 +1,5 @@
 package com.example.sessions;
-import com.example.commands.QuitCommand;
+
 import com.example.entities.Player;
 
 /**
@@ -13,7 +13,7 @@ public class PlayerStatusSession extends Session {
         super("PlayerStatus", "プレイヤーデータ確認セッション", parentSession);
         this.player = new Player();
         running = true;
-        addCommand(new QuitCommand(this::stop));
+        addCommand(new QuitCommand());
         
         // 初期表示テキストを設定
         setDisplayText(

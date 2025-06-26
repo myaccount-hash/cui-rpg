@@ -1,6 +1,5 @@
 package com.example.sessions;
 import com.example.actions.*;
-import com.example.commands.QuitCommand;
 
 public class BattleActionSelectionSession extends Session {
    
@@ -12,7 +11,7 @@ public class BattleActionSelectionSession extends Session {
         addCommand(new SwordAttack(battleSession.getPlayer(), battleSession.getMonster()));
         addCommand(new FireBall(battleSession.getPlayer(), battleSession.getMonster()));
         addCommand(new Heal(battleSession.getPlayer(), battleSession.getMonster()));
-        addCommand(new QuitCommand(this::stop));
+        addCommand(new QuitCommand());  
         refreshDisplay();
    
         while (isRunning()) {

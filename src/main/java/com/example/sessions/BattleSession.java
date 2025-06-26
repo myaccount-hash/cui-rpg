@@ -2,7 +2,6 @@ package com.example.sessions;
 
 import com.example.commands.Command;
 import com.example.commands.PlayerStatusCommand;
-import com.example.commands.QuitCommand;
 import com.example.entities.Monster;
 import com.example.entities.Player;
 
@@ -25,9 +24,9 @@ public class BattleSession extends Session {
                 return true;
             }
         });
-        addCommand(new QuitCommand(this::stop));
+        addCommand(new QuitCommand());
         addCommand(new PlayerStatusCommand(player));
-        
+
         runBattleLoop();
     }
     
