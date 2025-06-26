@@ -1,10 +1,12 @@
 package com.example.sessions;
 
+import com.example.core.Command;
+import com.example.core.Session;
 import com.example.entities.Player;
 import com.example.items.Item;
 import com.example.items.Weapon;
 import com.example.items.Armor;
-import com.example.commands.Command;
+
 import java.util.List;
 
 public class ItemActionSession extends Session {
@@ -35,6 +37,7 @@ public class ItemActionSession extends Session {
                 stop();
             }
         }
+        parentSession.refreshDisplay();
     }
     private String buildItemDetail(Item item) {
         return "【アイテム詳細】\n" +

@@ -1,6 +1,7 @@
 package com.example.sessions;
 
-import com.example.commands.Command;
+import com.example.core.Command;
+import com.example.core.Session;
 import com.example.entities.Dragon;
 import com.example.entities.Player;
 
@@ -35,6 +36,7 @@ public class MainSession extends Session {
                 processInput(input.trim());
             }
         }
+        parentSession.refreshDisplay();
     }
     
 

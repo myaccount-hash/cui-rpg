@@ -1,6 +1,4 @@
-package com.example.commands;
-
-import com.example.sessions.Session;
+package com.example.core;
 
 /**
  * コマンドの抽象クラス

@@ -1,7 +1,6 @@
-package com.example.sessions;
+package com.example.core;
 
 import java.util.Scanner;
-import com.example.commands.Command;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -47,7 +46,7 @@ public abstract class Session {
     public String getDisplayText() { return displayText; }
     public Session getParentSession() { return parentSession; }
     
-    protected void setDisplayText(String text) { 
+    public void setDisplayText(String text) { 
         this.displayText = text; 
         refreshDisplay(); 
     }
@@ -57,7 +56,8 @@ public abstract class Session {
         commandOrder.add(command.getName().toLowerCase());
     }
     
-    protected void refreshDisplay() {
+    
+    public void refreshDisplay() {
         System.out.print("\033[H\033[2J");
         String[] display = displayText.split("\n");
         List<String> menu = logDisplaying ? List.of("ログ表示中...") : buildMenu();
@@ -157,11 +157,7 @@ public abstract class Session {
         }
         @Override
         public boolean execute(String[] args) {
-            System.out.println("セッションを終了します");
             stop();
-            if (getParentSession() != null) {
-                getParentSession().refreshDisplay();
-            }
             return true;
         }
     }

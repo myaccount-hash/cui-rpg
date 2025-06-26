@@ -1,5 +1,6 @@
 package com.example.sessions;
 import com.example.actions.*;
+import com.example.core.Session;
 
 public class BattleActionSelectionSession extends Session {
    
@@ -7,7 +8,7 @@ public class BattleActionSelectionSession extends Session {
         super("アクション選択", "アクション選択", parentSession);
         running = true;
         BattleSession battleSession = (BattleSession) parentSession;
-        this.displayText = parentSession.displayText;
+        this.displayText = parentSession.getDisplayText();
         addCommand(new SwordAttack(battleSession.getPlayer(), battleSession.getMonster()));
         addCommand(new FireBall(battleSession.getPlayer(), battleSession.getMonster()));
         addCommand(new Heal(battleSession.getPlayer(), battleSession.getMonster()));
@@ -26,6 +27,8 @@ public class BattleActionSelectionSession extends Session {
                 stop();
             }
         }
+        parentSession.refreshDisplay();
+        
 
    }
    

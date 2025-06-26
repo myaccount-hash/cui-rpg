@@ -1,6 +1,7 @@
 package com.example.sessions;
 
-import com.example.commands.Command;
+import com.example.core.Command;
+import com.example.core.Session;
 import com.example.entities.Monster;
 import com.example.entities.Player;
 
@@ -44,6 +45,8 @@ public class BattleSession extends Session {
                 setDisplayText(getBattleInfo());
             }
         }
+        parentSession.refreshDisplay();
+        
     }
     
     public Monster getMonster() { return monster; }

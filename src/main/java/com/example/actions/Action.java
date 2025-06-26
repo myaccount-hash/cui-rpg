@@ -1,6 +1,6 @@
 package com.example.actions;
 
-import com.example.commands.Command;
+import com.example.core.Command;
 import com.example.entities.Entity;
 
 public abstract class Action extends Command { 

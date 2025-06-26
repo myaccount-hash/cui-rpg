@@ -1,9 +1,10 @@
 package com.example.sessions;
 
-import com.example.commands.Command;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
+import com.example.core.Command;
+import com.example.core.Session;
 
 /**
  * ユーティリティコマンド用のセッション
@@ -31,6 +32,7 @@ public class SampleSession extends Session {
                 processInput(input.trim());
             }
         }
+        parentSession.refreshDisplay();
     }
     
     
