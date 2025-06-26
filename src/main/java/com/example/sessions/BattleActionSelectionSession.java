@@ -1,6 +1,5 @@
 package com.example.sessions;
 import com.example.actions.*;
-import com.example.core.Session;
 
 public class BattleActionSelectionSession extends Session {
    
@@ -20,7 +19,7 @@ public class BattleActionSelectionSession extends Session {
    
    @Override
    public void setLogText(String text) { parentSession.setLogText(text); }
-   
+
    @Override
    protected void afterCommandExecuted() {
        stop();

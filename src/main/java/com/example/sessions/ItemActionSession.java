@@ -1,20 +1,16 @@
 package com.example.sessions;
 
-import com.example.core.Command;
-import com.example.core.Session;
+import com.example.sessions.Session;
 import com.example.entities.Player;
 import com.example.items.Item;
-import com.example.items.Weapon;
-import com.example.items.Armor;
 
-import java.util.List;
 
 public class ItemActionSession extends Session {
     public ItemActionSession(Player player, Item item, Session parentSession) {
         super("ItemAction", "アイテムアクション", parentSession);
         setDisplayText(buildItemDetail(item));
         for (Item.ItemAction action : item.getActions()) {
-            addCommand(new Command(action.getName(), action.getLabel(), action.getName()) {
+            addCommand(new Session.Command(action.getName(), action.getLabel(), action.getName()) {
                 @Override
                 public boolean execute(String[] args) {
                     action.execute(player, item);

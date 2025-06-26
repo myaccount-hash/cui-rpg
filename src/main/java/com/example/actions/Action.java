@@ -1,9 +1,9 @@
 package com.example.actions;
 
-import com.example.core.Command;
 import com.example.entities.Entity;
+import com.example.sessions.Session;
 
-public abstract class Action extends Command { 
+public abstract class Action extends Session.Command { 
     protected Entity source;
     protected Entity target;
 

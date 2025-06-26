@@ -1,7 +1,6 @@
 package com.example.sessions;
 
-import com.example.core.Command;
-import com.example.core.Session;
+import com.example.sessions.Session;
 import com.example.entities.Monster;
 import com.example.entities.Player;
 
@@ -15,7 +14,7 @@ public class BattleSession extends Session {
         super(name, description, parentSession);
         this.monster = monster;
         this.player = new Player();
-        addCommand(new Command("action", "アクションを選択", "action", this) {
+        addCommand(new Session.Command("action", "アクションを選択", "action", this) {
             @Override
             public boolean execute(String[] args) {
                 new BattleActionSelectionSession(BattleSession.this).run();

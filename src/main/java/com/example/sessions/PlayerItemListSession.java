@@ -1,7 +1,5 @@
 package com.example.sessions;
 
-import com.example.core.Command;
-import com.example.core.Session;
 import com.example.entities.Player;
 import com.example.items.Item;
 import java.util.List;

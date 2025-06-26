@@ -1,7 +1,6 @@
 package com.example.sessions;
 
-import com.example.core.Command;
-import com.example.core.Session;
+import com.example.sessions.Session;
 import com.example.entities.Dragon;
 import com.example.entities.Player;
 
@@ -13,7 +12,7 @@ public class MainSession extends Session {
         addCommand(new NewSessionCommand());
         addCommand(new DragonBattleCommand());
         addCommand(new QuitCommand());
-        addCommand(new Command("items", "所持アイテム一覧を表示", "items", this) {
+        addCommand(new Session.Command("items", "所持アイテム一覧を表示", "items", this) {
             @Override
             public boolean execute(String[] args) {
                 new PlayerItemListSession(new Player(), MainSession.this).run();
@@ -30,7 +29,7 @@ public class MainSession extends Session {
     /**
      * 新しい対話セッションを開始するコマンド（内部クラス）
      */
-    private class NewSessionCommand extends Command {
+    private class NewSessionCommand extends Session.Command {
         
         public NewSessionCommand() {
             super("new", "新しい対話セッションを開始します", "new");
@@ -46,7 +45,7 @@ public class MainSession extends Session {
     /**
      * ドラゴンバトルセッションを開始するコマンド（内部クラス）
      */
-    private class DragonBattleCommand extends Command {
+    private class DragonBattleCommand extends Session.Command {
         
         public DragonBattleCommand() {
             super("dragon", "ドラゴンバトルセッションを開始します", "dragon");

@@ -3,8 +3,6 @@ package com.example.sessions;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import com.example.core.Command;
-import com.example.core.Session;
 
 /**
  * ユーティリティコマンド用のセッション
@@ -25,7 +23,7 @@ public class SampleSession extends Session {
     /**
      * 現在の日時を表示するコマンド（内部クラス）
      */
-    private class DateCommand extends Command {
+    private class DateCommand extends Session.Command {
         
         public DateCommand() {
             super("date", "現在の日時を表示します", "date");
@@ -43,7 +41,7 @@ public class SampleSession extends Session {
     /**
      * バージョン情報を表示するコマンド（内部クラス）
      */
-    private class VersionCommand extends Command {
+    private class VersionCommand extends Session.Command {
         
         public VersionCommand() {
             super("version", "プログラムのバージョン情報を表示します", "version");
@@ -62,7 +60,7 @@ public class SampleSession extends Session {
     /**
      * 画面をクリアするコマンド（内部クラス）
      */
-    private class ClearCommand extends Command {
+    private class ClearCommand extends Session.Command {
         
         public ClearCommand() {
             super("clear", "画面をクリアします", "clear");

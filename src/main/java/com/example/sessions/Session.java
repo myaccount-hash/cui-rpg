@@ -1,6 +1,8 @@
-package com.example.core;
+package com.example.sessions;
 
 import java.util.Scanner;
+
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -22,6 +24,7 @@ public abstract class Session {
     protected Session parentSession;
     protected String displayText;
 
+    //TODO: コマンドを内部クラスにする
     public Session(String name, String description, Session parentSession) {
         this.name = name;
         this.scanner = new Scanner(System.in);
@@ -148,7 +151,7 @@ public abstract class Session {
     }
 
     // --- 内部クラス: セッション終了コマンド ---
-    public class QuitCommand extends Command {
+    public class QuitCommand extends Session.Command {
         public QuitCommand() {
             super("quit", "セッションを終了します", "quit");
         }
@@ -187,5 +190,44 @@ public abstract class Session {
      */
     protected void afterCommandExecuted() {
         // デフォルトは何もしない
+    }
+
+    public static abstract class Command {
+        protected String name;
+        protected String description;
+        protected String usage;
+        protected Session session;
+        protected String commandLog;
+
+        public abstract boolean execute(String[] args);
+        
+        public Command(String name, String description, String usage) {
+            this.name = name;
+            this.description = description;
+            this.usage = usage;
+            this.commandLog = null;
+        }
+        
+        public Command(String name, String description, String usage, Session session) {
+            this.name = name;
+            this.description = description;
+            this.usage = usage;
+            this.session = session;
+        }
+        
+        public String getName() {
+            return name;
+        }
+        
+        public Session getSession() {
+            return session;
+        }
+
+        public void setCommandLog(String commandLog) {
+            this.commandLog = commandLog;
+        }
+        public String getCommandLog() {
+            return commandLog;
+        }
     }
 }
