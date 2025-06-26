@@ -12,7 +12,6 @@ import java.util.List;
 public class ItemActionSession extends Session {
     public ItemActionSession(Player player, Item item, Session parentSession) {
         super("ItemAction", "アイテムアクション", parentSession);
-        running = true;
         setDisplayText(buildItemDetail(item));
         for (Item.ItemAction action : item.getActions()) {
             addCommand(new Command(action.getName(), action.getLabel(), action.getName()) {
@@ -25,23 +24,15 @@ public class ItemActionSession extends Session {
             });
         }
         addCommand(new QuitCommand()); // 戻る
-        refreshDisplay();
-        while (isRunning()) {
-            String input = scanner.nextLine();
-            if (isLogDisplaying()) {
-                showLog();
-                continue;
-            }
-            if (!input.trim().isEmpty()) {
-                processInput(input.trim());
-                stop();
-            }
-        }
-        parentSession.refreshDisplay();
+        // ループは親クラスrun()に任せる
     }
     private String buildItemDetail(Item item) {
         return "【アイテム詳細】\n" +
                "名前: " + item.getName() + "\n" +
                "説明: " + item.getDiscription();
+    }
+    @Override
+    protected void afterCommandExecuted() {
+        stop();
     }
 } 

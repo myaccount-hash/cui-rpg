@@ -10,33 +10,19 @@ public class MainSession extends Session {
     
     public MainSession(Session parentSession) {
         super("Main", "メイン対話型CUIプログラム", parentSession);
-        running = true;
         addCommand(new NewSessionCommand());
         addCommand(new DragonBattleCommand());
         addCommand(new QuitCommand());
         addCommand(new Command("items", "所持アイテム一覧を表示", "items", this) {
             @Override
             public boolean execute(String[] args) {
-                new PlayerItemListSession(new Player(), MainSession.this);
+                new PlayerItemListSession(new Player(), MainSession.this).run();
                 return true;
             }
         });
         // 初期表示テキストを設定
         setDisplayText("ゲームを開始しました。");
-        refreshDisplay();
-        
-        while (isRunning()) {
-            String input = scanner.nextLine();
-            // ログ表示中の場合は次のログを表示
-            if (isLogDisplaying()) {
-                showLog();
-                continue;
-            }
-            if (!input.trim().isEmpty()) {
-                processInput(input.trim());
-            }
-        }
-        parentSession.refreshDisplay();
+        // ループは親クラスrun()に任せる
     }
     
 
@@ -52,7 +38,7 @@ public class MainSession extends Session {
         
         @Override
         public boolean execute(String[] args) {
-            new SampleSession(MainSession.this);
+            new SampleSession(MainSession.this).run();
             return true;
         }
     }
@@ -69,7 +55,7 @@ public class MainSession extends Session {
         @Override
         public boolean execute(String[] args) {
             
-            new BattleSession("DragonBattle", "ドラゴンバトルセッション", new Dragon(), MainSession.this);
+            new BattleSession("DragonBattle", "ドラゴンバトルセッション", new Dragon(), MainSession.this).run();
             
             return true;
         }

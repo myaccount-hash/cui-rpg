@@ -33,9 +33,6 @@ public abstract class Session {
     }
 
     public void stop() {
-        if (getParentSession() != null) {
-            getParentSession().refreshDisplay();
-        }
         running = false;
     }
 
@@ -160,5 +157,35 @@ public abstract class Session {
             stop();
             return true;
         }
+    }
+
+    /**
+     * セッションの共通ループ処理
+     */
+    public void run() {
+        running = true;
+        refreshDisplay();
+        while (isRunning()) {
+            String input = scanner.nextLine();
+            if (isLogDisplaying()) {
+                showLog();
+                continue;
+            }
+            if (!input.trim().isEmpty()) {
+                processInput(input.trim());
+                afterCommandExecuted();
+                refreshDisplay();
+            }
+        }
+        if (parentSession != null) {
+            parentSession.refreshDisplay();
+        }
+    }
+
+    /**
+     * コマンド実行後のフック（必要に応じてサブクラスでオーバーライド）
+     */
+    protected void afterCommandExecuted() {
+        // デフォルトは何もしない
     }
 }

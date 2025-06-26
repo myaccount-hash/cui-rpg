@@ -15,38 +15,22 @@ public class BattleSession extends Session {
         super(name, description, parentSession);
         this.monster = monster;
         this.player = new Player();
-        running = true;
-        
         addCommand(new Command("action", "アクションを選択", "action", this) {
             @Override
             public boolean execute(String[] args) {
-                new BattleActionSelectionSession(BattleSession.this);
+                new BattleActionSelectionSession(BattleSession.this).run();
                 return true;
             }
         });
         addCommand(new QuitCommand());
-
-        runBattleLoop();
+        setDisplayText(getBattleInfo());
     }
     
-    private void runBattleLoop() {
+    @Override
+    protected void afterCommandExecuted() {
         setDisplayText(getBattleInfo());
-        
-        while (running) {
-            String input = scanner.nextLine();
-            if (logDisplaying) { 
-                clearLog(); 
-                continue; 
-            }
-            if (!input.trim().isEmpty()) {
-                processInput(input.trim());
-                setDisplayText(getBattleInfo());
-                executeMonsterAction();
-                setDisplayText(getBattleInfo());
-            }
-        }
-        parentSession.refreshDisplay();
-        
+        executeMonsterAction();
+        setDisplayText(getBattleInfo());
     }
     
     public Monster getMonster() { return monster; }

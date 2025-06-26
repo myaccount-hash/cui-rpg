@@ -16,7 +16,6 @@ public class PlayerItemListSession extends Session {
         super("ItemList", "所持アイテム一覧", parentSession);
         this.player = player;
         this.items = player.getItems();
-        running = true;
         // アイテムをコマンドとして追加
         for (int i = 0; i < items.size(); i++) {
             final int idx = i;
@@ -24,26 +23,18 @@ public class PlayerItemListSession extends Session {
                 @Override
                 public boolean execute(String[] args) {
                     Item item = items.get(idx);
-                    new ItemActionSession(player, item, PlayerItemListSession.this);
+                    new ItemActionSession(player, item, PlayerItemListSession.this).run();
                     return true;
                 }
             });
         }
         addCommand(new QuitCommand());
         setDisplayText(player.getInfoText());
-        refreshDisplay();
-        while (isRunning()) {
-            String input = scanner.nextLine();
-            if (isLogDisplaying()) {
-                showLog();
-                continue;
-            }
-            if (!input.trim().isEmpty()) {
-                processInput(input.trim());
-                setDisplayText(player.getInfoText());
-                refreshDisplay();
-            }
-        }
-        parentSession.refreshDisplay();
+        // ループは親クラスrun()に任せる
+    }
+
+    @Override
+    protected void afterCommandExecuted() {
+        setDisplayText(player.getInfoText());
     }
 } 
