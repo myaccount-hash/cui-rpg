@@ -9,7 +9,6 @@ import java.util.Queue;
 import java.util.HashMap;
 import java.util.Map;
 
-// TODO: ログのFIFO構造を削除
 public abstract class Session {
     private static final int SCREEN_WIDTH = 80;
     private static final String SEPARATOR = "│";
