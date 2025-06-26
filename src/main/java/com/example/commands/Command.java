@@ -12,11 +12,13 @@ public abstract class Command {
     protected String description;
     protected String usage;
     protected Session session;
+    protected String commandLog;
     
     public Command(String name, String description, String usage) {
         this.name = name;
         this.description = description;
         this.usage = usage;
+        this.commandLog = null;
     }
     
     public Command(String name, String description, String usage, Session session) {
@@ -108,5 +110,11 @@ public abstract class Command {
             return false;
         }
         return true;
+    }
+    public void setCommandLog(String commandLog) {
+       this.commandLog = commandLog;
+    }
+    public String getCommandLog() {
+        return commandLog;
     }
 }

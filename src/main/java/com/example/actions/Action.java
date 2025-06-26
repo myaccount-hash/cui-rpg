@@ -2,9 +2,6 @@ package com.example.actions;
 
 import com.example.commands.Command;
 import com.example.entities.Entity;
-import com.example.entities.Monster;
-import com.example.entities.Player;
-import com.example.sessions.Session;
 
 public abstract class Action extends Command { 
     protected Entity source;
@@ -15,6 +12,4 @@ public abstract class Action extends Command {
         this.source = source;
         this.target = target;
     }
-
-    public abstract String getActionLog();
 }

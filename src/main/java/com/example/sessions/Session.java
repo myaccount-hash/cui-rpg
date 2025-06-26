@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Collection;
 
 // TODO: コマンドからログを受け取る機能追加
 
@@ -24,7 +27,6 @@ public abstract class Session {
 
     protected Session parentSession;
     protected List<String> menuLines;
-    protected List<String> menuText;
     protected String displayText;
 
     public Session(String name, String description, Session parentSession) {
@@ -37,7 +39,6 @@ public abstract class Session {
         this.parentSession = parentSession;
         this.menuLines = new ArrayList<>();
     }
-
 
     protected void showLog(){
         if (!logQueue.isEmpty()) {
@@ -58,8 +59,8 @@ public abstract class Session {
     public List<String> getMenuLines() { return menuLines; }
     public Session getParentSession() { return parentSession; }
     
-
     protected void setDisplayText(String text) { this.displayText = text; refreshDisplay(); }
+    
     // Session.javaのサブクラスはこのメソッドで任意のコマンドを登録
     protected void addCommand(Command command) {
         commandManager.registerCommand(command);
@@ -67,13 +68,11 @@ public abstract class Session {
         updateMenuLines(); // メニュー内容を更新
     }
     
-
     // 画面全体更新（状態に応じて適切な内容を表示）
     protected void refreshDisplay() {
         System.out.print("\033[H\033[2J");
         String[] display = getDisplayText().split("\n");
-        refreshMenu();
-        List<String> menu = menuText;
+        List<String> menu = logDisplaying ? List.of("ログ表示中...") : getMenuLines();
         int maxLines = Math.max(display.length, menu.size());
         int half = SCREEN_WIDTH / 2;
         
@@ -103,6 +102,7 @@ public abstract class Session {
         }
         refreshDisplay();
     }
+    
     // ログクリア
     protected void clearLog() {
         this.logQueue.clear();
@@ -112,36 +112,27 @@ public abstract class Session {
 
     // 入力を判定し実行
     protected void processInput(String input) {
-        String commandName = null;
-        String[] args = new String[0];
-        
-        // 入力を判定
-        int idx = Integer.parseInt(input) - 1;
-        if (idx >= 0 && idx < commandOrder.size()) {
-            commandName = commandOrder.get(idx);
-        } else {
+        try {
+            int idx = Integer.parseInt(input) - 1;
+            if (idx >= 0 && idx < commandOrder.size()) {
+                String commandName = commandOrder.get(idx);
+                commandManager.executeCommand(commandName, new String[0]);
+                // コマンドログがnullでなければログ表示
+                Command cmd = commandManager.getCommand(commandName);
+                if (cmd != null && cmd.getCommandLog() != null) {
+                    setLogText(cmd.getCommandLog());
+                }
+            } else {
+                setDisplayText("無効な番号です");
+            }
+        } catch (NumberFormatException e) {
             setDisplayText("無効な番号です");
-            return;
-        }
-        // 実行
-        if (commandName != null) {
-            commandManager.executeCommand(commandName, args);
         }
     }
-
-
 
     /*
      * メニュー系メソッド
      */
-    // メニュー生成
-    protected void refreshMenu() {
-        if (isLogDisplaying()) {
-            menuText = List.of("ログ表示中...");
-        }
-        menuText = getMenuLines();
-        return;
-    }
     // メニュー内容更新
     private void updateMenuLines() {
         menuLines = new ArrayList<>();
@@ -158,6 +149,32 @@ public abstract class Session {
         if (logQueue.isEmpty()) return "";
         return String.join("\n", logQueue);
     }
-    
-}
 
+    /**
+     * セッションのコマンドを管理する内部クラス
+     */
+    public class CommandManager {
+        private final Map<String, Command> commands = new HashMap<>();
+        
+        public void registerCommand(Command command) {
+            commands.put(command.getName().toLowerCase(), command);
+        }
+        
+        Command getCommand(String name) {
+            return commands.get(name.toLowerCase());
+        }
+        
+        Collection<Command> getAllCommands() {
+            return commands.values();
+        }
+        
+        boolean executeCommand(String name, String[] args) {
+            Command command = getCommand(name);
+            if (command != null) {
+                return command.execute(args);
+            }
+            System.out.println("不明なコマンド: " + name);
+            return false;
+        }
+    }
+}

@@ -10,10 +10,7 @@ public class FireBall extends Action {
     @Override
     public boolean execute(String[] args) {
         target.takeDamage(50);
+        setCommandLog(source.getName() + "はファイアボールを使った！");
         return true;
-    }
-    @Override
-    public String getActionLog() {
-       return source.getName() + "はファイアボールを使った！";
     }
 }

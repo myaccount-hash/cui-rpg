@@ -9,10 +9,8 @@ public class Heal extends Action {
     @Override
     public boolean execute(String[] args) {
         target.heal(20);
+        setCommandLog(source.getName() + "は回復魔法を使った！");
         return true;
     }
-    @Override
-    public String getActionLog() {
-       return source.getName() + "は回復魔法を使った！";
-    }
+
 }
