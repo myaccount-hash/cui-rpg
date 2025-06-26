@@ -67,7 +67,7 @@ public class SaveDataManager {
                 }
             }
             
-            return new Player(name, hp, maxHp, attack);
+            return new Player(name, hp, maxHp, attack, new com.example.items.IronArmor(), new com.example.items.IronSword());
         } catch (Exception e) {
             System.err.println("セーブデータの読み込みに失敗しました: " + e.getMessage());
             return new Player(); // エラー時はデフォルトプレイヤーを返す

@@ -1,4 +1,6 @@
 package com.example.utils;
+import java.util.List;
+import com.example.items.*;
 
 /**
  * プレイヤーデータを管理するクラス
@@ -9,23 +11,30 @@ public class Player {
     private int hp;
     private int maxHp;
     private int attack;
+    private List<Item> items;
+    private Armor armor;
+    private Weapon weapon;
+    
+
     
     public Player() {
-        this("プレイヤー", 100, 100, 15);
+        this("プレイヤー", 100, 100, 15, new IronArmor(), new IronSword());
     }
     
-    public Player(String name, int hp, int maxHp, int attack) {
+    public Player(String name, int hp, int maxHp, int attack, Armor armor, Weapon weapon) {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
         this.attack = attack;
+        this.armor = armor;
+        this.weapon = weapon;
     }
     
     // Getters
     public String getName() { return name; }
     public int getHp() { return hp; }
     public int getMaxHp() { return maxHp; }
-    public int getAttack() { return attack; }
+    public int getAttack() { return attack * weapon.getAttack(); }
     
     // Setters
     public void setName(String name) { this.name = name; }
