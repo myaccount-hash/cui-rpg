@@ -12,12 +12,10 @@ public class SwordAttack extends Action {
     @Override
     public boolean execute(String[] args) {
         int totalAttack = source.getAttack();
-        if (source instanceof Player) {
-            Weapon weapon = ((Player) source).getWeapon();
-            if (weapon != null) {
-                totalAttack += weapon.getAttack();
-            }
+        if (source.getWeapon() != null) {
+            totalAttack += source.getWeapon().getAttack();
         }
+        totalAttack = totalAttack - target.getDefence();
         target.takeDamage(totalAttack);
         setCommandLog(source.getName() + "は剣で攻撃した！");
         return true;

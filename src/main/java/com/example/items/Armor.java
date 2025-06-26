@@ -9,4 +9,10 @@ public abstract class Armor extends Item{
    public int getDefense() {
       return defense;
    }
+
+   public static class NoArmor extends Armor {
+       public NoArmor() {
+           super("裸", "何も装備していない", 0);
+       }
+   }
 }

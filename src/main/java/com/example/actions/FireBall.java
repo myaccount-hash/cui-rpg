@@ -9,7 +9,8 @@ public class FireBall extends Action {
 
     @Override
     public boolean execute(String[] args) {
-        target.takeDamage(50);
+        int damage = target.getAttack() - source.getDefence();
+        target.takeDamage(damage);
         setCommandLog(source.getName() + "はファイアボールを使った！");
         return true;
     }

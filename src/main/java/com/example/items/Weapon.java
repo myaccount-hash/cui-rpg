@@ -9,4 +9,10 @@ public abstract class Weapon extends Item{
    public int getAttack() {
       return attack;
    }
+
+   public static class NoWeapon extends Weapon {
+       public NoWeapon() {
+           super("素手", "何も装備していない", 0);
+       }
+   }
 }
