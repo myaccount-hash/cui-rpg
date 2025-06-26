@@ -1,4 +1,4 @@
-package com.example.monsters;
+package com.example.entities;
 
 /**
  * ドラゴンクラス
@@ -6,7 +6,7 @@ package com.example.monsters;
 public class Dragon extends Monster {
     
     public Dragon() {
-        super("Dragon", 100, 25, 
+        super("Dragon", 100, 25, 25,
             "      . \n" +
             " .>   )\\;`a__\n" +
             "(  _ _)/ /-.\" ~~\n" +

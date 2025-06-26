@@ -1,10 +1,10 @@
-package com.example.masics;
+package com.example.actions;
 
 import com.example.commands.Command;
+import com.example.entities.Monster;
+import com.example.entities.Player;
 import com.example.sessions.BattleSession;
 import com.example.sessions.Session;
-import com.example.utils.Player;
-import com.example.monsters.Monster;
 
 public abstract class Action extends Command {
     protected Session selectSession;

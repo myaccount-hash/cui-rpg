@@ -3,9 +3,8 @@ package com.example.sessions;
 import com.example.commands.Command;
 import com.example.commands.PlayerStatusCommand;
 import com.example.commands.QuitCommand;
-import com.example.commands.SaveCommand;
-import com.example.monsters.Monster;
-import com.example.utils.*;
+import com.example.entities.Monster;
+import com.example.entities.Player;
 
 
 public class BattleSession extends Session {
@@ -17,7 +16,7 @@ public class BattleSession extends Session {
     public BattleSession(String name, String description, Monster monster, Session parentSession) {
         super(name, description, parentSession);
         this.monster = monster;
-        this.player = SaveDataManager.loadPlayer();
+        this.player = new Player();
         running = true;
         addCommand(new Command("attack", "通常攻撃", "attack", this) {
             @Override
@@ -28,7 +27,6 @@ public class BattleSession extends Session {
             }
         });
         addCommand(new MasicSelection());
-        addCommand(new SaveCommand(player));
         addCommand(new QuitCommand(this::stop));
         addCommand(new PlayerStatusCommand(player));
         setDisplayText(getBattleStartMessage());

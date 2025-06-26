@@ -1,5 +1,5 @@
 package com.example.sessions;
-import com.example.masics.*;
+import com.example.actions.*;
 import com.example.commands.QuitCommand;
 
 public class BattleActionSelectionSession extends Session {

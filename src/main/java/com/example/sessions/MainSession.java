@@ -2,9 +2,8 @@ package com.example.sessions;
 
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
+import com.example.entities.Dragon;
 import com.example.commands.PlayerStatusCommand;
-import com.example.utils.SaveDataManager;
-import com.example.monsters.Dragon;
 
 public class MainSession extends Session {
     
@@ -13,7 +12,6 @@ public class MainSession extends Session {
         running = true;
         addCommand(new NewSessionCommand());
         addCommand(new DragonBattleCommand());
-        addCommand(new PlayerStatusCommand(SaveDataManager.loadPlayer()));
         addCommand(new QuitCommand(this::stop));
         
         // 初期表示テキストを設定

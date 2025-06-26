@@ -1,7 +1,6 @@
 package com.example.sessions;
 import com.example.commands.QuitCommand;
-import com.example.utils.Player;
-import com.example.utils.SaveDataManager;
+import com.example.entities.Player;
 
 /**
  * プレイヤーデータ確認セッション
@@ -12,7 +11,7 @@ public class PlayerStatusSession extends Session {
     
     public PlayerStatusSession(Session parentSession) {
         super("PlayerStatus", "プレイヤーデータ確認セッション", parentSession);
-        this.player = SaveDataManager.loadPlayer();
+        this.player = new Player();
         running = true;
         addCommand(new QuitCommand(this::stop));
         

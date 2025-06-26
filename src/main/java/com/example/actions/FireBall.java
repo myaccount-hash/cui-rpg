@@ -1,4 +1,4 @@
-package com.example.masics;
+package com.example.actions;
 
 import com.example.sessions.Session;
 

@@ -1,6 +1,6 @@
 package com.example.commands;
 
-import com.example.utils.Player;
+import com.example.entities.Player;
 import com.example.sessions.PlayerStatusSession;
 
 /**
