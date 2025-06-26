@@ -1,6 +1,5 @@
 package com.example.sessions;
 
-import com.example.sessions.Session;
 import com.example.entities.Dragon;
 import com.example.entities.Player;
 
@@ -12,7 +11,7 @@ public class MainSession extends Session {
         addCommand(new NewSessionCommand());
         addCommand(new DragonBattleCommand());
         addCommand(new QuitCommand());
-        addCommand(new Session.Command("items", "所持アイテム一覧を表示", "items", this) {
+        addCommand(new Session.Command("items", "所持アイテム一覧を表示", "items") {
             @Override
             public boolean execute(String[] args) {
                 new PlayerItemListSession(new Player(), MainSession.this).run();
@@ -21,10 +20,7 @@ public class MainSession extends Session {
         });
         // 初期表示テキストを設定
         setDisplayText("ゲームを開始しました。");
-        // ループは親クラスrun()に任せる
     }
-    
-
     
     /**
      * 新しい対話セッションを開始するコマンド（内部クラス）

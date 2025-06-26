@@ -1,6 +1,5 @@
 package com.example.sessions;
 
-import com.example.sessions.Session;
 import com.example.entities.Monster;
 import com.example.entities.Player;
 
@@ -14,7 +13,7 @@ public class BattleSession extends Session {
         super(name, description, parentSession);
         this.monster = monster;
         this.player = new Player();
-        addCommand(new Session.Command("action", "アクションを選択", "action", this) {
+        addCommand(new Session.Command("action", "アクションを選択", "action") {
             @Override
             public boolean execute(String[] args) {
                 new BattleActionSelectionSession(BattleSession.this).run();
@@ -42,6 +41,6 @@ public class BattleSession extends Session {
     private void executeMonsterAction() {
         int damage = monster.getAttack();
         player.takeDamage(damage);
-        setLogText(monster.getName() + "の攻撃！" + damage + "ダメージを受けました。");
+        showMessage(monster.getName() + "の攻撃！" + damage + "ダメージを受けました。");
     }
 }

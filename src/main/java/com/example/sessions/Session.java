@@ -1,12 +1,8 @@
 package com.example.sessions;
 
 import java.util.Scanner;
-
-
 import java.util.List;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,21 +13,20 @@ public abstract class Session {
     protected String name;
     protected boolean running;
     protected Scanner scanner;
-    protected CommandManager commandManager;
-    protected List<String> commandOrder;
-    protected Queue<String> logQueue;
-    protected boolean logDisplaying;
+    protected Map<String, Command> commands;
+    protected List<String> commandNames;
     protected Session parentSession;
     protected String displayText;
+    protected String currentLog;
+    protected boolean showingLog;
 
-    //TODO: コマンドを内部クラスにする
     public Session(String name, String description, Session parentSession) {
         this.name = name;
         this.scanner = new Scanner(System.in);
-        this.commandManager = new CommandManager();
-        this.commandOrder = new ArrayList<>();
+        this.commands = new HashMap<>();
+        this.commandNames = new ArrayList<>();
         this.displayText = "";
-        this.logQueue = new LinkedList<>();
+        this.currentLog = "";
         this.parentSession = parentSession;
     }
 
@@ -42,8 +37,6 @@ public abstract class Session {
     // ゲッター
     public String getName() { return name; }
     public boolean isRunning() { return running; }
-    public boolean isLogDisplaying() { return logDisplaying; }
-    public String getDisplayText() { return displayText; }
     public Session getParentSession() { return parentSession; }
     
     public void setDisplayText(String text) { 
@@ -52,15 +45,15 @@ public abstract class Session {
     }
     
     protected void addCommand(Command command) {
-        commandManager.registerCommand(command);
-        commandOrder.add(command.getName().toLowerCase());
+        String key = command.getName().toLowerCase();
+        commands.put(key, command);
+        commandNames.add(key);
     }
-    
     
     public void refreshDisplay() {
         System.out.print("\033[H\033[2J");
         String[] display = displayText.split("\n");
-        List<String> menu = logDisplaying ? List.of("ログ表示中...") : buildMenu();
+        List<String> menu = showingLog ? List.of("ログ表示中...") : buildMenu();
         int maxLines = Math.max(display.length, menu.size());
         int half = SCREEN_WIDTH / 2;
         
@@ -71,40 +64,29 @@ public abstract class Session {
             String right = i < menu.size() ? menu.get(i) : "";
             System.out.printf("%-" + half + "s " + SEPARATOR + " %s%n", left, right);
         }
-        System.out.print(logDisplaying ? getLogText() + " (↵で続行) > " : name + "> ");
+        System.out.print(showingLog ? currentLog + " (↵で続行) > " : name + "> ");
     }
 
-    protected void showLog(){
-        this.logDisplaying = !logQueue.isEmpty();
-        refreshDisplay();
-    }
-
-    public void setLogText(String text) {
-        logQueue.offer(text);
-        if (logQueue.size() > 100) logQueue.poll();
-        this.logDisplaying = true;
+    public void showMessage(String message) {
+        this.currentLog = message;
+        this.showingLog = true;
         refreshDisplay();
         scanner.nextLine();
-        logQueue.poll();
-        this.logDisplaying = !logQueue.isEmpty();
-        refreshDisplay();
-    }
-    
-    protected void clearLog() {
-        logQueue.clear();
-        this.logDisplaying = false;
+        this.showingLog = false;
         refreshDisplay();
     }
 
     protected void processInput(String input) {
         try {
             int idx = Integer.parseInt(input) - 1;
-            if (idx >= 0 && idx < commandOrder.size()) {
-                String commandName = commandOrder.get(idx);
-                commandManager.executeCommand(commandName, new String[0]);
-                Command cmd = commandManager.getCommand(commandName);
-                if (cmd != null && cmd.getCommandLog() != null) {
-                    setLogText(cmd.getCommandLog());
+            if (idx >= 0 && idx < commandNames.size()) {
+                String commandName = commandNames.get(idx);
+                Command cmd = commands.get(commandName);
+                if (cmd != null) {
+                    boolean success = cmd.execute(new String[0]);
+                    if (cmd.getCommandLog() != null) {
+                        showMessage(cmd.getCommandLog());
+                    }
                 }
             } else {
                 setDisplayText("無効な番号です");
@@ -116,8 +98,8 @@ public abstract class Session {
 
     private List<String> buildMenu() {
         List<String> menu = new ArrayList<>();
-        for (int i = 0; i < commandOrder.size(); i++) {
-            Command cmd = commandManager.getCommand(commandOrder.get(i));
+        for (int i = 0; i < commandNames.size(); i++) {
+            Command cmd = commands.get(commandNames.get(i));
             if (cmd != null) {
                 menu.add((i + 1) + ": " + cmd.getName());
             }
@@ -125,36 +107,12 @@ public abstract class Session {
         return menu;
     }
 
-    private String getLogText() {
-        return logQueue.isEmpty() ? "" : String.join("\n", logQueue);
-    }
-
-    public class CommandManager {
-        private final Map<String, Command> commands = new HashMap<>();
-        
-        public void registerCommand(Command command) {
-            commands.put(command.getName().toLowerCase(), command);
-        }
-        
-        Command getCommand(String name) {
-            return commands.get(name.toLowerCase());
-        }
-        
-        boolean executeCommand(String name, String[] args) {
-            Command command = getCommand(name);
-            if (command != null) {
-                return command.execute(args);
-            }
-            System.out.println("不明なコマンド: " + name);
-            return false;
-        }
-    }
-
     // --- 内部クラス: セッション終了コマンド ---
-    public class QuitCommand extends Session.Command {
+    public class QuitCommand extends Command {
         public QuitCommand() {
             super("quit", "セッションを終了します", "quit");
         }
+        
         @Override
         public boolean execute(String[] args) {
             stop();
@@ -170,8 +128,9 @@ public abstract class Session {
         refreshDisplay();
         while (isRunning()) {
             String input = scanner.nextLine();
-            if (isLogDisplaying()) {
-                showLog();
+            if (showingLog) {
+                showingLog = false;
+                refreshDisplay();
                 continue;
             }
             if (!input.trim().isEmpty()) {
@@ -185,6 +144,9 @@ public abstract class Session {
         }
     }
 
+    public String getDisplayText() {
+       return displayText;
+    }
     /**
      * コマンド実行後のフック（必要に応じてサブクラスでオーバーライド）
      */
@@ -196,36 +158,24 @@ public abstract class Session {
         protected String name;
         protected String description;
         protected String usage;
-        protected Session session;
         protected String commandLog;
 
-        public abstract boolean execute(String[] args);
-        
         public Command(String name, String description, String usage) {
             this.name = name;
             this.description = description;
             this.usage = usage;
-            this.commandLog = null;
-        }
-        
-        public Command(String name, String description, String usage, Session session) {
-            this.name = name;
-            this.description = description;
-            this.usage = usage;
-            this.session = session;
-        }
-        
-        public String getName() {
-            return name;
-        }
-        
-        public Session getSession() {
-            return session;
         }
 
+        public abstract boolean execute(String[] args);
+        
+        public String getName() { return name; }
+        public String getDescription() { return description; }
+        public String getUsage() { return usage; }
+        
         public void setCommandLog(String commandLog) {
             this.commandLog = commandLog;
         }
+        
         public String getCommandLog() {
             return commandLog;
         }
