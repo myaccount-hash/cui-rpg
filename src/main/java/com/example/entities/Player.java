@@ -21,4 +21,7 @@ public class Player extends Entity{
         this.weapon = weapon;
     }
 
+    public Weapon getWeapon() {
+        return weapon;
+    }
 } 

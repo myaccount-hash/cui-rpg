@@ -9,6 +9,7 @@ public class BattleActionSelectionSession extends Session {
         running = true;
         BattleSession battleSession = (BattleSession) parentSession;
         this.displayText = parentSession.displayText;
+        addCommand(new SwordAttack(battleSession.getPlayer(), battleSession.getMonster()));
         addCommand(new FireBall(battleSession.getPlayer(), battleSession.getMonster()));
         addCommand(new Heal(battleSession.getPlayer(), battleSession.getMonster()));
         addCommand(new QuitCommand(this::stop));

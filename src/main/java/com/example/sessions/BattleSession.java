@@ -18,15 +18,7 @@ public class BattleSession extends Session {
         this.player = new Player();
         running = true;
         
-        addCommand(new Command("attack", "通常攻撃", "attack", this) {
-            @Override
-            public boolean execute(String[] args) {
-                monster.takeDamage(20);
-                setLogText(player.getName() + "は通常攻撃をした！");
-                return true;
-            }
-        });
-        addCommand(new Command("magic", "魔法を使う", "magic", this) {
+        addCommand(new Command("action", "アクションを選択", "action", this) {
             @Override
             public boolean execute(String[] args) {
                 new BattleActionSelectionSession(BattleSession.this);
@@ -50,6 +42,7 @@ public class BattleSession extends Session {
             }
             if (!input.trim().isEmpty()) {
                 processInput(input.trim());
+                setDisplayText(getBattleInfo());
                 executeMonsterAction();
                 setDisplayText(getBattleInfo());
             }
