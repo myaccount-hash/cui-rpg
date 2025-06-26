@@ -33,7 +33,12 @@ public abstract class Session {
         this.parentSession = parentSession;
     }
 
-    public void stop() { running = false; }
+    public void stop() {
+        if (getParentSession() != null) {
+            getParentSession().refreshDisplay();
+        }
+        running = false;
+    }
 
     // ゲッター
     public String getName() { return name; }

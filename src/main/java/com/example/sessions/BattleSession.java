@@ -1,7 +1,6 @@
 package com.example.sessions;
 
 import com.example.commands.Command;
-import com.example.commands.PlayerStatusCommand;
 import com.example.entities.Monster;
 import com.example.entities.Player;
 
@@ -25,7 +24,6 @@ public class BattleSession extends Session {
             }
         });
         addCommand(new QuitCommand());
-        addCommand(new PlayerStatusCommand(player));
 
         runBattleLoop();
     }
@@ -52,10 +50,7 @@ public class BattleSession extends Session {
     public Player getPlayer() { return player; }
     
     private String getBattleInfo() {
-        return monster.getIcon() + "\n\n名前: " + monster.getName() + 
-               "\nHP: " + monster.getHp() + "/" + monster.getMaxHp() + 
-               "\n攻撃力: " + monster.getAttack() + 
-               "\n\nHP: " + player.getHp() + "/" + player.getMaxHp() + "\n";
+        return monster.getIcon() + "\n" + monster.getInfoText() + "\n\n";
     } 
 
     private void executeMonsterAction() {

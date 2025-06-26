@@ -5,12 +5,15 @@ import com.example.items.Item;
 import java.util.List;
 import com.example.commands.Command;
 
+
 public class PlayerItemListSession extends Session {
     private final List<Item> items;
-    private String detailText = "アイテムを選択してください。";
+    private Player player;
+    
 
     public PlayerItemListSession(Player player, Session parentSession) {
         super("ItemList", "所持アイテム一覧", parentSession);
+        this.player = player;
         this.items = player.getItems();
         running = true;
         // アイテムをコマンドとして追加
@@ -20,14 +23,13 @@ public class PlayerItemListSession extends Session {
                 @Override
                 public boolean execute(String[] args) {
                     Item item = items.get(idx);
-                    detailText = buildItemDetail(item);
-                    setDisplayText(detailText);
+                    new ItemActionSession(player, item, PlayerItemListSession.this);
                     return true;
                 }
             });
         }
         addCommand(new QuitCommand());
-        setDisplayText(detailText);
+        setDisplayText(player.getInfoText());
         refreshDisplay();
         while (isRunning()) {
             String input = scanner.nextLine();
@@ -37,12 +39,9 @@ public class PlayerItemListSession extends Session {
             }
             if (!input.trim().isEmpty()) {
                 processInput(input.trim());
+                setDisplayText(player.getInfoText());
+                refreshDisplay();
             }
         }
-    }
-    private String buildItemDetail(Item item) {
-        return "【アイテム詳細】\n" +
-               "名前: " + item.getName() + "\n" +
-               "説明: " + item.getDiscription();
     }
 } 

@@ -10,4 +10,11 @@ public abstract class Monster extends Entity{
     public String getIcon() {
        return icon;
     }
+
+    @Override
+    public String getInfoText() {
+        return "名前: " + getName() +
+               "\nHP: " + getHp() + "/" + getMaxHp() +
+               "\n攻撃力: " + getAttack();
+    }
 }
