@@ -9,10 +9,10 @@ public class BattleSession extends Session {
     private final Player player;
     private boolean battleEnded = false;
     
-    public BattleSession(String name, String description, Monster monster, Session parentSession) {
+    public BattleSession(String name, String description, Monster monster, Player player, Session parentSession) {
         super(name, description, parentSession);
         this.monster = monster;
-        this.player = new Player();
+        this.player = player;
         
         addCommand(new Command("action", "アクションを選択", "action") {
             @Override
@@ -56,11 +56,13 @@ public class BattleSession extends Session {
     public Player getPlayer() { return player; }
     
     private String getBattleInfo() {
-        return String.format("%s\n%s\n\nHP: %d/%d", 
+        return String.format("%s\n%s\n\nHP: %d/%d  MP: %d/%d", 
                            monster.getIcon(), 
                            monster.getInfoText(), 
                            player.getHp(), 
-                           player.getMaxHp());
+                           player.getMaxHp(),
+                           player.getMp(),
+                           player.getMaxMp());
     }
     
     private void executeMonsterTurn() {
@@ -76,7 +78,17 @@ public class BattleSession extends Session {
     private boolean checkBattleResult() {
         if (monster.getHp() <= 0) {
             battleEnded = true;
-            showMessage("勝利！ " + monster.getName() + "を倒しました！");
+            int gainedExp = monster.getDropExp();
+            int oldLevel = player.getLevel();
+            player.gainExp(gainedExp);
+            int newLevel = player.getLevel();
+            
+            showMessage(String.format("勝利！ %sを倒しました！", monster.getName()));
+            showMessage(String.format("%d EXPを獲得しました！", gainedExp));
+            if (newLevel > oldLevel) showMessage(String.format("レベルアップ！ レベル%dになりました！", newLevel));
+            showMessage(String.format("現在のEXP: %d/%d (レベル%d)", player.getExp(), player.getRequiredExpForNextLevel(), player.getLevel()));
+            
+            
             stop();
             return true;
         }

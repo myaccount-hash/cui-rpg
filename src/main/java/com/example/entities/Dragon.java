@@ -5,8 +5,15 @@ package com.example.entities;
  */
 public class Dragon extends Monster {
     
-    public Dragon() {
-        super("Dragon", 100, 25, 10,
+    // ドラゴンの種族値
+    private static final int DRAGON_BASE_HP = 1;
+    private static final int DRAGON_BASE_MP = 30;
+    private static final int DRAGON_BASE_ATTACK = 25;
+    private static final int DRAGON_BASE_DEFENCE = 10;
+    private static final int DRAGON_BASE_DROP_EXP = 500;
+    
+    public Dragon(int level) {
+        super("Dragon", DRAGON_BASE_HP, DRAGON_BASE_MP, DRAGON_BASE_ATTACK, DRAGON_BASE_DEFENCE, level, DRAGON_BASE_DROP_EXP,
             "      . \n" +
             " .>   )\\;`a__\n" +
             "(  _ _)/ /-.\" ~~\n" +

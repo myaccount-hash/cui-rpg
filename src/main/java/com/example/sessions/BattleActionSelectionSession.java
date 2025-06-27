@@ -22,6 +22,6 @@ public class BattleActionSelectionSession extends Session {
 
    @Override
    protected void afterCommandExecuted() {
-       stop();
+        stop();
    }
 }
