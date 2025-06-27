@@ -2,6 +2,9 @@ package com.example.actions;
 
 import com.example.entities.Entity;
 
+/*
+ * 魔法の抽象クラス。mpを消費するAction。
+ */
 public abstract class Magic extends Action {
     protected int mpCost;
     

@@ -8,6 +8,7 @@ import com.example.Utils;
 import java.util.List;
 import java.util.ArrayList;
 
+// プレイヤーやモンスターを含む抽象クラス。
 public abstract class Entity {
     private String name;
     private int hp;

@@ -4,6 +4,9 @@ import com.example.actions.*;
 import com.example.entities.Monster;
 import com.example.entities.Player;
 
+/*
+プレイヤーの行動、モンスターの行動、ログ、勝敗判定等を制御するセッション。
+*/
 public class BattleSession extends Session {
 
   private final Monster monster;

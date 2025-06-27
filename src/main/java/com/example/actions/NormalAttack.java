@@ -2,6 +2,9 @@ package com.example.actions;
 
 import com.example.entities.Entity;
 
+/*
+ * 通常攻撃。全てのEntityがこれを可能。
+ */
 public class NormalAttack extends Action {
     public NormalAttack(Entity source, Entity target) {
         super("attack", "剣で攻撃", "swordattack", source, target);

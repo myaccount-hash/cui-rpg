@@ -2,6 +2,10 @@ package com.example.sessions;
 
 import com.example.actions.*;
 
+/*
+ * Playerの持つスキル等から、攻撃や魔法等のアクションを選択するセッション。
+ * BattleSessionから推移する。
+ */
 public class BattleActionSelectionSession extends Session {
 
   public BattleActionSelectionSession(Session parentSession) {
@@ -20,7 +24,6 @@ public class BattleActionSelectionSession extends Session {
     }
 
     addCommand(new QuitCommand());
-    refreshDisplay();
   }
 
   @Override

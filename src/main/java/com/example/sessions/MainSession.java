@@ -3,6 +3,9 @@ package com.example.sessions;
 import com.example.entities.Dragon;
 import com.example.entities.Player;
 
+/*
+ * はじめに開始されるセッション。メインメニュー。
+ */
 public class MainSession extends Session {
   private final Player player;
 

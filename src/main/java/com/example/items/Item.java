@@ -2,6 +2,9 @@ package com.example.items;
 
 import com.example.entities.Player;
 
+/* 
+ * アイテムの抽象クラス。装備, 消費等のアクションは内部クラスでItemActionとして記述する。
+ */ 
 public abstract class Item {
    public String name;
    public String description;
@@ -17,7 +20,7 @@ public abstract class Item {
       return name;
    }
 
-   // --- アイテムアクション ---
+   // アイテムに対し行うことができるアクション
    public static abstract class ItemAction extends com.example.actions.Action {
       public ItemAction(String name, String description, String commandName, com.example.entities.Entity source, com.example.entities.Entity target) {
          super(name, description, commandName, source, target);
@@ -26,8 +29,9 @@ public abstract class Item {
       public abstract String getLabel();
    }
 
-   // デフォルトはアクションなし
-   public java.util.List<ItemAction> getActions() {
-      return java.util.List.of();
+   protected abstract java.util.List<ItemAction> createActions();
+
+   public final java.util.List<ItemAction> getActions() {
+      return createActions();
    }
 }

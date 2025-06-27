@@ -5,6 +5,10 @@ import com.example.items.Item;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Playerの所有するItemの一覧を表示するセッション。
+ * メニューからItemを選ぶとItemActionSessionに推移しItemActionを選択できる。
+ */
 public class PlayerItemListSession extends Session {
   private final Player player;
 

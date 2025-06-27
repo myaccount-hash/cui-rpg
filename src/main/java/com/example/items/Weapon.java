@@ -1,7 +1,9 @@
 package com.example.items;
 
 import com.example.entities.Player;
-
+/*
+ * 武器の抽象クラス。一部の攻撃を強化する。Entity.javaのweaponフィールドに脱着可能。
+ */
 public abstract class Weapon extends Item {
   protected int attack;
 
@@ -21,7 +23,7 @@ public abstract class Weapon extends Item {
   }
 
   @Override
-  public java.util.List<Item.ItemAction> getActions() {
+  protected java.util.List<Item.ItemAction> createActions() {
     return java.util.List.of(new EquipAction(), new UnequipAction());
   }
 
@@ -30,22 +32,22 @@ public abstract class Weapon extends Item {
       super("装備", "装備する", "equip", null, null);
     }
 
-    public String getName() {
-      return "equip";
-    }
-
     public String getLabel() {
       return "装備する";
     }
 
     public boolean execute(Player player, Item item) {
+      if (item instanceof Weapon) {
       player.setWeapon((Weapon) item);
+        setCommandLog(player.getName() + "は" + item.getName() + "を装備した！");
       return true;
+      }
+      return false;
     }
 
     @Override
     public boolean execute(String[] args) {
-      // 空実装
+      // セッションからプレイヤーを取得する必要がある場合の実装
       return true;
     }
   }
@@ -55,22 +57,19 @@ public abstract class Weapon extends Item {
       super("外す", "外す", "unequip", null, null);
     }
 
-    public String getName() {
-      return "unequip";
-    }
-
     public String getLabel() {
       return "外す";
     }
 
     public boolean execute(Player player, Item item) {
       player.setWeapon(new NoWeapon());
+      setCommandLog(player.getName() + "は" + item.getName() + "を外した！");
       return true;
     }
 
     @Override
     public boolean execute(String[] args) {
-      // 空実装
+      // セッションからプレイヤーを取得する必要がある場合の実装
       return true;
     }
   }

@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/** プレイヤーデータを管理するクラス */
+/*
+ * プレイヤーデータを管理するクラス。将来的にはセーブファイルからロードする。
+ * メインセッションでインスタンス化し、プログラム終了まで保持される。
+ */
 public class Player extends Entity {
   private List<Item> items = new ArrayList<>();
 

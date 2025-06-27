@@ -5,6 +5,7 @@ import com.example.actions.*;
 import java.util.List;
 import java.util.ArrayList;
 
+// モンスターの抽象クラス
 public abstract class Monster extends Entity{
     private String icon;
     private int baseDropExp;

@@ -3,13 +3,15 @@ package com.example.sessions;
 import com.example.entities.Player;
 import com.example.items.Item;
 
-// ItemActionSession - 簡素化版
+/*
+ * 特定のItemに対して行うItemActionを選ぶセッション。
+ */
 public class ItemActionSession extends Session {
   public ItemActionSession(Player player, Item item, Session parentSession) {
     super("ItemAction", "アイテムアクション", parentSession);
     setDisplayText(buildItemDetail(item));
 
-    // アクションコマンドを動的に追加
+    // プレイヤーからItemを取得し、ItemActionコマンドの項目リストを生成
     item.getActions().forEach(action -> addCommand(createActionCommand(action, player, item)));
   }
 
@@ -22,7 +24,6 @@ public class ItemActionSession extends Session {
       @Override
       public boolean execute(String[] args) {
         action.execute(player, item);
-        setCommandLog(action.getLabel() + "を実行: " + item.getName());
         return true;
       }
     };
