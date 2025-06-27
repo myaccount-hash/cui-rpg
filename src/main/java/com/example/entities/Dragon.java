@@ -6,7 +6,7 @@ package com.example.entities;
 public class Dragon extends Monster {
     
     public Dragon() {
-        super("Dragon", 100, 25, 25,
+        super("Dragon", 100, 25, 10,
             "      . \n" +
             " .>   )\\;`a__\n" +
             "(  _ _)/ /-.\" ~~\n" +

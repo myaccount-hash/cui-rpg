@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.nio.charset.Charset;
+import com.example.Utils;
 
 public abstract class Session {
     private static final int SCREEN_WIDTH = 80;
@@ -49,6 +51,7 @@ public abstract class Session {
         commands.put(key, command);
         commandNames.add(key);
     }
+
     
     public void refreshDisplay() {
         System.out.print("\033[H\033[2J");
@@ -57,14 +60,23 @@ public abstract class Session {
         int maxLines = Math.max(display.length, menu.size());
         int half = SCREEN_WIDTH / 2;
         
-        System.out.printf("%-" + half + "s " + SEPARATOR + " %s%n", "--- Display ---", "--- Menu ---");
+        // ヘッダー行
+        String leftHeader = "--- Display ---";
+        String rightHeader = "--- Menu ---";
+        System.out.printf("%s " + SEPARATOR + " %s%n", 
+            Utils.format(leftHeader, half), rightHeader);
         
+        // コンテンツ行
         for (int i = 0; i < maxLines; i++) {
             String left = i < display.length ? display[i] : "";
             String right = i < menu.size() ? menu.get(i) : "";
-            System.out.printf("%-" + half + "s " + SEPARATOR + " %s%n", left, right);
+            System.out.printf("%s " + SEPARATOR + " %s%n", 
+                Utils.format(left, half), right);
         }
-        System.out.print(showingLog ? currentLog + " (↵で続行) > " : name + "> ");
+        
+        // プロンプト
+        String prompt = showingLog ? currentLog + " (↵で続行) > " : name + "> ";
+        System.out.print(prompt);
     }
 
     public void showMessage(String message) {
@@ -147,6 +159,7 @@ public abstract class Session {
     public String getDisplayText() {
        return displayText;
     }
+    
     /**
      * コマンド実行後のフック（必要に応じてサブクラスでオーバーライド）
      */

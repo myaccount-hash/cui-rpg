@@ -4,30 +4,51 @@ import com.example.entities.Monster;
 import com.example.entities.Player;
 
 public class BattleSession extends Session {
-    public enum BattleState { ONGOING, PLAYER_VICTORY, PLAYER_DEFEAT }
     
-    protected Monster monster;
-    protected Player player;
+    private final Monster monster;
+    private final Player player;
+    private boolean battleEnded = false;
     
     public BattleSession(String name, String description, Monster monster, Session parentSession) {
         super(name, description, parentSession);
         this.monster = monster;
         this.player = new Player();
-        addCommand(new Session.Command("action", "アクションを選択", "action") {
+        
+        addCommand(new Command("action", "アクションを選択", "action") {
             @Override
             public boolean execute(String[] args) {
+                if (battleEnded) {
+                    showMessage("戦闘は終了しています。");
+                    return true;
+                }
+                
                 new BattleActionSelectionSession(BattleSession.this).run();
+                setDisplayText(getBattleInfo());
+                
+                // 勝負判定
+                if (checkBattleResult()) {
+                    return true;
+                }
+                
+                executeMonsterTurn();
+                setDisplayText(getBattleInfo());
+                checkBattleResult();
                 return true;
             }
         });
-        addCommand(new QuitCommand());
+        addCommand(new Command("status", "ステータスメニュー", "status") {
+            @Override
+            public boolean execute(String[] args) {
+                new PlayerItemListSession(player, BattleSession.this).run();
+                return true;
+            }
+        });
+        addCommand(new QuitCommand()); 
         setDisplayText(getBattleInfo());
     }
     
     @Override
     protected void afterCommandExecuted() {
-        setDisplayText(getBattleInfo());
-        executeMonsterAction();
         setDisplayText(getBattleInfo());
     }
     
@@ -35,12 +56,37 @@ public class BattleSession extends Session {
     public Player getPlayer() { return player; }
     
     private String getBattleInfo() {
-        return monster.getIcon() + "\n" + monster.getInfoText() + "\n\n";
-    } 
-
-    private void executeMonsterAction() {
+        return String.format("%s\n%s\n\nHP: %d/%d", 
+                           monster.getIcon(), 
+                           monster.getInfoText(), 
+                           player.getHp(), 
+                           player.getMaxHp());
+    }
+    
+    private void executeMonsterTurn() {
+        if (battleEnded) return;
+        
         int damage = monster.getAttack();
         player.takeDamage(damage);
-        showMessage(monster.getName() + "の攻撃！" + damage + "ダメージを受けました。");
+        showMessage(String.format("%sの攻撃 %dダメージを受けました。", 
+                                monster.getName(), damage));
+    }
+    
+    // 勝負判定
+    private boolean checkBattleResult() {
+        if (monster.getHp() <= 0) {
+            battleEnded = true;
+            showMessage("勝利！ " + monster.getName() + "を倒しました！");
+            stop();
+            return true;
+        }
+        
+        if (player.getHp() <= 0) {
+            battleEnded = true;
+            showMessage("敗北... " + monster.getName() + "に倒されました...");
+            stop();
+            return true;
+        }
+        return false;
     }
 }

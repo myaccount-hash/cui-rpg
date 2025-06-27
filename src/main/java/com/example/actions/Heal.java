@@ -8,7 +8,7 @@ public class Heal extends Action {
     }
     @Override
     public boolean execute(String[] args) {
-        target.heal(20);
+        target.heal(30);
         setCommandLog(source.getName() + "は回復魔法を使った！");
         return true;
     }

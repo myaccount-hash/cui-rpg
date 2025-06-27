@@ -1,5 +1,7 @@
 package com.example.entities;
 
+import com.example.Utils;
+
 public abstract class Monster extends Entity{
     private String icon;
     
@@ -13,8 +15,9 @@ public abstract class Monster extends Entity{
 
     @Override
     public String getInfoText() {
-        return "名前: " + getName() +
-               "\nHP: " + getHp() + "/" + getMaxHp() +
-               "\n攻撃力: " + getAttack();
+        return String.format("%s: %s\n%s: %d/%d\n%s: %d",
+                           Utils.format("名前", 8), getName(),
+                           Utils.format("HP", 8), getHp(), getMaxHp(),
+                           Utils.format("攻撃力", 8), getAttack());
     }
 }

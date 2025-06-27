@@ -8,9 +8,13 @@ public class MainSession extends Session {
     
     public MainSession(Session parentSession) {
         super("Main", "メイン対話型CUIプログラム", parentSession);
-        addCommand(new NewSessionCommand());
-        addCommand(new DragonBattleCommand());
-        addCommand(new QuitCommand());
+        addCommand(new Session.Command("dragon", "ドラゴンバトルセッションを開始します", "dragon") {
+            @Override
+            public boolean execute(String[] args) {
+                new BattleSession("DragonBattle", "ドラゴンバトルセッション", new Dragon(), MainSession.this).run();
+                return true;
+            }
+        });
         addCommand(new Session.Command("items", "所持アイテム一覧を表示", "items") {
             @Override
             public boolean execute(String[] args) {
@@ -18,41 +22,9 @@ public class MainSession extends Session {
                 return true;
             }
         });
+        addCommand(new QuitCommand());
+
         // 初期表示テキストを設定
         setDisplayText("ゲームを開始しました。");
-    }
-    
-    /**
-     * 新しい対話セッションを開始するコマンド（内部クラス）
-     */
-    private class NewSessionCommand extends Session.Command {
-        
-        public NewSessionCommand() {
-            super("new", "新しい対話セッションを開始します", "new");
-        }
-        
-        @Override
-        public boolean execute(String[] args) {
-            new SampleSession(MainSession.this).run();
-            return true;
-        }
-    }
-    
-    /**
-     * ドラゴンバトルセッションを開始するコマンド（内部クラス）
-     */
-    private class DragonBattleCommand extends Session.Command {
-        
-        public DragonBattleCommand() {
-            super("dragon", "ドラゴンバトルセッションを開始します", "dragon");
-        }
-        
-        @Override
-        public boolean execute(String[] args) {
-            
-            new BattleSession("DragonBattle", "ドラゴンバトルセッション", new Dragon(), MainSession.this).run();
-            
-            return true;
-        }
     }
 } 
