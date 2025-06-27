@@ -19,8 +19,8 @@ public abstract class Entity {
     private int baseMp;
     private int baseAttack;
     private int baseDefence;
-    private Weapon weapon;
-    private Armor armor;
+    protected Weapon weapon;
+    protected Armor armor;
     private List<Action> skills = new ArrayList<>();
     
     protected Entity(String name, int baseHp, int baseMp, int baseAttack, int baseDefence, int level, List<Action> skills) {

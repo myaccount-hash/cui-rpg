@@ -19,6 +19,16 @@ public abstract class Armor extends Item {
     public NoArmor() {
       super("裸", "何も装備していない", 0);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+      return obj instanceof NoArmor;
+    }
+
+    @Override
+    public int hashCode() {
+      return 0;
+    }
   }
 
   @Override
@@ -61,6 +71,10 @@ public abstract class Armor extends Item {
     }
 
     public boolean execute(Player player, Item item) {
+      // 外す時は現在の防具をアイテムリストに戻す
+      if (!(player.getArmor() instanceof NoArmor)) {
+        player.addItem(player.getArmor());
+      }
       player.setArmor(new NoArmor());
       setCommandLog(player.getName() + "は" + item.getName() + "を外した！");
       return true;

@@ -31,6 +31,14 @@ public class MainSession extends Session {
             return true;
           }
         });
+    addCommand(
+        new Session.Command("shop", "ショップに入る", "shop") {
+          @Override
+          public boolean execute(String[] args) {
+            new ShopSession(player, MainSession.this).run();
+            return true;
+          }
+        });
     addCommand(new QuitCommand());
 
     // 初期表示テキストを設定

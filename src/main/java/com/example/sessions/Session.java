@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 /*
- * 全てのセッションの抽象クラス。メニュー・ディスプレイの表示、入力、コマンドの実行を管理。
+ * 全てのセッションの抽象クラス。メニュー・ディスプレイ・ログの表示、コマンドの実行を管理。
  * セッションを開始するにはSession.run()を呼び出す。
  * 左側にディスプレイ、右側にメニューが表示される。メニューには登録されたコマンドが一覧表示される。
  */
@@ -55,9 +55,18 @@ public abstract class Session {
         refreshDisplay();
         continue;
       }
-      if (!input.trim().isEmpty()) {
+      if (input.trim().isEmpty()) {
+        // 何も入力せずEnterの場合、1番目のコマンドを実行
+        if (!commandNames.isEmpty()) {
+          processInput("1");
+          afterCommandExecuted();
+          updateMenu();
+          refreshDisplay();
+        }
+      } else {
         processInput(input.trim());
         afterCommandExecuted();
+        updateMenu();
         refreshDisplay();
       }
     }
@@ -170,6 +179,9 @@ public abstract class Session {
       setDisplayText("無効な番号です");
     }
   }
+
+  // コマンド実行ごとにメニューを更新するためのフック。サブクラスでオーバーライド可。
+  protected void updateMenu() {}
 
   /*
    * private メンバ

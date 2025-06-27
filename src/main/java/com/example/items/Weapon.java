@@ -20,6 +20,16 @@ public abstract class Weapon extends Item {
     public NoWeapon() {
       super("素手", "何も装備していない", 0);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+      return obj instanceof NoWeapon;
+    }
+
+    @Override
+    public int hashCode() {
+      return 0;
+    }
   }
 
   @Override
@@ -38,9 +48,9 @@ public abstract class Weapon extends Item {
 
     public boolean execute(Player player, Item item) {
       if (item instanceof Weapon) {
-      player.setWeapon((Weapon) item);
+        player.setWeapon((Weapon) item);
         setCommandLog(player.getName() + "は" + item.getName() + "を装備した！");
-      return true;
+        return true;
       }
       return false;
     }
@@ -62,6 +72,10 @@ public abstract class Weapon extends Item {
     }
 
     public boolean execute(Player player, Item item) {
+      // 外す時は現在の武器をアイテムリストに戻す
+      if (!(player.getWeapon() instanceof NoWeapon)) {
+        player.addItem(player.getWeapon());
+      }
       player.setWeapon(new NoWeapon());
       setCommandLog(player.getName() + "は" + item.getName() + "を外した！");
       return true;
