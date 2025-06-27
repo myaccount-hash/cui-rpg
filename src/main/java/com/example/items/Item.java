@@ -1,7 +1,6 @@
 package com.example.items;
 
 import com.example.entities.Player;
-import java.util.List;
 
 public abstract class Item {
    public String name;

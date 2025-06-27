@@ -105,7 +105,7 @@ public abstract class Session {
         String commandName = commandNames.get(idx);
         Command cmd = commands.get(commandName);
         if (cmd != null) {
-          boolean success = cmd.execute(new String[0]);
+          cmd.execute(new String[0]);
           if (cmd.getCommandLog() != null) {
             showMessage(cmd.getCommandLog());
           }
