@@ -23,28 +23,6 @@ public abstract class Monster extends Entity{
         return skills;
     }
     
-    // ランダム行動実行
-    public String executeRandomAction(Entity target) {
-        List<Action> availableActions = getAvailableActions();
-        
-        if (!availableActions.isEmpty()) {
-            Action selectedAction = availableActions.get(random.nextInt(availableActions.size()));
-            
-            // targetを設定してスキル実行
-            if (selectedAction instanceof Magic) {
-                Magic magic = (Magic) selectedAction;
-                magic.setTarget(target);
-                magic.execute(new String[]{});
-                return magic.getCommandLog();
-            }
-        }
-        
-        // 通常攻撃
-        int damage = getAttack();
-        target.takeDamage(damage);
-        return getName() + "の攻撃！ " + damage + "ダメージ！";
-    }
-    
     public String getIcon() {
        return icon;
     }

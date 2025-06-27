@@ -20,7 +20,7 @@ public class Player extends Entity{
         setArmor(new IronArmor());
         
         // プレイヤーのスキルを設定
-        addSkill(new Heal(this, this));
+        addSkill(new HpHeal(this, this));
     }
     public List<Item> getItems() {
         return items;

@@ -68,8 +68,35 @@ public class BattleSession extends Session {
     private void executeMonsterTurn() {
         if (battleEnded) return;
         
-        String actionResult = monster.executeRandomAction(player);
+        String actionResult = executeRandomMonsterAction();
         showMessage(actionResult);
+    }
+
+    // モンスターのランダム行動実行
+    private String executeRandomMonsterAction() {
+        var availableActions = monster.getAvailableActions();
+        java.util.Random random = new java.util.Random();
+        if (!availableActions.isEmpty()) {
+            var selectedAction = availableActions.get(random.nextInt(availableActions.size()));
+            // ヒール系ならターゲットを自分に
+            if (selectedAction instanceof com.example.actions.Heal) {
+                if (selectedAction instanceof com.example.actions.Magic) {
+                    var magic = (com.example.actions.Magic) selectedAction;
+                    magic.setTarget(monster);
+                    magic.execute(new String[]{});
+                    return magic.getCommandLog();
+                }
+            } else if (selectedAction instanceof com.example.actions.Magic) {
+                var magic = (com.example.actions.Magic) selectedAction;
+                magic.setTarget(player);
+                magic.execute(new String[]{});
+                return magic.getCommandLog();
+            }
+        }
+        // 通常攻撃
+        int damage = monster.getAttack();
+        player.takeDamage(damage);
+        return monster.getName() + "の攻撃！ " + damage + "ダメージ！";
     }
     
     // 勝負判定
