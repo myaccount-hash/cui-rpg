@@ -2,7 +2,7 @@ package com.example.actions;
 
 import com.example.entities.Entity;
 
-public class Heal extends Masic {
+public class Heal extends Magic {
     public Heal(Entity source, Entity target) {
         super("heal", "回復魔法を使う", "heal", source, target, 20);
     }

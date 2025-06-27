@@ -2,9 +2,9 @@ package com.example.actions;
 
 import com.example.entities.Entity;
 
-public class SwordAttack extends Action {
-    public SwordAttack(Entity source, Entity target) {
-        super("sword attack", "剣で攻撃", "swordattack", source, target);
+public class NormalAttack extends Action {
+    public NormalAttack(Entity source, Entity target) {
+        super("attack", "剣で攻撃", "swordattack", source, target);
     }
 
     @Override
@@ -15,7 +15,7 @@ public class SwordAttack extends Action {
         }
         totalAttack = totalAttack - target.getDefence();
         target.takeDamage(totalAttack);
-        setCommandLog(source.getName() + "は剣で攻撃した！");
+        setCommandLog(source.getName() + "の通常攻撃！");
         return true;
     }
 }

@@ -3,32 +3,34 @@ package com.example.sessions;
 import com.example.entities.Player;
 import com.example.items.Item;
 import java.util.List;
+import java.util.ArrayList;
 
 
 public class PlayerItemListSession extends Session {
-    private final List<Item> items;
-    private Player player;
+    private final Player player;
     
 
     public PlayerItemListSession(Player player, Session parentSession) {
         super("ItemList", "所持アイテム一覧", parentSession);
         this.player = player;
-        this.items = player.getItems();
+        
         // アイテムをコマンドとして追加
-        for (int i = 0; i < items.size(); i++) {
-            final int idx = i;
-            addCommand(new Command(items.get(i).getName(), items.get(i).getDescription(), items.get(i).getName()) {
+        List<Command> itemCommands = new ArrayList<>();
+        for (Item item : player.getItems()) {
+            itemCommands.add(new Command(item.getName(), item.getDescription(), item.getName()) {
                 @Override
                 public boolean execute(String[] args) {
-                    Item item = items.get(idx);
                     new ItemActionSession(player, item, PlayerItemListSession.this).run();
                     return true;
                 }
             });
         }
+        
+        // 一括でコマンドを追加
+        addCommands(itemCommands);
         addCommand(new QuitCommand());
+        
         setDisplayText(player.getInfoText());
-        // ループは親クラスrun()に任せる
     }
 
     @Override

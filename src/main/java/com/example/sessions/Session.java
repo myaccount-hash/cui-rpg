@@ -50,6 +50,12 @@ public abstract class Session {
         commands.put(key, command);
         commandNames.add(key);
     }
+    
+    protected void addCommands(List<? extends Command> commandList) {
+        for (Command command : commandList) {
+            addCommand(command);
+        }
+    }
 
     
     public void refreshDisplay() {

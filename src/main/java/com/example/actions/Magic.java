@@ -2,10 +2,10 @@ package com.example.actions;
 
 import com.example.entities.Entity;
 
-public abstract class Masic extends Action {
+public abstract class Magic extends Action {
     protected int mpCost;
     
-    public Masic(String name, String description, String commandName, Entity source, Entity target, int mpCost) {
+    public Magic(String name, String description, String commandName, Entity source, Entity target, int mpCost) {
         super(name, description, commandName, source, target);
         this.mpCost = mpCost;
     }
@@ -27,4 +27,7 @@ public abstract class Masic extends Action {
     
     // 各魔法クラスで実装する抽象メソッド
     protected abstract boolean executeMagic(String[] args);
+    public int getMpCost() {
+       return mpCost;
+    }
 }

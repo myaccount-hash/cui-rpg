@@ -68,10 +68,8 @@ public class BattleSession extends Session {
     private void executeMonsterTurn() {
         if (battleEnded) return;
         
-        int damage = monster.getAttack();
-        player.takeDamage(damage);
-        showMessage(String.format("%sの攻撃 %dダメージを受けました。", 
-                                monster.getName(), damage));
+        String actionResult = monster.executeRandomAction(player);
+        showMessage(actionResult);
     }
     
     // 勝負判定
@@ -87,7 +85,6 @@ public class BattleSession extends Session {
             showMessage(String.format("%d EXPを獲得しました！", gainedExp));
             if (newLevel > oldLevel) showMessage(String.format("レベルアップ！ レベル%dになりました！", newLevel));
             showMessage(String.format("現在のEXP: %d/%d (レベル%d)", player.getExp(), player.getRequiredExpForNextLevel(), player.getLevel()));
-            
             
             stop();
             return true;

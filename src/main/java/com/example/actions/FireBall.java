@@ -2,7 +2,7 @@ package com.example.actions;
 
 import com.example.entities.Entity;
 
-public class FireBall extends Masic {
+public class FireBall extends Magic {
     public FireBall(Entity source, Entity target) {
         super("fireball", "ファイアボールを使う", "fireball", source, target, 25);
     }

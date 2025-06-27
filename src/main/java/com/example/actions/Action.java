@@ -12,4 +12,19 @@ public abstract class Action extends Session.Command {
         this.source = source;
         this.target = target;
     }
+    
+    // 実行前チェック
+    protected void validateExecution() {
+        if (source == null) {
+            throw new IllegalStateException("使用者が設定されていません");
+        }
+        if (target == null) {
+            throw new IllegalStateException("対象が設定されていません");
+        }
+    }
+    
+    // または、target設定用メソッド
+    public void setTarget(Entity target) {
+        this.target = target;
+    }
 }

@@ -2,7 +2,11 @@ package com.example.entities;
 
 import com.example.items.Weapon;
 import com.example.items.Armor;
+import com.example.actions.Action;
+import com.example.actions.Magic;
 import com.example.Utils;
+import java.util.List;
+import java.util.ArrayList;
 
 public abstract class Entity {
     private String name;
@@ -16,8 +20,9 @@ public abstract class Entity {
     private int baseDefence;
     private Weapon weapon;
     private Armor armor;
+    private List<Action> skills = new ArrayList<>();
     
-    protected Entity(String name, int baseHp, int baseMp, int baseAttack, int baseDefence, int level) {
+    protected Entity(String name, int baseHp, int baseMp, int baseAttack, int baseDefence, int level, List<Action> skills) {
         this.name = name;
         this.level = level;
         this.baseHp = baseHp;
@@ -32,7 +37,13 @@ public abstract class Entity {
         
         this.weapon = new Weapon.NoWeapon();
         this.armor = new Armor.NoArmor();
+        
+        // スキルを設定
+        if (skills != null) {
+            this.skills.addAll(skills);
+        }
     }
+    
     
     // 基本ゲッター
     public String getName() { return name; }
@@ -55,6 +66,30 @@ public abstract class Entity {
     
     public Weapon getWeapon() { return weapon; }
     public Armor getArmor() { return armor; }
+    
+    // スキル管理
+    public List<Action> getSkills() { return skills; }
+    public void addSkill(Action skill) { skills.add(skill); }
+    public void removeSkill(Action skill) { skills.remove(skill); }
+    public void clearSkills() { skills.clear(); }
+    
+    // 使用可能なアクションを取得
+    public List<Action> getAvailableActions() {
+        List<Action> available = new ArrayList<>();
+        for (Action action : skills) {
+            // 使用可能判定をここで直接実行
+            if (action instanceof Magic) {
+                Magic magic = (Magic) action;
+                if (getMp() >= magic.getMpCost()) {
+                    available.add(action);
+                }
+            } else {
+                // 他のアクションタイプはとりあえず使用可能
+                available.add(action);
+            }
+        }
+        return available;
+    }
     
     // 基本セッター（必要最小限）
     protected void setName(String name) { this.name = name; }
