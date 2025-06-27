@@ -4,12 +4,10 @@ import com.example.Utils;
 import com.example.actions.*;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Random;
 
 public abstract class Monster extends Entity{
     private String icon;
     private int baseDropExp;
-    private static final Random random = new Random();
     
     public Monster(String name, int hp, int mp, int attack, int defence, int level, int baseDropExp, String icon) {
         super(name, hp, mp, attack, defence, level, createDefaultSkills());

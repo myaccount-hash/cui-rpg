@@ -2,6 +2,7 @@ package com.example.sessions;
 
 import com.example.entities.Monster;
 import com.example.entities.Player;
+import com.example.actions.*;
 
 public class BattleSession extends Session {
     
@@ -77,17 +78,15 @@ public class BattleSession extends Session {
         var availableActions = monster.getAvailableActions();
         java.util.Random random = new java.util.Random();
         if (!availableActions.isEmpty()) {
-            var selectedAction = availableActions.get(random.nextInt(availableActions.size()));
+            Action selectedAction = availableActions.get(random.nextInt(availableActions.size()));
             // ヒール系ならターゲットを自分に
-            if (selectedAction instanceof com.example.actions.Heal) {
-                if (selectedAction instanceof com.example.actions.Magic) {
-                    var magic = (com.example.actions.Magic) selectedAction;
-                    magic.setTarget(monster);
-                    magic.execute(new String[]{});
-                    return magic.getCommandLog();
-                }
+            if (selectedAction instanceof Heal) {
+                Action heal = (Action) selectedAction;
+                heal.setTarget(monster);
+                heal.execute(new String[]{});
+                return heal.getCommandLog();
             } else if (selectedAction instanceof com.example.actions.Magic) {
-                var magic = (com.example.actions.Magic) selectedAction;
+                Magic magic = (Magic) selectedAction;
                 magic.setTarget(player);
                 magic.execute(new String[]{});
                 return magic.getCommandLog();

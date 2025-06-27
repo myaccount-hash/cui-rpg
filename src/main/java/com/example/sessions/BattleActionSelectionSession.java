@@ -8,13 +8,15 @@ public class BattleActionSelectionSession extends Session {
         BattleSession battleSession = (BattleSession) parentSession;
         this.displayText = parentSession.getDisplayText();
         
-        // 基本アクションを追加
-        addCommand(new NormalAttack(battleSession.getPlayer(), battleSession.getMonster()));
-        addCommand(new FireBall(battleSession.getPlayer(), battleSession.getMonster()));
-        addCommand(new HpHeal(battleSession.getPlayer(), battleSession.getPlayer()));
-        
-        // プレイヤーのスキルを動的に追加
-        addCommands(battleSession.getPlayer().getSkills());
+        // プレイヤーの使用可能アクションを動的に追加
+        for (Action action : battleSession.getPlayer().getAvailableActions()) {
+            if (action instanceof Heal) {
+                action.setTarget(battleSession.getPlayer());
+            } else {
+                action.setTarget(battleSession.getMonster());
+            }
+            addCommand(action);
+        }
         
         addCommand(new QuitCommand());  
         refreshDisplay();

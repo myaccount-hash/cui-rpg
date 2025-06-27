@@ -1,7 +1,6 @@
 package com.example.items;
 
 import com.example.entities.Player;
-import java.util.List;
 
 public abstract class Weapon extends Item{
    protected int attack;
@@ -20,23 +19,39 @@ public abstract class Weapon extends Item{
    }
 
    @Override
-   public List<ItemAction> getActions() {
-       return List.of(new EquipAction(), new UnequipAction());
+   public java.util.List<Item.ItemAction> getActions() {
+       return java.util.List.of(new EquipAction(), new UnequipAction());
    }
 
-   public static class EquipAction implements ItemAction {
+   public static class EquipAction extends Item.ItemAction {
+       public EquipAction() {
+           super("装備", "装備する", "equip", null, null);
+       }
        public String getName() { return "equip"; }
        public String getLabel() { return "装備する"; }
        public boolean execute(Player player, Item item) {
            player.setWeapon((Weapon)item);
            return true;
        }
+       @Override
+       public boolean execute(String[] args) {
+           // 空実装
+           return true;
+       }
    }
-   public static class UnequipAction implements ItemAction {
+   public static class UnequipAction extends Item.ItemAction {
+       public UnequipAction() {
+           super("外す", "外す", "unequip", null, null);
+       }
        public String getName() { return "unequip"; }
        public String getLabel() { return "外す"; }
        public boolean execute(Player player, Item item) {
            player.setWeapon(new NoWeapon());
+           return true;
+       }
+       @Override
+       public boolean execute(String[] args) {
+           // 空実装
            return true;
        }
    }

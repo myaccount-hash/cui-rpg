@@ -38,6 +38,8 @@ public abstract class Entity {
         this.weapon = new Weapon.NoWeapon();
         this.armor = new Armor.NoArmor();
         
+        // デフォルトで通常攻撃を追加
+        this.skills.add(new com.example.actions.NormalAttack(this, null));
         // スキルを設定
         if (skills != null) {
             this.skills.addAll(skills);

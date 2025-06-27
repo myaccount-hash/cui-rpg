@@ -18,15 +18,17 @@ public abstract class Item {
       return name;
    }
 
-   // --- アイテムアクションインターフェース ---
-   public interface ItemAction {
-      String getName();
-      String getLabel();
-      boolean execute(Player player, Item item);
+   // --- アイテムアクション ---
+   public static abstract class ItemAction extends com.example.actions.Action {
+      public ItemAction(String name, String description, String commandName, com.example.entities.Entity source, com.example.entities.Entity target) {
+         super(name, description, commandName, source, target);
+      }
+      public abstract boolean execute(Player player, Item item);
+      public abstract String getLabel();
    }
 
    // デフォルトはアクションなし
-   public List<ItemAction> getActions() {
-      return List.of();
+   public java.util.List<ItemAction> getActions() {
+      return java.util.List.of();
    }
 }
