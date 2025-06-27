@@ -13,7 +13,7 @@ public class BattleActionSelectionSession extends Session {
     BattleSession battleSession = (BattleSession) parentSession;
     this.displayText = parentSession.getDisplayText();
 
-    // プレイヤーの使用可能アクションを動的に追加
+    // プレイヤーの使用可能アクションを動的に追加。ターゲットを設定。
     for (Action action : battleSession.getPlayer().getAvailableActions()) {
       if (action instanceof Heal) {
         action.setTarget(battleSession.getPlayer());

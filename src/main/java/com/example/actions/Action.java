@@ -3,7 +3,9 @@ package com.example.actions;
 import com.example.entities.Entity;
 import com.example.sessions.Session;
 
-// 実行元と対象を持つコマンドの抽象クラス。アイテムの使用、攻撃、魔法等を含む。
+/*
+ * 実行元と対象を持つコマンドの抽象クラス。プレイヤー・モンスターの攻撃、魔法、アイテムの使用等を含む。
+ */
 public abstract class Action extends Session.Command {
   protected Entity source;
   protected Entity target;

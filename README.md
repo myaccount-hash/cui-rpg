@@ -6,12 +6,15 @@ Macで開発しています。動作確認済はMacのターミナルのみで�
 
 # 構成
 Session.javaとその内部クラスであるCommandクラスを中心として設計されています。
-その他主要なファイルは以下です。
-- Item.java: アイテムの抽象クラス
-- Action.java: 攻撃・魔法等の抽象クラス
-- Entity.java: プレイヤー、モンスター等の抽象クラス
-- BattleSession.java: バトルを制御するセッション
+主要なクラスは以下です。
+- Session: 全体の統一的な制御を提供。詳細はSession.javaを参照。
+- BattleSession: バトルを制御するSession。
+- Session.Command: Sessionが実行する処理。
+- Action: 攻撃・魔法等の抽象クラス。実行元、対象を伴うCommand。
+- Item.ItemAction : アイテムを使って実行するAction。
+- Item: 全てのアイテムの抽象クラス
+- Entity: プレイヤー、モンスター等の抽象クラス
 
 # TODO
 - [ ] セーブシステム導入
-- [ ] アクションの継承関係を整理
+- [ ] Action, ItemAction, Commandの継承関係を整理
