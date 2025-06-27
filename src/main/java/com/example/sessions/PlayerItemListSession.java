@@ -17,7 +17,7 @@ public class PlayerItemListSession extends Session {
         // アイテムをコマンドとして追加
         for (int i = 0; i < items.size(); i++) {
             final int idx = i;
-            addCommand(new Command(items.get(i).getName(), items.get(i).getDiscription(), items.get(i).getName()) {
+            addCommand(new Command(items.get(i).getName(), items.get(i).getDescription(), items.get(i).getName()) {
                 @Override
                 public boolean execute(String[] args) {
                     Item item = items.get(idx);

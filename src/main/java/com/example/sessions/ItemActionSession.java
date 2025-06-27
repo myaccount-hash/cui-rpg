@@ -17,7 +17,7 @@ public class ItemActionSession extends Session {
     
     private String buildItemDetail(Item item) {
         return String.format("【アイテム詳細】\n名前: %s\n説明: %s", 
-                           item.getName(), item.getDiscription());
+                           item.getName(), item.getDescription());
     }
     
     private Command createActionCommand(Item.ItemAction action, Player player, Item item) {

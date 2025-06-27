@@ -10,23 +10,16 @@ import com.example.Utils;
  */
 public class Player extends Entity{
     private List<Item> items = new ArrayList<>();
-    private Weapon weapon;
-    private Armor armor;
     
     public Player() {
         super("プレイヤー", 100, 25, 26);
         this.items = new ArrayList<>(Arrays.asList(new IronSword(), new IronArmor()));
-        this.weapon = new IronSword();
-        this.armor = new IronArmor();
+        // 初期装備を設定
+        setWeapon(new IronSword());
+        setArmor(new IronArmor());
     }
     public List<Item> getItems() {
         return items;
-    }
-    public void unequipWeapon() {
-        this.weapon = new Weapon.NoWeapon();
-    }
-    public void unequipArmor() {
-        this.armor = new Armor.NoArmor();
     }
     @Override
     public String getInfoText() {

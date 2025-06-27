@@ -5,14 +5,14 @@ import java.util.List;
 
 public abstract class Item {
    public String name;
-   public String discription;
-   public Item(String name, String discription){
+   public String description;
+   public Item(String name, String description){
       this.name = name;
-      this.discription = discription;
+      this.description = description;
    }
 
-   public String getDiscription() {
-      return discription;
+   public String getDescription() {
+      return description;
    }
    public String getName() {
       return name;

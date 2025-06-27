@@ -5,8 +5,8 @@ import java.util.List;
 
 public abstract class Weapon extends Item{
    protected int attack;
-   public Weapon(String name, String discription, int attack){
-      super(name, discription);
+   public Weapon(String name, String description, int attack){
+      super(name, description);
       this.attack = attack;
    }
    public int getAttack() {
