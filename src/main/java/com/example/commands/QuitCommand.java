@@ -1,5 +1,6 @@
 package com.example.commands;
-import com.example.sessions.Session;
+import com.example.core.Command;
+import com.example.core.Session;
 
 public class QuitCommand extends Command {
    Session session;

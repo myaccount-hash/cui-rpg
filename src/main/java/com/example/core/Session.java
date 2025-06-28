@@ -1,4 +1,4 @@
-package com.example.sessions;
+package com.example.core;
 
 import com.example.Utils;
 import java.util.ArrayList;
@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import com.example.commands.Command;
 
 /*
  * 全てのセッションの抽象クラス。メニュー・ディスプレイ・ログの表示、コマンドの実行を管理。

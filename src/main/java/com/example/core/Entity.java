@@ -1,13 +1,11 @@
-package com.example.entities;
+package com.example.core;
 
 import com.example.items.Weapon;
 import com.example.items.Armor;
-import com.example.actions.Action;
 import com.example.actions.Magic;
 import com.example.Utils;
 import java.util.List;
 import java.util.ArrayList;
-import com.example.items.Item;
 
 // プレイヤーやモンスターを含む抽象クラス。
 public abstract class Entity {
@@ -22,12 +20,12 @@ public abstract class Entity {
     private int baseDefence;
     protected Weapon weapon;
     protected Armor armor;
-    private List<Action> skills = new ArrayList<>();
+    private List<Command> skills = new ArrayList<>();
     
     protected List<Item> items = new ArrayList<>();
     private int gold = 1000; // 初期所持金
 
-    protected Entity(String name, int baseHp, int baseMp, int baseAttack, int baseDefence, int level, List<Action> skills) {
+    protected Entity(String name, int baseHp, int baseMp, int baseAttack, int baseDefence, int level, List<Command> skills) {
         this.name = name;
         this.level = level;
         this.baseHp = baseHp;
@@ -76,15 +74,15 @@ public abstract class Entity {
     public Armor getArmor() { return armor; }
     
     // スキル管理
-    public List<Action> getSkills() { return skills; }
-    public void addSkill(Action skill) { skills.add(skill); }
-    public void removeSkill(Action skill) { skills.remove(skill); }
+    public List<Command> getSkills() { return skills; }
+    public void addSkill(Command skill) { skills.add(skill); }
+    public void removeSkill(Command skill) { skills.remove(skill); }
     public void clearSkills() { skills.clear(); }
     
     // 使用可能なアクションを取得
-    public List<Action> getAvailableActions() {
-        List<Action> available = new ArrayList<>();
-        for (Action action : skills) {
+    public List<Command> getAvailableCommands() {
+        List<Command> available = new ArrayList<>();
+        for (Command action : skills) {
             // 使用可能判定をここで直接実行
             if (action instanceof Magic) {
                 Magic magic = (Magic) action;

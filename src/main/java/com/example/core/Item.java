@@ -1,7 +1,6 @@
-package com.example.items;
+package com.example.core;
 
-import com.example.entities.Player;
-import com.example.commands.Command;
+
 import java.util.List;
 
 /* 
@@ -25,9 +24,9 @@ public abstract class Item {
    }
 
 
-   protected abstract List<Command> createActions();
+   protected abstract List<Command> createCommands();
 
-   public final List<Command> getActions() {
-      return createActions();
+   public final List<Command> getCommands() {
+      return createCommands();
    }
 }

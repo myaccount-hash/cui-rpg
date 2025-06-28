@@ -2,6 +2,7 @@ package com.example.entities;
 
 import com.example.Utils;
 import com.example.actions.*;
+import com.example.core.Entity;
 import com.example.items.*;
 import java.util.ArrayList;
 import java.util.Arrays;

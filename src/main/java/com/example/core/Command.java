@@ -1,7 +1,6 @@
-package com.example.commands;
-import com.example.entities.Entity;
+package com.example.core;
 
-  /*
+/*
    * コマンドの抽象クラス。メニュー項目、プレイヤーの行動、モンスターの行動等は全てCommandとして記述される。
    */
   public abstract class Command {

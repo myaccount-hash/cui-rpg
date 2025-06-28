@@ -1,8 +1,9 @@
 package com.example.sessions;
 
 import com.example.actions.*;
-import com.example.commands.Command;
 import com.example.commands.QuitCommand;
+import com.example.core.Command;
+import com.example.core.Session;
 import com.example.entities.Monster;
 import com.example.entities.Player;
 
@@ -30,7 +31,7 @@ public class BattleSession extends Session {
               return true;
             }
 
-            new BattleActionSelectionSession(BattleSession.this).run();
+            new BattleCommandSelectionSession(BattleSession.this).run();
             setDisplayText(getBattleInfo());
 
             // 勝負判定
@@ -83,24 +84,24 @@ public class BattleSession extends Session {
   private void executeMonsterTurn() {
     if (battleEnded) return;
 
-    String actionResult = executeRandomMonsterAction();
+    String actionResult = executeRandomMonsterCommand();
     showMessage(actionResult);
   }
 
   // モンスターのランダム行動実行
-  private String executeRandomMonsterAction() {
-    var availableActions = monster.getAvailableActions();
+  private String executeRandomMonsterCommand() {
+    var availableCommands = monster.getAvailableCommands();
     java.util.Random random = new java.util.Random();
-    if (!availableActions.isEmpty()) {
-      Action selectedAction = availableActions.get(random.nextInt(availableActions.size()));
+    if (!availableCommands.isEmpty()) {
+      Command selectedCommand = availableCommands.get(random.nextInt(availableCommands.size()));
       // ヒール系ならターゲットを自分に
-      if (selectedAction instanceof Heal) {
-        Action heal = (Action) selectedAction;
+      if (selectedCommand instanceof Heal) {
+        Command heal = (Command) selectedCommand;
         heal.setTarget(monster);
         heal.execute();
         return heal.getCommandLog();
-      } else if (selectedAction instanceof com.example.actions.Magic) {
-        Magic magic = (Magic) selectedAction;
+      } else if (selectedCommand instanceof com.example.actions.Magic) {
+        Magic magic = (Magic) selectedCommand;
         magic.setTarget(player);
         magic.execute();
         return magic.getCommandLog();

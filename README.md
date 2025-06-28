@@ -10,12 +10,12 @@ Session.javaとその内部クラスであるCommandクラスを中心として�
 - Session: 全体の統一的な制御を提供。詳細はSession.javaを参照。
 - BattleSession: バトルを制御するSession。
 - Command: Sessionが実行する処理。
-- Action: 攻撃・魔法等の抽象クラス。実行元、対象を伴うCommand。
-- Command : アイテムを使って実行するAction。
+- Command: 攻撃・魔法等の抽象クラス。実行元、対象を伴うCommand。
+- Command : アイテムを使って実行するCommand。
 - Item: 全てのアイテムの抽象クラス
 - Entity: プレイヤー、モンスター等の抽象クラス
 
 # TODO
 - [ ] セーブシステム導入
-- [ ] Action, Command, Commandの継承関係を整理
+- [ ] Command, Command, Commandの継承関係を整理
 - [ ] コイン・ショップを追加。

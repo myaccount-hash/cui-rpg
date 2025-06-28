@@ -1,14 +1,16 @@
 package com.example.sessions;
 
 import com.example.entities.Player;
-import com.example.items.Item;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import com.example.actions.*;
-import com.example.commands.Command;
 import com.example.commands.QuitCommand;
+import com.example.core.Command;
+import com.example.core.Item;
+import com.example.core.Session;
 
 
 /*

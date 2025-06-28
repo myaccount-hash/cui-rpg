@@ -1,9 +1,10 @@
 package com.example.items;
 
-import com.example.entities.Player;
-import com.example.actions.Action;
+
 import java.util.List;
-import com.example.commands.Command;
+
+import com.example.core.Command;
+import com.example.core.Item;
 
 public class HealPotion extends Item {
     public HealPotion() {
@@ -11,12 +12,12 @@ public class HealPotion extends Item {
     }
 
     @Override
-    protected List<Command> createActions() {
-        return List.of(new UseAction());
+    protected List<Command> createCommands() {
+        return List.of(new UseCommand());
     }
 
-    public class UseAction extends Command {
-        public UseAction() {
+    public class UseCommand extends Command {
+        public UseCommand() {
             super("使う", "HPを50回復する", null, null);
         }
 

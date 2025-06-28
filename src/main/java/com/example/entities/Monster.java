@@ -2,6 +2,9 @@ package com.example.entities;
 
 import com.example.Utils;
 import com.example.actions.*;
+import com.example.core.Command;
+import com.example.core.Entity;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -16,8 +19,8 @@ public abstract class Monster extends Entity{
         this.icon = icon;
     }
     
-    private static List<Action> createDefaultSkills() {
-        List<Action> skills = new ArrayList<>();
+    private static List<Command> createDefaultSkills() {
+        List<Command> skills = new ArrayList<>();
         // デフォルトスキルは空のリスト（サブクラスで設定）
         return skills;
     }

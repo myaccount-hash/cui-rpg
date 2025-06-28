@@ -5,8 +5,8 @@ import com.example.items.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.actions.*;
-import com.example.commands.Command;
 import com.example.commands.QuitCommand;
+import com.example.core.*;
 
 public class ShopSession extends Session {
     private final Player player;
