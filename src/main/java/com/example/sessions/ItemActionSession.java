@@ -3,6 +3,8 @@ package com.example.sessions;
 import com.example.entities.Player;
 import com.example.items.Item;
 import com.example.actions.*;
+import com.example.commands.Command;
+import com.example.commands.QuitCommand;
 
 /*
  * 特定のItemに対して行うItemActionを選ぶセッション。
@@ -22,7 +24,7 @@ public class ItemActionSession extends Session {
   }
 
   private Command createActionCommand(Item.ItemAction action, Player player, Item item) {
-    return new Command(action.getName(), action.getLabel(), action.getName()) {
+    return new Command(action.getName(), action.getLabel()) {
       @Override
       public boolean execute(String[] args) {
         action.execute(player, item);

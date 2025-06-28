@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import com.example.actions.*;
+import com.example.commands.Command;
+import com.example.commands.QuitCommand;
 
 
 /*
@@ -57,7 +59,7 @@ public class PlayerItemListSession extends Session {
         displayName += "(" + ic.count + ")";
       }
       addCommand(
-          new Command(displayName, ic.item.getDescription(), ic.item.getName()) {
+          new Command(displayName, ic.item.getDescription()) {
             @Override
             public boolean execute(String[] args) {
               new ItemActionSession(player, ic.item, PlayerItemListSession.this).run();

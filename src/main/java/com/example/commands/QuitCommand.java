@@ -1,11 +1,10 @@
-package com.example.actions;
+package com.example.commands;
 import com.example.sessions.Session;
-import com.example.actions.Command;
 
 public class QuitCommand extends Command {
    Session session;
    public QuitCommand(Session session) {
-     super("quit", "セッションを終了します", "quit");
+     super("quit", "セッションを終了します");
      this.session = session;
    }
 

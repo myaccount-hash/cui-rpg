@@ -5,6 +5,8 @@ import com.example.items.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.actions.*;
+import com.example.commands.Command;
+import com.example.commands.QuitCommand;
 
 public class ShopSession extends Session {
     private final Player player;
@@ -36,8 +38,8 @@ public class ShopSession extends Session {
         // アイテム購入コマンド作成
         for (ItemForSale itemForSale : itemsForSale) {
             addCommand(new Command(itemForSale.item.getName(), 
-                                  itemForSale.item.getDescription() + " (" + itemForSale.price + "G)", 
-                                  itemForSale.item.getName()) {
+                                  itemForSale.item.getDescription() + " (" + itemForSale.price + "G)"
+                                  ) {
                 @Override
                 public String getName() {
                     int count = getItemCount(itemForSale.item);
@@ -87,7 +89,7 @@ public class ShopSession extends Session {
             super("ItemPurchase", "アイテム購入", parentSession);
             setDisplayText(buildItemDetail(item, price));
 
-            addCommand(new Command("buy", "購入する", "buy") {
+            addCommand(new Command("buy", "購入する") {
                 @Override
                 public boolean execute(String[] args) {
                     if (player.getGold() < price) {

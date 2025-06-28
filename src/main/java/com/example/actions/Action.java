@@ -1,7 +1,7 @@
 package com.example.actions;
 
+import com.example.commands.Command;
 import com.example.entities.Entity;
-import com.example.actions.Command;
 
 
 /*
@@ -12,7 +12,7 @@ public abstract class Action extends Command {
   protected Entity target;
 
   public Action(String name, String description, String commandName, Entity source, Entity target) {
-    super(name, description, commandName);
+    super(name, description);
     this.source = source;
     this.target = target;
   }

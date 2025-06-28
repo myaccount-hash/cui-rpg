@@ -1,6 +1,8 @@
 package com.example.sessions;
 
 import com.example.actions.*;
+import com.example.commands.Command;
+import com.example.commands.QuitCommand;
 import com.example.entities.Monster;
 import com.example.entities.Player;
 
@@ -20,7 +22,7 @@ public class BattleSession extends Session {
     this.player = player;
 
     addCommand(
-        new Command("action", "アクションを選択", "action") {
+        new Command("action", "アクションを選択") {
           @Override
           public boolean execute(String[] args) {
             if (battleEnded) {
@@ -43,7 +45,7 @@ public class BattleSession extends Session {
           }
         });
     addCommand(
-        new Command("status", "ステータスメニュー", "status") {
+        new Command("status", "ステータスメニュー") {
           @Override
           public boolean execute(String[] args) {
             new PlayerItemListSession(player, BattleSession.this).run();

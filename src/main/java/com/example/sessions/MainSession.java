@@ -3,6 +3,8 @@ package com.example.sessions;
 import com.example.entities.Dragon;
 import com.example.entities.Player;
 import com.example.actions.*;
+import com.example.commands.Command;
+import com.example.commands.QuitCommand;
 
 /*
  * はじめに開始されるセッション。メインメニュー。
@@ -15,7 +17,7 @@ public class MainSession extends Session {
     this.player = new Player();
 
     addCommand(
-        new Command("dragon", "ドラゴンバトルセッションを開始します", "dragon") {
+        new Command("dragon", "ドラゴンバトルセッションを開始します") {
           @Override
           public boolean execute(String[] args) {
             new BattleSession(
@@ -25,7 +27,7 @@ public class MainSession extends Session {
           }
         });
     addCommand(
-        new Command("items", "所持アイテム一覧を表示", "items") {
+        new Command("items", "所持アイテム一覧を表示") {
           @Override
           public boolean execute(String[] args) {
             new PlayerItemListSession(player, MainSession.this).run();
@@ -33,7 +35,7 @@ public class MainSession extends Session {
           }
         });
     addCommand(
-        new Command("shop", "ショップに入る", "shop") {
+        new Command("shop", "ショップに入る") {
           @Override
           public boolean execute(String[] args) {
             new ShopSession(player, MainSession.this).run();

@@ -8,29 +8,18 @@ import com.example.entities.Player;
 public abstract class Item {
    protected String name;
    protected String description;
-   protected int buyPrice;  // 購入価格
-   
-   public Item(String name, String description, int buyPrice){
+   protected int price;
+   public Item(String name, String description, int price){
       this.name = name;
       this.description = description;
-      this.buyPrice = buyPrice;
+      this.price =price;
    }
 
    public String getDescription() {
       return description;
    }
-   
    public String getName() {
       return name;
-   }
-   
-   public int getBuyPrice() {
-      return buyPrice;
-   }
-   
-   // 売却価格（購入価格の半額、サブクラスでオーバーライド可）
-   public int getSellPrice() {
-      return buyPrice / 2;
    }
 
    /* 
