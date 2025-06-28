@@ -5,7 +5,7 @@ import java.util.List;
 
 public class HealPotion extends Item {
     public HealPotion() {
-        super("ヒールポーション", "HPを50回復");
+        super("ヒールポーション", "HPを50回復", 10);
     }
 
     @Override

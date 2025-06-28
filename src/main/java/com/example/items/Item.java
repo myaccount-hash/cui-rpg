@@ -6,18 +6,31 @@ import com.example.entities.Player;
  * アイテムの抽象クラス。装備, 消費等のアクションは内部クラスでItemActionとして記述する。
  */ 
 public abstract class Item {
-   public String name;
-   public String description;
-   public Item(String name, String description){
+   protected String name;
+   protected String description;
+   protected int buyPrice;  // 購入価格
+   
+   public Item(String name, String description, int buyPrice){
       this.name = name;
       this.description = description;
+      this.buyPrice = buyPrice;
    }
 
    public String getDescription() {
       return description;
    }
+   
    public String getName() {
       return name;
+   }
+   
+   public int getBuyPrice() {
+      return buyPrice;
+   }
+   
+   // 売却価格（購入価格の半額、サブクラスでオーバーライド可）
+   public int getSellPrice() {
+      return buyPrice / 2;
    }
 
    /* 

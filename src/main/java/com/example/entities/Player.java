@@ -14,15 +14,10 @@ import java.util.List;
 public class Player extends Entity {
   private List<Item> items = new ArrayList<>();
   private int gold = 1000; // 初期所持金
-  protected Weapon weapon;
-  protected Armor armor;
 
   public Player() {
     super("プレイヤー", 10000, 50, 25, 26, 1, new ArrayList<>());
-    this.items = new ArrayList<>(Arrays.asList(new IronSword(), new IronArmor()));
-    // 初期装備を設定
-    setWeapon(new IronSword());
-    setArmor(new IronArmor());
+    this.items = new ArrayList<>(Arrays.asList(new BronzeSword(), new LeatherArmor()));
 
     // プレイヤーのスキルを設定
     addSkill(new HpHeal(this, this));
@@ -57,36 +52,30 @@ public class Player extends Entity {
     this.items.add(item);
   }
 
+  @Override
   public void setWeapon(Weapon weapon) {
-    // 現在の武器をアイテムリストに戻す（NoWeapon以外）
-    if (this.weapon != null && !(this.weapon instanceof Weapon.NoWeapon)) {
+    // 現在の武器がデフォルト武器でない場合はアイテムに戻す
+    if (this.weapon != null && !this.weapon.getName().equals("素手")) {
       addItem(this.weapon);
     }
-    // 新しい武器を装備し、アイテムリストから削除（NoWeapon以外）
-    if (weapon != null && !(weapon instanceof Weapon.NoWeapon)) {
+    // 新しい武器がアイテム内にある場合は取り除く
+    if (this.items.contains(weapon)) {
       this.items.remove(weapon);
     }
     super.setWeapon(weapon);
   }
 
+  @Override
   public void setArmor(Armor armor) {
-    if (this.armor != null && !(this.armor instanceof Armor.NoArmor)) {
+    // 現在の防具がデフォルト防具でない場合はアイテムに戻す
+    if (this.armor != null && !this.armor.getName().equals("素肌")) {
       addItem(this.armor);
     }
-    if (armor != null && !(armor instanceof Armor.NoArmor)) {
+    // 新しい防具がアイテム内にある場合は取り除く
+    if (this.items.contains(armor)) {
       this.items.remove(armor);
     }
     super.setArmor(armor);
-  }
-
-  @Override
-  public void unequipWeapon() {
-    setWeapon(null);
-  }
-
-  @Override
-  public void unequipArmor() {
-    setArmor(null);
   }
 
   @Override

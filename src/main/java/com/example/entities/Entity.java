@@ -36,8 +36,9 @@ public abstract class Entity {
         this.mp = getMaxMp();
         this.exp = 0;
         
-        this.weapon = new Weapon.NoWeapon();
-        this.armor = new Armor.NoArmor();
+        // デフォルトの武器と防具を匿名クラスで作成
+        this.weapon = new Weapon("素手", "何も持っていない", 0, 0) {};
+        this.armor = new Armor("素肌", "何も着ていない", 0, 0) {};
         
         // デフォルトで通常攻撃を追加
         this.skills.add(new com.example.actions.NormalAttack(this, null));
@@ -107,17 +108,13 @@ public abstract class Entity {
     
     // 装備管理
     public void setWeapon(Weapon weapon) { 
-        this.weapon = weapon != null ? weapon : new Weapon.NoWeapon(); 
+        this.weapon = weapon;
     }
     
     public void setArmor(Armor armor) { 
-        this.armor = armor != null ? armor : new Armor.NoArmor(); 
+        this.armor = armor;
     }
     
-    public void unequipWeapon() { setWeapon(null); }
-    public void unequipArmor() { setArmor(null); }
-    
-
     public void takeDamage(int damage) {
         this.hp = Math.max(0, this.hp - damage);
     }

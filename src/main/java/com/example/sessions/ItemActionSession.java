@@ -13,6 +13,7 @@ public class ItemActionSession extends Session {
 
     // プレイヤーからItemを取得し、ItemActionコマンドの項目リストを生成
     item.getActions().forEach(action -> addCommand(createActionCommand(action, player, item)));
+    addCommand(new QuitCommand());
   }
 
   private String buildItemDetail(Item item) {
