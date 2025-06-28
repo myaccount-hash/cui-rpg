@@ -3,7 +3,7 @@ package com.example.core;
 import com.example.items.Weapon;
 import com.example.items.Armor;
 import com.example.actions.Magic;
-import com.example.Utils;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -22,8 +22,8 @@ public abstract class Entity {
     protected Armor armor;
     private List<Command> skills = new ArrayList<>();
     
-    protected List<Item> items = new ArrayList<>();
-    private int gold = 1000; // 初期所持金
+    // ItemBoxでアイテムとゴールドを管理
+    public ItemBox itemBox = new ItemBox();
 
     protected Entity(String name, int baseHp, int baseMp, int baseAttack, int baseDefence, int level, List<Command> skills) {
         this.name = name;
@@ -110,27 +110,27 @@ public abstract class Entity {
     
  
     public void setWeapon(Weapon weapon) {
-      // 現在の武器がデフォルト武器でない場合はアイテムに戻す
-      if (this.weapon != null && !this.weapon.getName().equals("素手")) {
-        addItem(this.weapon);
-      }
-      // 新しい武器がアイテム内にある場合は取り除く
-      if (this.items.contains(weapon)) {
-        this.items.remove(weapon);
-      }
-      this.weapon = weapon;
+        // 現在の武器がデフォルト武器でない場合はアイテムに戻す
+        if (this.weapon != null && !this.weapon.getName().equals("素手")) {
+            addItem(this.weapon);
+        }
+        // 新しい武器がアイテム内にある場合は取り除く
+        if (hasItem(weapon)) {
+            removeItem(weapon);
+        }
+        this.weapon = weapon;
     }
   
     public void setArmor(Armor armor) {
-      // 現在の防具がデフォルト防具でない場合はアイテムに戻す
-      if (this.armor != null && !this.armor.getName().equals("素肌")) {
-        addItem(this.armor);
-      }
-      // 新しい防具がアイテム内にある場合は取り除く
-      if (this.items.contains(armor)) {
-        this.items.remove(armor);
-      }
-      this.armor = armor;
+        // 現在の防具がデフォルト防具でない場合はアイテムに戻す
+        if (this.armor != null && !this.armor.getName().equals("素肌")) {
+            addItem(this.armor);
+        }
+        // 新しい防具がアイテム内にある場合は取り除く
+        if (hasItem(armor)) {
+            removeItem(armor);
+        }
+        this.armor = armor;
     }
     
     public void takeDamage(int damage) {
@@ -193,38 +193,45 @@ public abstract class Entity {
                            Utils.format("攻撃力", 8), getAttack(),
                            Utils.format("防御力", 8), getDefence());
     }
+    
+    // ItemBoxへの委譲メソッド
     public List<Item> getItems() {
-        return items;
-      }
+        return itemBox.getItems();
+    }
     
-      public int getGold() {
-        return gold;
-      }
+    public void addItem(Item item) {
+        itemBox.addItem(item);
+    }
     
-      public void setGold(int gold) {
-        this.gold = gold;
-      }
+    public boolean removeItem(Item item) {
+        return itemBox.removeItem(item);
+    }
     
-      public void addGold(int amount) {
-        this.gold += amount;
-      }
+    public boolean hasItem(Item item) {
+        return itemBox.hasItem(item);
+    }
     
-      public boolean subtractGold(int amount) {
-        if (this.gold >= amount) {
-          this.gold -= amount;
-          return true;
-        }
-        return false;
-      }
+    public int getItemCount() {
+        return itemBox.getItemCount();
+    }
     
-      public void addItem(Item item) {
-        this.items.add(item);
-      }
+    public int getGold() {
+        return itemBox.getGold();
+    }
     
-      public void removeItem(Item item) {
-        this.items.remove(item);
-      }
+    public void setGold(int gold) {
+        itemBox.setGold(gold);
+    }
     
+    public void addGold(int amount) {
+        itemBox.addGold(amount);
+    }
     
+    public boolean subtractGold(int amount) {
+        return itemBox.subtractGold(amount);
+    }
+    
+    public boolean canAfford(int cost) {
+        return itemBox.canAfford(cost);
+    }
 }
-

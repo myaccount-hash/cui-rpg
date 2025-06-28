@@ -1,8 +1,8 @@
 package com.example.entities;
 
-import com.example.Utils;
 import com.example.actions.*;
 import com.example.core.Entity;
+import com.example.core.Utils;
 import com.example.items.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,15 +17,12 @@ public class Player extends Entity {
 
   public Player() {
     super("プレイヤー", 10000, 50, 25, 26, 1, new ArrayList<>());
-    this.items = new ArrayList<>(Arrays.asList(new BronzeSword(), new LeatherArmor()));
-
+    this.itemBox.addItem(new BronzeSword());
+    this.itemBox.addItem(new LeatherArmor());
     // プレイヤーのスキルを設定
     addSkill(new HpHeal(this, this));
     addSkill(new FireBall(this, null));
   }
-
-
-
 
   @Override
   public String getInfoText() {

@@ -1,84 +1,47 @@
 package com.example.sessions;
 
 import com.example.entities.Player;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.LinkedHashMap;
-import com.example.actions.*;
 import com.example.commands.QuitCommand;
 import com.example.core.Command;
-import com.example.core.Item;
 import com.example.core.Session;
-
+import com.example.core.ItemBox.ItemCount;
 
 /*
  * Playerの所有するItemの一覧を表示するセッション。
  * メニューからItemを選ぶとCommandSessionに推移しCommandを選択できる。
  */
 public class PlayerItemListSession extends Session {
-  private final Player player;
-  private List<Command> itemCommands = new ArrayList<>();
+    private final Player player;
 
-  public PlayerItemListSession(Player player, Session parentSession) {
-    super("ItemList", "所持アイテム一覧", parentSession);
-    this.player = player;
+    public PlayerItemListSession(Player player, Session parentSession) {
+        super("ItemList", "所持アイテム一覧", parentSession);
+        this.player = player;
+        updateMenu();
+        setDisplayText(player.getInfoText());
+    }
 
-    updateMenu();
+    @Override
+    protected void afterCommandExecuted() {
+        setDisplayText(player.getInfoText());
+        updateMenu();
+    }
 
-
-    setDisplayText(player.getInfoText());
-  }
-
-  @Override
-  protected void afterCommandExecuted() {
-    setDisplayText(player.getInfoText());
-    updateMenu();
-  }
-
-  @Override
-  protected void updateMenu() {
-    this.commands.clear();
-    this.commandNames.clear();
-    itemCommands = new ArrayList<>();
-    // アイテムを個数ごとに集計
-    Map<String, ItemCount> itemCountMap = new LinkedHashMap<>();
-    for (Item item : player.getItems()) {
-      if (item != null) {  // nullチェックを追加
-        String key = item.getName();
-        if (!itemCountMap.containsKey(key)) {
-          itemCountMap.put(key, new ItemCount(item, 1));
-        } else {
-          itemCountMap.get(key).count++;
+    @Override
+    protected void updateMenu() {
+        this.commands.clear();
+        this.commandNames.clear();
+        
+        // ItemBoxに集計処理を委譲
+        for (ItemCount itemCount : player.itemBox.getItemCounts().values()) {
+            addCommand(new Command(itemCount.getDisplayName(), itemCount.item.getDescription()) {
+                @Override
+                public boolean execute() {
+                    new ItemCommandSession(player, itemCount.item, PlayerItemListSession.this).run();
+                    return true;
+                }
+            });
         }
-      }
+        
+        addCommand(new QuitCommand(this));
     }
-    // アイテムをコマンドとして追加
-    for (ItemCount ic : itemCountMap.values()) {
-      String displayName = ic.item.getName();
-      if (ic.count > 1) {
-        displayName += "(" + ic.count + ")";
-      }
-      addCommand(
-          new Command(displayName, ic.item.getDescription()) {
-            @Override
-            public boolean execute() {
-              new ItemCommandSession(player, ic.item, PlayerItemListSession.this).run();
-              return true;
-            }
-          });
-    }
-    addCommand(new QuitCommand(this));
-  }
-
-  // アイテム個数管理用クラス
-  private static class ItemCount {
-    Item item;
-    int count;
-    ItemCount(Item item, int count) {
-      this.item = item;
-      this.count = count;
-    }
-  }
 }
