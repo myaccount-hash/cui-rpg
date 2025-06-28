@@ -1,11 +1,11 @@
 package com.example.sessions;
 
 import com.example.entities.Player;
-import com.example.items.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.commands.QuitCommand;
 import com.example.core.*;
+import com.example.items.*;
 
 public class ShopSession extends Session {
     private final Player player;

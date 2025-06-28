@@ -1,5 +1,4 @@
 package com.example.entities;
-
 import com.example.actions.*;
 
 /* 

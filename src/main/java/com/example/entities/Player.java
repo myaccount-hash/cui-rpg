@@ -1,12 +1,9 @@
 package com.example.entities;
 
 import com.example.actions.*;
-import com.example.core.Entity;
-import com.example.core.Utils;
+import com.example.core.*;
 import com.example.items.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /*
  * プレイヤーデータを管理するクラス。将来的にはセーブファイルからロードする。

@@ -13,7 +13,7 @@ public class ItemBox {
     private int gold;
     
     public ItemBox() {
-        this.gold = 1000; // 初期所持金
+        this.gold = 0; // 初期所持金
     }
     
     public ItemBox(int initialGold) {
