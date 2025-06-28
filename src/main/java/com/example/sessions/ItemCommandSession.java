@@ -1,8 +1,8 @@
 package com.example.sessions;
 
-import com.example.entities.Player;
 import com.example.commands.QuitCommand;
 import com.example.core.*;
+import com.example.entities.Player;
 
 /*
  * 特定のItemに対して行うCommandを選ぶセッション。

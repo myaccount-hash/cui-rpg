@@ -1,8 +1,9 @@
 package com.example.entities;
+
 import com.example.actions.*;
 
-/* 
- * ドラゴンクラス 
+/*
+ * ドラゴンクラス
  */
 public class Dragon extends Monster {
 
@@ -12,8 +13,8 @@ public class Dragon extends Monster {
   private static final int DRAGON_BASE_ATTACK = 25;
   private static final int DRAGON_BASE_DEFENCE = 10;
   private static final int DRAGON_BASE_DROP_EXP = 50;
-  private static final String DRAGON_ICON = "      . \n" + " .>   )\\;`a__\n" + "(  _ _)/ /-.\" ~~\n" + " `( )_ )/\n" + "  <_  <_ ";
-  
+  private static final String DRAGON_ICON =
+      "      . \n" + " .>   )\\;`a__\n" + "(  _ _)/ /-.\" ~~\n" + " `( )_ )/\n" + "  <_  <_ ";
 
   public Dragon(int level) {
     super(
@@ -24,8 +25,7 @@ public class Dragon extends Monster {
         DRAGON_BASE_DEFENCE,
         level,
         DRAGON_BASE_DROP_EXP,
-        DRAGON_ICON
-        );
+        DRAGON_ICON);
 
     // ドラゴンのスキルを設定
     addSkill(new FireBall(this, null));

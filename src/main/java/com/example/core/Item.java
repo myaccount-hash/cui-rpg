@@ -2,35 +2,35 @@ package com.example.core;
 
 import java.util.List;
 
-/* 
+/*
  * アイテムの抽象クラス。装備, 消費等のアクションは内部クラスでCommandとして記述する。
- */ 
+ */
 public abstract class Item {
-   protected String name;
-   protected String description;
-   protected int price;
-   
-   public Item(String name, String description, int price){
-      this.name = name;
-      this.description = description;
-      this.price = price;
-   }
+  protected String name;
+  protected String description;
+  protected int price;
 
-   public String getDescription() {
-      return description;
-   }
-   
-   public String getName() {
-      return name;
-   }
-   
-   public int getPrice() {
-      return price;
-   }
+  public Item(String name, String description, int price) {
+    this.name = name;
+    this.description = description;
+    this.price = price;
+  }
 
-   protected abstract List<Command> createCommands();
+  public String getDescription() {
+    return description;
+  }
 
-   public final List<Command> getCommands() {
-      return createCommands();
-   }
+  public String getName() {
+    return name;
+  }
+
+  public int getPrice() {
+    return price;
+  }
+
+  protected abstract List<Command> createCommands();
+
+  public final List<Command> getCommands() {
+    return createCommands();
+  }
 }

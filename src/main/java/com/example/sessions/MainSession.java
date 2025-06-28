@@ -1,9 +1,9 @@
 package com.example.sessions;
 
-import com.example.entities.Dragon;
-import com.example.entities.Player;
 import com.example.commands.QuitCommand;
 import com.example.core.*;
+import com.example.entities.Dragon;
+import com.example.entities.Player;
 
 /*
  * はじめに開始されるセッション。メインメニュー。

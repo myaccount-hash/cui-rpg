@@ -4,7 +4,6 @@ import com.example.actions.*;
 import com.example.commands.QuitCommand;
 import com.example.core.*;
 
-
 /*
  * Playerの持つスキル等から、攻撃や魔法等のアクションを選択するセッション。
  * BattleSessionから推移する。

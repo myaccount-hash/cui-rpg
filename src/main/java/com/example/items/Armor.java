@@ -2,7 +2,6 @@ package com.example.items;
 
 import com.example.core.Command;
 import com.example.core.Item;
-
 import java.util.List;
 
 // 防具の抽象クラス。一部の攻撃を強化する。Entity.javaのarmorフィールドに脱着可能。
@@ -17,7 +16,6 @@ public abstract class Armor extends Item {
   public int getDefense() {
     return defense;
   }
-
 
   @Override
   protected List<Command> createCommands() {
@@ -37,7 +35,6 @@ public abstract class Armor extends Item {
       source.setArmor((Armor) Armor.this);
       setCommandLog(source.getName() + "は" + Armor.this.getName() + "を装備した！");
       return true;
-      }
     }
   }
-
+}

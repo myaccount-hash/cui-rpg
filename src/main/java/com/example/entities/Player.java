@@ -11,7 +11,6 @@ import java.util.ArrayList;
  */
 public class Player extends Entity {
 
-
   public Player() {
     super("プレイヤー", 10000, 50, 25, 26, 1, new ArrayList<>());
     this.itemBox.addItem(new BronzeSword());

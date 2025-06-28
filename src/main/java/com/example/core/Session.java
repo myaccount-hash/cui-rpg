@@ -27,7 +27,6 @@ public abstract class Session {
   protected Session parentSession;
   protected String currentLog;
 
-
   // コンストラクタ
   public Session(String name, String description, Session parentSession) {
     this.name = name;
@@ -73,9 +72,11 @@ public abstract class Session {
       parentSession.refreshDisplay();
     }
   }
-  
+
   // セッションを止めるメソッド
-  public void stop() { running = false; }
+  public void stop() {
+    running = false;
+  }
 
   // ディスプレイを更新
   public void setDisplayText(String text) {
@@ -92,22 +93,31 @@ public abstract class Session {
     this.showingLog = false;
     refreshDisplay();
   }
-  
 
   /*
    * セッション終了コマンド
    */
 
+  public String getName() {
+    return name;
+  }
 
-  public String getName() { return name; }
-  public boolean isRunning() { return running; }
-  public Session getParentSession() { return parentSession; }
-  public String getDisplayText() { return displayText; }
+  public boolean isRunning() {
+    return running;
+  }
+
+  public Session getParentSession() {
+    return parentSession;
+  }
+
+  public String getDisplayText() {
+    return displayText;
+  }
 
   /*
    * protected メンバ
    */
-  
+
   // セッションにコマンドを追加するメソッド。サブクラスはこれを使いセッションにコマンドを登録
   protected void addCommand(Command command) {
     String key = command.getName().toLowerCase();
@@ -122,7 +132,9 @@ public abstract class Session {
   }
 
   // コマンド実行後の処理を記述
-  protected void afterCommandExecuted() { /*デフォルトは何もしない*/ }
+  protected void afterCommandExecuted() {
+    /*デフォルトは何もしない*/
+  }
 
   protected void processInput(String input) {
     try {
@@ -150,7 +162,7 @@ public abstract class Session {
   /*
    * private メンバ
    */
-  
+
   private void refreshDisplay() {
     System.out.print("\033[H\033[2J");
     String[] display = displayText.split("\n");
