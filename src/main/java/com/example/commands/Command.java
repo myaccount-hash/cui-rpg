@@ -1,4 +1,5 @@
 package com.example.commands;
+import com.example.entities.Entity;
 
   /*
    * コマンドの抽象クラス。メニュー項目、プレイヤーの行動、モンスターの行動等は全てCommandとして記述される。
@@ -7,7 +8,16 @@ package com.example.commands;
    protected String name;
    protected String description;
    protected String commandLog;
-
+   protected Entity source;
+   protected Entity target;
+ 
+   public Command(String name, String description, Entity source, Entity target) {
+    this.name = name;
+    this.description = description;
+     this.source = source;
+     this.target = target;
+   }
+ 
    public Command(String name, String description) {
      this.name = name;
      this.description = description;
@@ -21,4 +31,5 @@ package com.example.commands;
 
    // コマンド内部でログをセットすれば、親セッションでログが表示される
    public void setCommandLog(String commandLog) { this.commandLog = commandLog; }
+
  }

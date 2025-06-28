@@ -7,6 +7,7 @@ import com.example.actions.Magic;
 import com.example.Utils;
 import java.util.List;
 import java.util.ArrayList;
+import com.example.items.Item;
 
 // プレイヤーやモンスターを含む抽象クラス。
 public abstract class Entity {
@@ -23,6 +24,9 @@ public abstract class Entity {
     protected Armor armor;
     private List<Action> skills = new ArrayList<>();
     
+    protected List<Item> items = new ArrayList<>();
+    private int gold = 1000; // 初期所持金
+
     protected Entity(String name, int baseHp, int baseMp, int baseAttack, int baseDefence, int level, List<Action> skills) {
         this.name = name;
         this.level = level;
@@ -106,13 +110,27 @@ public abstract class Entity {
     protected void setBaseAttack(int baseAttack) { this.baseAttack = baseAttack; }
     protected void setBaseDefence(int baseDefence) { this.baseDefence = baseDefence; }
     
-    // 装備管理
-    public void setWeapon(Weapon weapon) { 
-        this.weapon = weapon;
+ 
+    public void setWeapon(Weapon weapon) {
+      // 現在の武器がデフォルト武器でない場合はアイテムに戻す
+      if (this.weapon != null && !this.weapon.getName().equals("素手")) {
+        addItem(this.weapon);
+      }
+      // 新しい武器がアイテム内にある場合は取り除く
+      if (this.items.contains(weapon)) {
+        this.items.remove(weapon);
+      }
     }
-    
-    public void setArmor(Armor armor) { 
-        this.armor = armor;
+  
+    public void setArmor(Armor armor) {
+      // 現在の防具がデフォルト防具でない場合はアイテムに戻す
+      if (this.armor != null && !this.armor.getName().equals("素肌")) {
+        addItem(this.armor);
+      }
+      // 新しい防具がアイテム内にある場合は取り除く
+      if (this.items.contains(armor)) {
+        this.items.remove(armor);
+      }
     }
     
     public void takeDamage(int damage) {
@@ -175,4 +193,38 @@ public abstract class Entity {
                            Utils.format("攻撃力", 8), getAttack(),
                            Utils.format("防御力", 8), getDefence());
     }
+    public List<Item> getItems() {
+        return items;
+      }
+    
+      public int getGold() {
+        return gold;
+      }
+    
+      public void setGold(int gold) {
+        this.gold = gold;
+      }
+    
+      public void addGold(int amount) {
+        this.gold += amount;
+      }
+    
+      public boolean subtractGold(int amount) {
+        if (this.gold >= amount) {
+          this.gold -= amount;
+          return true;
+        }
+        return false;
+      }
+    
+      public void addItem(Item item) {
+        this.items.add(item);
+      }
+    
+      public void removeItem(Item item) {
+        this.items.remove(item);
+      }
+    
+    
 }
+

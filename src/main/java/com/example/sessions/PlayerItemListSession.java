@@ -13,7 +13,7 @@ import com.example.commands.QuitCommand;
 
 /*
  * Playerの所有するItemの一覧を表示するセッション。
- * メニューからItemを選ぶとItemActionSessionに推移しItemActionを選択できる。
+ * メニューからItemを選ぶとCommandSessionに推移しCommandを選択できる。
  */
 public class PlayerItemListSession extends Session {
   private final Player player;
@@ -62,7 +62,7 @@ public class PlayerItemListSession extends Session {
           new Command(displayName, ic.item.getDescription()) {
             @Override
             public boolean execute(String[] args) {
-              new ItemActionSession(player, ic.item, PlayerItemListSession.this).run();
+              new ItemCommandSession(player, ic.item, PlayerItemListSession.this).run();
               return true;
             }
           });

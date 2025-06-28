@@ -1,7 +1,9 @@
 package com.example.items;
 
 import com.example.entities.Player;
+import com.example.actions.Action;
 import java.util.List;
+import com.example.commands.Command;
 
 public class HealPotion extends Item {
     public HealPotion() {
@@ -9,33 +11,22 @@ public class HealPotion extends Item {
     }
 
     @Override
-    protected List<ItemAction> createActions() {
+    protected List<Command> createActions() {
         return List.of(new UseAction());
     }
 
-    public static class UseAction extends ItemAction {
+    public class UseAction extends Command {
         public UseAction() {
-            super("使う", "HPを50回復する", "use", null, null);
-        }
-
-        @Override
-        public boolean execute(Player player, Item item) {
-            player.heal(50);
-            setCommandLog(player.getName() + "はヒールポーションを使い、HPが50回復した！");
-            // 消費アイテムなのでリストから削除（実際のセッションで削除処理を追加する必要あり）
-            player.getItems().remove(item);
-            return true;
-        }
-
-        @Override
-        public String getLabel() {
-            return "使う";
+            super("使う", "HPを50回復する", null, null);
         }
 
         @Override
         public boolean execute(String[] args) {
-            // TODO こっちに移動
-            return true;
+            source.heal(50);
+            setCommandLog(source.getName() + "はヒールポーションを使い、HPが50回復した！");
+            source.getItems().remove(HealPotion.this);
+                return true;
+            }
         }
+
     }
-} 

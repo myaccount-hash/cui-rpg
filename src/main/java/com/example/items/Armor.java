@@ -1,6 +1,8 @@
 package com.example.items;
 
 import com.example.entities.Player;
+import com.example.commands.Command;
+import java.util.List;
 
 // 防具の抽象クラス。一部の攻撃を強化する。Entity.javaのarmorフィールドに脱着可能。
 public abstract class Armor extends Item {
@@ -17,13 +19,13 @@ public abstract class Armor extends Item {
 
 
   @Override
-  protected java.util.List<Item.ItemAction> createActions() {
-    return java.util.List.of(new EquipAction());
+  protected List<Command> createActions() {
+    return List.of(new EquipAction());
   }
 
-  public static class EquipAction extends Item.ItemAction {
+  public static class EquipAction extends Command {
     public EquipAction() {
-      super("装備", "装備する", "equip", null, null);
+      super("装備", "装備する");
     }
 
     public String getLabel() {

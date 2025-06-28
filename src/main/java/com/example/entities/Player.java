@@ -12,8 +12,7 @@ import java.util.List;
  * MainSessionでインスタンス化し、プログラム終了まで保持される。
  */
 public class Player extends Entity {
-  private List<Item> items = new ArrayList<>();
-  private int gold = 1000; // 初期所持金
+
 
   public Player() {
     super("プレイヤー", 10000, 50, 25, 26, 1, new ArrayList<>());
@@ -24,59 +23,8 @@ public class Player extends Entity {
     addSkill(new FireBall(this, null));
   }
 
-  public List<Item> getItems() {
-    return items;
-  }
 
-  public int getGold() {
-    return gold;
-  }
 
-  public void setGold(int gold) {
-    this.gold = gold;
-  }
-
-  public void addGold(int amount) {
-    this.gold += amount;
-  }
-
-  public boolean subtractGold(int amount) {
-    if (this.gold >= amount) {
-      this.gold -= amount;
-      return true;
-    }
-    return false;
-  }
-
-  public void addItem(Item item) {
-    this.items.add(item);
-  }
-
-  @Override
-  public void setWeapon(Weapon weapon) {
-    // 現在の武器がデフォルト武器でない場合はアイテムに戻す
-    if (this.weapon != null && !this.weapon.getName().equals("素手")) {
-      addItem(this.weapon);
-    }
-    // 新しい武器がアイテム内にある場合は取り除く
-    if (this.items.contains(weapon)) {
-      this.items.remove(weapon);
-    }
-    super.setWeapon(weapon);
-  }
-
-  @Override
-  public void setArmor(Armor armor) {
-    // 現在の防具がデフォルト防具でない場合はアイテムに戻す
-    if (this.armor != null && !this.armor.getName().equals("素肌")) {
-      addItem(this.armor);
-    }
-    // 新しい防具がアイテム内にある場合は取り除く
-    if (this.items.contains(armor)) {
-      this.items.remove(armor);
-    }
-    super.setArmor(armor);
-  }
 
   @Override
   public String getInfoText() {
