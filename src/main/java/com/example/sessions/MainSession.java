@@ -2,6 +2,7 @@ package com.example.sessions;
 
 import com.example.entities.Dragon;
 import com.example.entities.Player;
+import com.example.actions.*;
 
 /*
  * はじめに開始されるセッション。メインメニュー。
@@ -14,7 +15,7 @@ public class MainSession extends Session {
     this.player = new Player();
 
     addCommand(
-        new Session.Command("dragon", "ドラゴンバトルセッションを開始します", "dragon") {
+        new Command("dragon", "ドラゴンバトルセッションを開始します", "dragon") {
           @Override
           public boolean execute(String[] args) {
             new BattleSession(
@@ -24,7 +25,7 @@ public class MainSession extends Session {
           }
         });
     addCommand(
-        new Session.Command("items", "所持アイテム一覧を表示", "items") {
+        new Command("items", "所持アイテム一覧を表示", "items") {
           @Override
           public boolean execute(String[] args) {
             new PlayerItemListSession(player, MainSession.this).run();
@@ -32,14 +33,14 @@ public class MainSession extends Session {
           }
         });
     addCommand(
-        new Session.Command("shop", "ショップに入る", "shop") {
+        new Command("shop", "ショップに入る", "shop") {
           @Override
           public boolean execute(String[] args) {
             new ShopSession(player, MainSession.this).run();
             return true;
           }
         });
-    addCommand(new QuitCommand());
+    addCommand(new QuitCommand(this));
 
     // 初期表示テキストを設定
     setDisplayText("ゲームを開始しました。");

@@ -4,6 +4,7 @@ import com.example.entities.Player;
 import com.example.items.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.example.actions.*;
 
 public class ShopSession extends Session {
     private final Player player;
@@ -51,7 +52,7 @@ public class ShopSession extends Session {
             });
         }
         
-        addCommand(new QuitCommand());
+        addCommand(new QuitCommand(this));
     }
 
     private String buildShopInfo() {
@@ -100,7 +101,7 @@ public class ShopSession extends Session {
                     return true;
                 }
             });
-            addCommand(new QuitCommand());
+            addCommand(new QuitCommand(this));
         }
 
         private String buildItemDetail(Item item, int price) {

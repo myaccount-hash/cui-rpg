@@ -23,7 +23,7 @@ public class BattleActionSelectionSession extends Session {
       addCommand(action);
     }
 
-    addCommand(new QuitCommand());
+    addCommand(new QuitCommand(this));
   }
 
   @Override

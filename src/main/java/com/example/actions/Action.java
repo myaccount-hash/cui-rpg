@@ -1,12 +1,13 @@
 package com.example.actions;
 
 import com.example.entities.Entity;
-import com.example.sessions.Session;
+import com.example.actions.Command;
+
 
 /*
  * 実行元と対象を持つコマンドの抽象クラス。プレイヤー・モンスターの攻撃、魔法、アイテムの使用等を含む。
  */
-public abstract class Action extends Session.Command {
+public abstract class Action extends Command {
   protected Entity source;
   protected Entity target;
 

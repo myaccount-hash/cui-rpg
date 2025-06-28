@@ -50,7 +50,7 @@ public class BattleSession extends Session {
             return true;
           }
         });
-    addCommand(new QuitCommand());
+    addCommand(new QuitCommand(this));
     setDisplayText(getBattleInfo());
   }
 

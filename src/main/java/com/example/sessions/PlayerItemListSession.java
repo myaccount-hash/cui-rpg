@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.LinkedHashMap;
+import com.example.actions.*;
+
 
 /*
  * Playerの所有するItemの一覧を表示するセッション。
@@ -63,7 +65,7 @@ public class PlayerItemListSession extends Session {
             }
           });
     }
-    addCommand(new QuitCommand());
+    addCommand(new QuitCommand(this));
   }
 
   // アイテム個数管理用クラス

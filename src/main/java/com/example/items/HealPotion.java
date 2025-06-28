@@ -34,7 +34,7 @@ public class HealPotion extends Item {
 
         @Override
         public boolean execute(String[] args) {
-            // 未使用
+            // TODO こっちに移動
             return true;
         }
     }

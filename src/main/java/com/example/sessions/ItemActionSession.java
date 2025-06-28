@@ -2,6 +2,7 @@ package com.example.sessions;
 
 import com.example.entities.Player;
 import com.example.items.Item;
+import com.example.actions.*;
 
 /*
  * 特定のItemに対して行うItemActionを選ぶセッション。
@@ -13,7 +14,7 @@ public class ItemActionSession extends Session {
 
     // プレイヤーからItemを取得し、ItemActionコマンドの項目リストを生成
     item.getActions().forEach(action -> addCommand(createActionCommand(action, player, item)));
-    addCommand(new QuitCommand());
+    addCommand(new QuitCommand(this));
   }
 
   private String buildItemDetail(Item item) {
