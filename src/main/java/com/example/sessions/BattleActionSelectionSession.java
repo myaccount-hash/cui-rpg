@@ -1,6 +1,7 @@
 package com.example.sessions;
 
 import com.example.actions.*;
+import com.example.commands.QuitCommand;
 
 /*
  * Playerの持つスキル等から、攻撃や魔法等のアクションを選択するセッション。
