@@ -1,8 +1,13 @@
 package com.example.entities;
 
+import com.example.actions.*;
 import com.example.core.*;
+import com.example.utils.TargetUtils;
+import com.example.utils.Utils;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 // モンスターの抽象クラス
 public abstract class Monster extends Entity {
@@ -27,6 +32,30 @@ public abstract class Monster extends Entity {
     List<Command> skills = new ArrayList<>();
     // デフォルトスキルは空のリスト（サブクラスで設定）
     return skills;
+  }
+
+  /**
+   * 戦闘用のランダム行動を実行する
+   * @param enemy 敵エンティティ
+   * @return 行動結果のログ
+   */
+  public String executeRandomAction(Entity enemy) {
+    var availableCommands = getAvailableCommands();
+    Random random = new Random();
+    
+    if (!availableCommands.isEmpty()) {
+      Command selectedCommand = availableCommands.get(random.nextInt(availableCommands.size()));
+      
+      // TargetUtilsを使用してターゲットを設定
+      TargetUtils.setAppropriateTarget(selectedCommand, this, enemy);
+      selectedCommand.execute();
+      return selectedCommand.getCommandLog();
+    }
+    
+    // 通常攻撃
+    int damage = getAttack();
+    enemy.takeDamage(damage);
+    return getName() + "の攻撃！ " + damage + "ダメージ！";
   }
 
   public String getIcon() {

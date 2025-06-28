@@ -1,4 +1,4 @@
-package com.example.core;
+package com.example.utils;
 
 import java.nio.charset.Charset;
 

@@ -3,6 +3,8 @@ package com.example.entities;
 import com.example.actions.*;
 import com.example.core.*;
 import com.example.items.*;
+import com.example.utils.Utils;
+
 import java.util.ArrayList;
 
 /*
@@ -10,7 +12,6 @@ import java.util.ArrayList;
  * MainSessionでインスタンス化し、プログラム終了まで保持される。
  */
 public class Player extends Entity {
-
   public Player() {
     super("プレイヤー", 10000, 50, 25, 26, 1, new ArrayList<>());
     this.itemBox.addItem(new BronzeSword());

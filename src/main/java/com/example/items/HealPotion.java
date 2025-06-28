@@ -1,7 +1,8 @@
 package com.example.items;
 
 import com.example.core.Command;
-import com.example.core.Item;
+import com.example.core.*;
+import com.example.actions.SelfTarget;
 import java.util.List;
 
 public class HealPotion extends Item {
@@ -14,9 +15,9 @@ public class HealPotion extends Item {
     return List.of(new UseCommand());
   }
 
-  public class UseCommand extends Command {
+  public class UseCommand extends Command implements SelfTarget {
     public UseCommand() {
-      super("使う", "HPを50回復する", null, null);
+      super("使う", "HPを50回復する");
     }
 
     @Override

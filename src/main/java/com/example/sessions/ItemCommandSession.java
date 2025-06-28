@@ -3,6 +3,7 @@ package com.example.sessions;
 import com.example.commands.QuitCommand;
 import com.example.core.*;
 import com.example.entities.Player;
+import com.example.utils.TargetUtils;
 
 /*
  * 特定のItemに対して行うCommandを選ぶセッション。
@@ -12,10 +13,9 @@ public class ItemCommandSession extends Session {
     super("Command", "アイテムアクション", parentSession);
     setDisplayText(buildItemDetail(item));
 
-    // アイテムのアクションを直接追加
-    for (var action : item.getCommands()) {
-      action.setTarget(player);
-      action.setSource(player);
+    // アイテムのアクションを適切なターゲット設定で追加
+    var itemCommands = TargetUtils.getItemCommands(player, item.getCommands());
+    for (Command action : itemCommands) {
       addCommand(action);
     }
     addCommand(new QuitCommand(this));

@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import com.example.utils.Utils;
+
 /*
  * 全てのセッションの抽象クラス。メニュー・ディスプレイ・ログの表示、コマンドの実行を管理。
  * セッションを開始するにはSession.run()を呼び出す。

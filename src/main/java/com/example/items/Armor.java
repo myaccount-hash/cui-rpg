@@ -3,6 +3,8 @@ package com.example.items;
 import com.example.core.Command;
 import com.example.core.Item;
 import java.util.List;
+import com.example.actions.SelfTarget;
+import com.example.core.Entity;
 
 // 防具の抽象クラス。一部の攻撃を強化する。Entity.javaのarmorフィールドに脱着可能。
 public abstract class Armor extends Item {
@@ -18,13 +20,13 @@ public abstract class Armor extends Item {
   }
 
   @Override
-  protected List<Command> createCommands() {
-    return List.of(new EquipCommand());
+  protected List<Command> createCommands(Entity source) {
+    return List.of(new EquipCommand(source));
   }
 
-  public class EquipCommand extends Command {
-    public EquipCommand() {
-      super("装備", "装備する");
+  public class EquipCommand extends Command implements SelfTarget {
+    public EquipCommand(Entity source) {
+      super("装備", "装備する", source);
     }
 
     public String getLabel() {
@@ -32,8 +34,8 @@ public abstract class Armor extends Item {
     }
 
     public boolean execute() {
-      source.setArmor((Armor) Armor.this);
-      setCommandLog(source.getName() + "は" + Armor.this.getName() + "を装備した！");
+      target.setArmor((Armor) Armor.this);
+      setCommandLog(target.getName() + "は" + Armor.this.getName() + "を装備した！");
       return true;
     }
   }

@@ -7,7 +7,7 @@ import com.example.core.*;
  */
 public class NormalAttack extends Command {
   public NormalAttack(Entity source, Entity target) {
-    super("attack", "剣で攻撃", source, target);
+    super("attack", "剣で攻撃");
   }
 
   @Override

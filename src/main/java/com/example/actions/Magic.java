@@ -13,10 +13,8 @@ public abstract class Magic extends Command {
       String name,
       String description,
       String commandName,
-      Entity source,
-      Entity target,
       int mpCost) {
-    super(name, description, source, target);
+    super(name, description);
     this.mpCost = mpCost;
   }
 

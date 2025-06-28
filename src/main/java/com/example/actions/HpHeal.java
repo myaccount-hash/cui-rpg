@@ -2,9 +2,9 @@ package com.example.actions;
 
 import com.example.core.Entity;
 
-public class HpHeal extends Magic implements Heal {
+public class HpHeal extends Magic implements SelfTarget {
   public HpHeal(Entity source, Entity target) {
-    super("heal", "回復魔法を使う", "heal", source, target, 20);
+    super("heal", "回復魔法を使う", "heal", 20);
   }
 
   @Override

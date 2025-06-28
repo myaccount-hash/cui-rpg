@@ -3,7 +3,7 @@ package com.example.core;
 import java.util.List;
 
 /*
- * アイテムの抽象クラス。装備, 消費等のアクションは内部クラスでCommandとして記述する。
+ * アイテムの抽象クラス。装備, 消費等のアクションはCommandとして記述する。
  */
 public abstract class Item {
   protected String name;

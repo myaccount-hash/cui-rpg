@@ -1,5 +1,6 @@
 package com.example.items;
 
+import com.example.actions.SelfTarget;
 import com.example.core.Command;
 import com.example.core.Item;
 import java.util.List;
@@ -24,7 +25,7 @@ public abstract class Weapon extends Item {
     return List.of(new EquipCommand());
   }
 
-  public class EquipCommand extends Command {
+  public class EquipCommand extends Command implements SelfTarget {
     public EquipCommand() {
       super("装備", "装備する");
     }

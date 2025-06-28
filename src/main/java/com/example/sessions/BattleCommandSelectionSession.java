@@ -3,6 +3,8 @@ package com.example.sessions;
 import com.example.actions.*;
 import com.example.commands.QuitCommand;
 import com.example.core.*;
+import com.example.entities.Player;
+import com.example.utils.TargetUtils;
 
 /*
  * Playerの持つスキル等から、攻撃や魔法等のアクションを選択するセッション。
@@ -15,13 +17,9 @@ public class BattleCommandSelectionSession extends Session {
     BattleSession battleSession = (BattleSession) parentSession;
     this.displayText = parentSession.getDisplayText();
 
-    // プレイヤーの使用可能アクションを動的に追加。ターゲットを設定。
-    for (Command action : battleSession.getPlayer().getAvailableCommands()) {
-      if (action instanceof Heal) {
-        action.setTarget(battleSession.getPlayer());
-      } else {
-        action.setTarget(battleSession.getMonster());
-      }
+    // プレイヤーの戦闘コマンドを取得（ターゲット設定済み）
+    var battleCommands = TargetUtils.getBattleCommands(battleSession.getPlayer(), battleSession.getMonster());
+    for (Command action : battleCommands) {
       addCommand(action);
     }
 

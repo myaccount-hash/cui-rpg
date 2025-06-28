@@ -4,7 +4,7 @@ import com.example.core.Entity;
 
 public class FireBall extends Magic {
   public FireBall(Entity source, Entity target) {
-    super("fireball", "ファイアボールを使う", "fireball", source, target, 25);
+    super("fireball", "ファイアボールを使う", "fireball", 25);
   }
 
   @Override
