@@ -120,6 +120,7 @@ public abstract class Entity {
       if (this.items.contains(weapon)) {
         this.items.remove(weapon);
       }
+      this.weapon = weapon;
     }
   
     public void setArmor(Armor armor) {
@@ -131,6 +132,7 @@ public abstract class Entity {
       if (this.items.contains(armor)) {
         this.items.remove(armor);
       }
+      this.armor = armor;
     }
     
     public void takeDamage(int damage) {

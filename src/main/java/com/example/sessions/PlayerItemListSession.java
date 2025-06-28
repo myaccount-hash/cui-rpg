@@ -61,7 +61,7 @@ public class PlayerItemListSession extends Session {
       addCommand(
           new Command(displayName, ic.item.getDescription()) {
             @Override
-            public boolean execute(String[] args) {
+            public boolean execute() {
               new ItemCommandSession(player, ic.item, PlayerItemListSession.this).run();
               return true;
             }

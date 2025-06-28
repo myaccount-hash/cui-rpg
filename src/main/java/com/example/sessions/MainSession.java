@@ -19,7 +19,7 @@ public class MainSession extends Session {
     addCommand(
         new Command("dragon", "ドラゴンバトルセッションを開始します") {
           @Override
-          public boolean execute(String[] args) {
+          public boolean execute() {
             new BattleSession(
                     "DragonBattle", "ドラゴンバトルセッション", new Dragon(1), player, MainSession.this)
                 .run();
@@ -29,7 +29,7 @@ public class MainSession extends Session {
     addCommand(
         new Command("items", "所持アイテム一覧を表示") {
           @Override
-          public boolean execute(String[] args) {
+          public boolean execute() {
             new PlayerItemListSession(player, MainSession.this).run();
             return true;
           }
@@ -37,7 +37,7 @@ public class MainSession extends Session {
     addCommand(
         new Command("shop", "ショップに入る") {
           @Override
-          public boolean execute(String[] args) {
+          public boolean execute() {
             new ShopSession(player, MainSession.this).run();
             return true;
           }

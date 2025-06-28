@@ -17,15 +17,13 @@ public abstract class Weapon extends Item {
   public int getAttack() {
     return attack;
   }
-
- 
-
+  
   @Override
   protected List<Command> createActions() {
     return List.of(new EquipAction());
   }
 
-  public static class EquipAction extends Command {
+  public class EquipAction extends Command {
     public EquipAction() {
       super("装備", "装備する");
     }
@@ -33,19 +31,10 @@ public abstract class Weapon extends Item {
     public String getLabel() {
       return "装備する";
     }
-
-    public boolean execute(Player player, Item item) {
-      if (item instanceof Weapon) {
-        player.setWeapon((Weapon) item);
-        setCommandLog(player.getName() + "は" + item.getName() + "を装備した！");
-        return true;
-      }
-      return false;
-    }
-
     @Override
-    public boolean execute(String[] args) {
-      // セッションからプレイヤーを取得する必要がある場合の実装
+    public boolean execute() {
+      source.setWeapon((Weapon) Weapon.this);
+      setCommandLog(source.getName() + "は" + Weapon.this.getName() + "を装備した！");
       return true;
     }
   }

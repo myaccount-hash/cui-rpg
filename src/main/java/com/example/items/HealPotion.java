@@ -21,7 +21,7 @@ public class HealPotion extends Item {
         }
 
         @Override
-        public boolean execute(String[] args) {
+        public boolean execute() {
             source.heal(50);
             setCommandLog(source.getName() + "はヒールポーションを使い、HPが50回復した！");
             source.getItems().remove(HealPotion.this);

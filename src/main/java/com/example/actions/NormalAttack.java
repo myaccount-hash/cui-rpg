@@ -11,7 +11,7 @@ public class NormalAttack extends Action {
     }
 
     @Override
-    public boolean execute(String[] args) {
+    public boolean execute() {
         int totalAttack = source.getAttack();
         if (source.getWeapon() != null) {
             totalAttack += source.getWeapon().getAttack();

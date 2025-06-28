@@ -13,23 +13,8 @@ public abstract class Magic extends Action {
         this.mpCost = mpCost;
     }
     
-    @Override
-    public boolean execute(String[] args) {
-        // MPが不足している場合は実行できない
-        if (source.getMp() < mpCost) {
-            setCommandLog(source.getName() + "のMPが足りない！");
-            return false;
-        }
-        
-        // MPを消費
-        source.useMp(mpCost);
-        
-        // 魔法を実行
-        return executeMagic(args);
-    }
-    
+
     // 各魔法クラスで実装する抽象メソッド
-    protected abstract boolean executeMagic(String[] args);
     public int getMpCost() {
        return mpCost;
     }

@@ -9,7 +9,7 @@ public class QuitCommand extends Command {
    }
 
    @Override
-   public boolean execute(String[] args) {
+   public boolean execute() {
       session.stop();
      return true;
    }

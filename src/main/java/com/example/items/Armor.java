@@ -23,7 +23,7 @@ public abstract class Armor extends Item {
     return List.of(new EquipAction());
   }
 
-  public static class EquipAction extends Command {
+  public class EquipAction extends Command {
     public EquipAction() {
       super("装備", "装備する");
     }
@@ -32,19 +32,11 @@ public abstract class Armor extends Item {
       return "装備する";
     }
 
-    public boolean execute(Player player, Item item) {
-      if (item instanceof Armor) {
-      player.setArmor((Armor) item);
-        setCommandLog(player.getName() + "は" + item.getName() + "を装備した！");
+    public boolean execute() {
+      source.setArmor((Armor) Armor.this);
+      setCommandLog(source.getName() + "は" + Armor.this.getName() + "を装備した！");
       return true;
       }
-      return false;
-    }
-
-    @Override
-    public boolean execute(String[] args) {
-      // セッションからプレイヤーを取得する必要がある場合の実装
-      return true;
     }
   }
-}
+

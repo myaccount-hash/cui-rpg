@@ -47,7 +47,7 @@ public class ShopSession extends Session {
                 }
                 
                 @Override
-                public boolean execute(String[] args) {
+                public boolean execute() {
                     new ItemPurchaseSession(player, itemForSale.item, itemForSale.price, ShopSession.this).run();
                     return true;
                 }
@@ -91,7 +91,7 @@ public class ShopSession extends Session {
 
             addCommand(new Command("buy", "購入する") {
                 @Override
-                public boolean execute(String[] args) {
+                public boolean execute() {
                     if (player.getGold() < price) {
                         showMessage("お金が足りません。");
                         return false;

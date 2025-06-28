@@ -133,7 +133,7 @@ public abstract class Session {
         String commandName = commandNames.get(idx);
         Command cmd = commands.get(commandName);
         if (cmd != null) {
-          cmd.execute(new String[0]);
+          cmd.execute();
           if (cmd.getCommandLog() != null) {
             showMessage(cmd.getCommandLog());
           }

@@ -8,7 +8,7 @@ public class HpHeal extends Magic implements Heal {
   }
 
   @Override
-  protected boolean executeMagic(String[] args) {
+  public boolean execute() {
     target.heal(30);
     setCommandLog(source.getName() + "は回復魔法を使った！");
     return true;

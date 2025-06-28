@@ -24,7 +24,7 @@ public class BattleSession extends Session {
     addCommand(
         new Command("action", "アクションを選択") {
           @Override
-          public boolean execute(String[] args) {
+          public boolean execute() {
             if (battleEnded) {
               showMessage("戦闘は終了しています。");
               return true;
@@ -47,7 +47,7 @@ public class BattleSession extends Session {
     addCommand(
         new Command("status", "ステータスメニュー") {
           @Override
-          public boolean execute(String[] args) {
+          public boolean execute() {
             new PlayerItemListSession(player, BattleSession.this).run();
             return true;
           }
@@ -97,12 +97,12 @@ public class BattleSession extends Session {
       if (selectedAction instanceof Heal) {
         Action heal = (Action) selectedAction;
         heal.setTarget(monster);
-        heal.execute(new String[] {});
+        heal.execute();
         return heal.getCommandLog();
       } else if (selectedAction instanceof com.example.actions.Magic) {
         Magic magic = (Magic) selectedAction;
         magic.setTarget(player);
-        magic.execute(new String[] {});
+        magic.execute();
         return magic.getCommandLog();
       }
     }

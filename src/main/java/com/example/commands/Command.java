@@ -23,11 +23,17 @@ import com.example.entities.Entity;
      this.description = description;
    }
 
-   public abstract boolean execute(String[] args);
+   public abstract boolean execute();
 
    public String getName() { return name; }
    public String getDescription() { return description; }
    public String getCommandLog() { return commandLog; }
+   public void setTarget(Entity target) {
+      this.target = target;
+   }
+   public void setSource(Entity source) {
+      this.source = source;
+   }
 
    // コマンド内部でログをセットすれば、親セッションでログが表示される
    public void setCommandLog(String commandLog) { this.commandLog = commandLog; }
