@@ -1,7 +1,7 @@
 package com.example.items;
 
 import com.example.core.Command;
-import com.example.core.Item;
+
 import java.util.List;
 import com.example.actions.SelfTarget;
 import com.example.core.Entity;
@@ -26,7 +26,7 @@ public abstract class Armor extends Item {
 
   public class EquipCommand extends Command implements SelfTarget {
     public EquipCommand(Entity source) {
-      super("装備", "装備する", source);
+      super("装備", "装備する");
     }
 
     public String getLabel() {

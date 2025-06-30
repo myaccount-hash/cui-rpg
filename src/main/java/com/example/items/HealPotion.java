@@ -11,7 +11,7 @@ public class HealPotion extends Item {
   }
 
   @Override
-  protected List<Command> createCommands() {
+  protected List<Command> createCommands(Entity source) {
     return List.of(new UseCommand());
   }
 

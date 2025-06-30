@@ -3,6 +3,7 @@ package com.example.sessions;
 import com.example.commands.QuitCommand;
 import com.example.core.*;
 import com.example.entities.Player;
+import com.example.items.Item;
 import com.example.utils.TargetUtils;
 
 /*
@@ -14,7 +15,7 @@ public class ItemCommandSession extends Session {
     setDisplayText(buildItemDetail(item));
 
     // アイテムのアクションを適切なターゲット設定で追加
-    var itemCommands = TargetUtils.getItemCommands(player, item.getCommands());
+    var itemCommands = TargetUtils.getItemCommands(player, item.getCommands(player));
     for (Command action : itemCommands) {
       addCommand(action);
     }

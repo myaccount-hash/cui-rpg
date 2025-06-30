@@ -5,6 +5,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.example.items.Item;
+
 /** アイテムとゴールドを管理するクラス */
 public class ItemBox {
   private List<Item> items = new ArrayList<>();

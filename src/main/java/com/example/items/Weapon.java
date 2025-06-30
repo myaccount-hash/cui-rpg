@@ -2,8 +2,9 @@ package com.example.items;
 
 import com.example.actions.SelfTarget;
 import com.example.core.Command;
-import com.example.core.Item;
+
 import java.util.List;
+import com.example.core.Entity;
 
 /*
  * 武器の抽象クラス。一部の攻撃を強化する。Entity.javaのweaponフィールドに脱着可能。
@@ -21,7 +22,7 @@ public abstract class Weapon extends Item {
   }
 
   @Override
-  protected List<Command> createCommands() {
+  protected List<Command> createCommands(Entity source) {
     return List.of(new EquipCommand());
   }
 

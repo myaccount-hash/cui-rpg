@@ -1,6 +1,9 @@
-package com.example.core;
+package com.example.items;
 
 import java.util.List;
+
+import com.example.core.Command;
+import com.example.core.Entity;
 
 /*
  * アイテムの抽象クラス。装備, 消費等のアクションはCommandとして記述する。
@@ -28,9 +31,9 @@ public abstract class Item {
     return price;
   }
 
-  protected abstract List<Command> createCommands();
+  protected abstract List<Command> createCommands(Entity source);
 
-  public final List<Command> getCommands() {
-    return createCommands();
+  public final List<Command> getCommands(Entity source) {
+    return createCommands(source);
   }
 }
