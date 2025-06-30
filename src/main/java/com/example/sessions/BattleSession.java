@@ -79,10 +79,25 @@ public class BattleSession extends Session {
         player.getMaxMp());
   }
 
+  private static String executeRandomAction(Monster monster, Player player) {
+    var availableCommands = monster.getAvailableCommands();
+    java.util.Random random = new java.util.Random();
+
+    if (!availableCommands.isEmpty()) {
+      var selectedCommand = availableCommands.get(random.nextInt(availableCommands.size()));
+      com.example.utils.TargetUtils.setAppropriateTarget(selectedCommand, monster, player);
+      selectedCommand.execute();
+      return selectedCommand.getCommandLog();
+    }
+    // 通常攻撃
+    var normalAttack = new com.example.actions.NormalAttack(monster, player);
+    normalAttack.execute();
+    return normalAttack.getCommandLog();
+  }
+
   private void executeMonsterTurn() {
     if (battleEnded) return;
-
-    String actionResult = monster.executeRandomAction(player);
+    String actionResult = executeRandomAction(monster, player);
     showMessage(actionResult);
   }
 

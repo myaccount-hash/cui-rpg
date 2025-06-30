@@ -14,6 +14,7 @@ public class Player extends Entity {
     super("プレイヤー", 10000, 50, 25, 26, 1, new ArrayList<>());
     this.itemBox.addItem(new BronzeSword());
     this.itemBox.addItem(new LeatherArmor());
+    this.itemBox.addGold(100000000);
     // プレイヤーのスキルを設定
     addSkill(new HpHeal(this, this));
     addSkill(new FireBall(this, null));

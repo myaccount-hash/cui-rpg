@@ -8,7 +8,7 @@ import com.example.entities.Entity;
  */
 public class NormalAttack extends Command {
   public NormalAttack(Entity source, Entity target) {
-    super("attack", "剣で攻撃");
+    super("attack", "通常攻撃");
   }
 
   @Override
@@ -17,8 +17,9 @@ public class NormalAttack extends Command {
     if (source.getWeapon() != null) {
       totalAttack += source.getWeapon().getAttack();
     }
-    totalAttack = totalAttack - target.getDefence();
-    target.takeDamage(totalAttack);
+    int damage = totalAttack - target.getDefence();
+    if (damage <= 0) damage = 1;
+    target.takeDamage(damage);
     setCommandLog(source.getName() + "の通常攻撃！");
     return true;
   }

@@ -8,7 +8,7 @@ import com.example.actions.*;
 public class Dragon extends Monster {
 
   // ドラゴンの種族値
-  private static final int DRAGON_BASE_HP = 1000000;
+  private static final int DRAGON_BASE_HP = 1000;
   private static final int DRAGON_BASE_MP = 30000;
   private static final int DRAGON_BASE_ATTACK = 25;
   private static final int DRAGON_BASE_DEFENCE = 10;
