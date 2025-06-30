@@ -1,6 +1,7 @@
 package com.example.actions;
 
-import com.example.core.*;
+import com.example.commands.Command;
+import com.example.entities.Entity;
 
 /*
  * 通常攻撃。全てのEntityがこれを可能。
