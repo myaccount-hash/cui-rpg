@@ -1,6 +1,6 @@
 package com.example.actions;
 
-import com.example.core.Entity;
+import com.example.entities.Entity;
 
 public class HpHeal extends Magic implements SelfTarget {
   public HpHeal(Entity source, Entity target) {

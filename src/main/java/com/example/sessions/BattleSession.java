@@ -1,8 +1,7 @@
 package com.example.sessions;
 
+import com.example.commands.Command;
 import com.example.commands.QuitCommand;
-import com.example.core.Command;
-import com.example.core.Session;
 import com.example.entities.Monster;
 import com.example.entities.Player;
 

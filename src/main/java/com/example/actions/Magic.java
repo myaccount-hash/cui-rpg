@@ -1,6 +1,6 @@
 package com.example.actions;
 
-import com.example.core.Command;
+import com.example.commands.Command;
 
 /*
  * 魔法の抽象クラス。mpを消費するCommand。

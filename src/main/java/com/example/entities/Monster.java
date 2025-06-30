@@ -1,7 +1,6 @@
 package com.example.entities;
 
-import com.example.actions.*;
-import com.example.core.*;
+import com.example.commands.Command;
 import com.example.utils.TargetUtils;
 import com.example.utils.Utils;
 import java.util.ArrayList;

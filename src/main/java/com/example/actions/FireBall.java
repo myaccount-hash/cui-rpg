@@ -1,6 +1,6 @@
 package com.example.actions;
 
-import com.example.core.Entity;
+import com.example.entities.Entity;
 
 public class FireBall extends Magic {
   public FireBall(Entity source, Entity target) {

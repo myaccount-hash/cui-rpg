@@ -1,6 +1,7 @@
-package com.example.core;
+package com.example.entities;
 
 import com.example.actions.Magic;
+import com.example.commands.Command;
 import com.example.items.Armor;
 import com.example.items.Item;
 import com.example.items.Weapon;

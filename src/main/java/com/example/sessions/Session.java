@@ -1,5 +1,6 @@
-package com.example.core;
+package com.example.sessions;
 
+import com.example.commands.Command;
 import com.example.utils.Utils;
 import java.util.ArrayList;
 import java.util.HashMap;

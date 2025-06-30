@@ -1,4 +1,4 @@
-package com.example.core;
+package com.example.entities;
 
 import com.example.items.Item;
 import java.util.ArrayList;

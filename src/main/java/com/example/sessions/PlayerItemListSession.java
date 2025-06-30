@@ -1,9 +1,8 @@
 package com.example.sessions;
 
+import com.example.commands.Command;
 import com.example.commands.QuitCommand;
-import com.example.core.Command;
-import com.example.core.ItemBox.ItemCount;
-import com.example.core.Session;
+import com.example.entities.ItemBox.ItemCount;
 import com.example.entities.Player;
 
 /*

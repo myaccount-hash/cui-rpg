@@ -1,8 +1,8 @@
 package com.example.items;
 
 import com.example.actions.SelfTarget;
-import com.example.core.Command;
-import com.example.core.Entity;
+import com.example.commands.Command;
+import com.example.entities.Entity;
 import java.util.List;
 
 /*
