@@ -3,7 +3,6 @@ package com.example.sessions;
 import com.example.actions.*;
 import com.example.commands.QuitCommand;
 import com.example.core.*;
-import com.example.entities.Player;
 import com.example.utils.TargetUtils;
 
 /*
@@ -18,7 +17,8 @@ public class BattleCommandSelectionSession extends Session {
     this.displayText = parentSession.getDisplayText();
 
     // プレイヤーの戦闘コマンドを取得（ターゲット設定済み）
-    var battleCommands = TargetUtils.getBattleCommands(battleSession.getPlayer(), battleSession.getMonster());
+    var battleCommands =
+        TargetUtils.getBattleCommands(battleSession.getPlayer(), battleSession.getMonster());
     for (Command action : battleCommands) {
       addCommand(action);
     }

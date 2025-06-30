@@ -1,8 +1,8 @@
 package com.example.items;
 
-import com.example.core.Command;
-import com.example.core.*;
 import com.example.actions.SelfTarget;
+import com.example.core.*;
+import com.example.core.Command;
 import java.util.List;
 
 public class HealPotion extends Item {

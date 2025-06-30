@@ -1,10 +1,9 @@
 package com.example.items;
 
-import com.example.core.Command;
-
-import java.util.List;
 import com.example.actions.SelfTarget;
+import com.example.core.Command;
 import com.example.core.Entity;
+import java.util.List;
 
 // 防具の抽象クラス。一部の攻撃を強化する。Entity.javaのarmorフィールドに脱着可能。
 public abstract class Armor extends Item {

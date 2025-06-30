@@ -1,9 +1,8 @@
 package com.example.items;
 
-import java.util.List;
-
 import com.example.core.Command;
 import com.example.core.Entity;
+import java.util.List;
 
 /*
  * アイテムの抽象クラス。装備, 消費等のアクションはCommandとして記述する。
