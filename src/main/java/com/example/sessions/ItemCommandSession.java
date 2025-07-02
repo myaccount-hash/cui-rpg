@@ -3,9 +3,7 @@ package com.example.sessions;
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
 import com.example.entities.Entity;
-import com.example.entities.Player;
 import com.example.items.Item;
-import com.example.utils.TargetUtils;
 
 /*
  * 特定のItemに対して行うCommandを選ぶセッション。
@@ -15,9 +13,11 @@ public class ItemCommandSession extends Session {
     super("Command", "アイテムアクション", parentSession, sessionOwner);
     setDisplayText(buildItemDetail(item));
 
+    //TODO:バトルセッション中でのターゲットを適切に選択
     // アイテムのアクションを適切なターゲット設定で追加
-    var itemCommands = TargetUtils.getItemCommands(sessionOwner, item.getCommands(sessionOwner));
+    var itemCommands = item.getCommands(sessionOwner);
     for (Command action : itemCommands) {
+      action.setTarget(sessionOwner);
       addCommand(action);
     }
     addCommand(new QuitCommand(this, sessionOwner));

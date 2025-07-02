@@ -23,6 +23,7 @@ public abstract class Entity {
   protected Weapon weapon;
   protected Armor armor;
   private List<Command> skills = new ArrayList<>();
+  private Entity battleTarget;
 
   // ItemBoxでアイテムとゴールドを管理
   public ItemBox itemBox = new ItemBox();
@@ -216,6 +217,20 @@ public abstract class Entity {
       removeItem(armor);
     }
     this.armor = armor;
+  }
+
+  public void setBattleTarget(Entity battleTarget) {
+    this.battleTarget = battleTarget;
+    for (Command skill : skills) {
+      skill.setTarget(battleTarget);
+    }
+  }
+
+  public Entity getBattleTarget() {
+    if (battleTarget == null){
+      throw new IllegalStateException("battleTargetが設定されていません。");
+    }
+    return battleTarget;
   }
 
   public void takeDamage(int damage) {

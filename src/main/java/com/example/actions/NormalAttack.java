@@ -13,14 +13,14 @@ public class NormalAttack extends Command {
 
   @Override
   public boolean execute() {
-    int totalAttack = source.getAttack();
-    if (source.getWeapon() != null) {
-      totalAttack += source.getWeapon().getAttack();
+    int totalAttack = executor.getAttack();
+    if (executor.getWeapon() != null) {
+      totalAttack += executor.getWeapon().getAttack();
     }
-    int damage = totalAttack - target.getDefence();
+    int damage = totalAttack - getTarget().getDefence();
     if (damage <= 0) damage = 1;
-    target.takeDamage(damage);
-    setCommandLog(source.getName() + "の通常攻撃！");
+    getTarget().takeDamage(damage);
+    setCommandLog(executor.getName() + "の通常攻撃！");
     return true;
   }
 }

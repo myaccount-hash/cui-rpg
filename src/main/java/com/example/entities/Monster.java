@@ -1,11 +1,10 @@
 package com.example.entities;
 
-import com.example.commands.Command;
-import com.example.utils.TargetUtils;
-import com.example.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
+import com.example.commands.Command;
+import com.example.utils.Utils;
 
 // モンスターの抽象クラス
 public abstract class Monster extends Entity {

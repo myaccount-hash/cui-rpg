@@ -1,6 +1,5 @@
 package com.example.items;
 
-import com.example.actions.SelfTarget;
 import com.example.commands.Command;
 import com.example.entities.Entity;
 import java.util.List;
@@ -23,7 +22,7 @@ public abstract class Armor extends Item {
     return List.of(new EquipCommand(source));
   }
 
-  public class EquipCommand extends Command implements SelfTarget {
+  public class EquipCommand extends Command {
     public EquipCommand(Entity executor) {
       super("装備", "装備する", executor);
     }
@@ -33,8 +32,8 @@ public abstract class Armor extends Item {
     }
 
     public boolean execute() {
-      target.setArmor((Armor) Armor.this);
-      setCommandLog(target.getName() + "は" + Armor.this.getName() + "を装備した！");
+      executor.setArmor((Armor) Armor.this);
+      setCommandLog(getTarget().getName() + "は" + Armor.this.getName() + "を装備した！");
       return true;
     }
   }

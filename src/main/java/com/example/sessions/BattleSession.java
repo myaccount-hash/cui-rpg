@@ -4,7 +4,6 @@ import com.example.commands.Command;
 import com.example.commands.QuitCommand;
 import com.example.entities.Entity;
 import com.example.entities.Monster;
-import com.example.entities.Player;
 
 /*
 プレイヤーの行動、モンスターの行動、ログ、勝敗判定等を制御するセッション。
@@ -84,7 +83,7 @@ public class BattleSession extends Session {
 
     if (!availableCommands.isEmpty()) {
       var selectedCommand = availableCommands.get(random.nextInt(availableCommands.size()));
-      com.example.utils.TargetUtils.setAppropriateTarget(selectedCommand, monster, sessionOwner);
+      selectedCommand.setTarget(sessionOwner);
       selectedCommand.execute();
       return selectedCommand.getCommandLog();
     }

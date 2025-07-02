@@ -9,18 +9,26 @@ public abstract class Command {
   protected String name;
   protected String description;
   protected String commandLog;
-  protected Entity source;
-  protected Entity target;
+  protected Entity executor;
+  private Entity target;
 
   public Command(String name, String description, Entity executor) {
     this.name = name;
     this.description = description;
+    this.executor = executor;
   }
 
   public abstract boolean execute();
 
   public String getName() {
     return name;
+  }
+
+  public Entity getTarget() {
+    if(target == null){
+      throw new IllegalStateException("ターゲットが設定されていません。");
+    }
+     return target;
   }
 
   public String getDescription() {
@@ -36,7 +44,7 @@ public abstract class Command {
   }
 
   public void setSource(Entity source) {
-    this.source = source;
+    this.executor = source;
   }
 
   // コマンド内部でログをセットすれば、親セッションでログが表示される
