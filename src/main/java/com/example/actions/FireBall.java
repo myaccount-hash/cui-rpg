@@ -3,8 +3,8 @@ package com.example.actions;
 import com.example.entities.Entity;
 
 public class FireBall extends Magic {
-  public FireBall(Entity source, Entity target) {
-    super("fireball", "ファイアボールを使う", "fireball", 25);
+  public FireBall(Entity executer, Entity target) {
+    super("fireball", "ファイアボールを使う", "fireball", 25, executer);
   }
 
   @Override

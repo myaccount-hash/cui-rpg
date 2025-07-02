@@ -6,18 +6,20 @@ import com.example.entities.Entity;
 import java.util.List;
 
 public class HealPotion extends Item {
-  public HealPotion() {
-    super("ヒールポーション", "HPを50回復", 10);
+  Entity owner;
+  public HealPotion(Entity owner) {
+    super("ヒールポーション", "HPを50回復", 10, owner);
+    this.owner = owner;
   }
 
   @Override
   protected List<Command> createCommands(Entity source) {
-    return List.of(new UseCommand());
+    return List.of(new UseCommand(owner));
   }
 
   public class UseCommand extends Command implements SelfTarget {
-    public UseCommand() {
-      super("使う", "HPを50回復する");
+    public UseCommand(Entity executor) {
+      super("使う", "HPを50回復する", executor);
     }
 
     @Override

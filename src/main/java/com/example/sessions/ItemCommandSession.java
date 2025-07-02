@@ -2,6 +2,7 @@ package com.example.sessions;
 
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
+import com.example.entities.Entity;
 import com.example.entities.Player;
 import com.example.items.Item;
 import com.example.utils.TargetUtils;
@@ -10,16 +11,16 @@ import com.example.utils.TargetUtils;
  * 特定のItemに対して行うCommandを選ぶセッション。
  */
 public class ItemCommandSession extends Session {
-  public ItemCommandSession(Player player, Item item, Session parentSession) {
-    super("Command", "アイテムアクション", parentSession);
+  public ItemCommandSession(Item item, Session parentSession, Entity sessionOwner) {
+    super("Command", "アイテムアクション", parentSession, sessionOwner);
     setDisplayText(buildItemDetail(item));
 
     // アイテムのアクションを適切なターゲット設定で追加
-    var itemCommands = TargetUtils.getItemCommands(player, item.getCommands(player));
+    var itemCommands = TargetUtils.getItemCommands(sessionOwner, item.getCommands(sessionOwner));
     for (Command action : itemCommands) {
       addCommand(action);
     }
-    addCommand(new QuitCommand(this));
+    addCommand(new QuitCommand(this, sessionOwner));
   }
 
   private String buildItemDetail(Item item) {

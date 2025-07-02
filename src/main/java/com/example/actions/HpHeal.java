@@ -3,8 +3,8 @@ package com.example.actions;
 import com.example.entities.Entity;
 
 public class HpHeal extends Magic implements SelfTarget {
-  public HpHeal(Entity source, Entity target) {
-    super("heal", "回復魔法を使う", "heal", 20);
+  public HpHeal(Entity executer, Entity target) {
+    super("heal", "回復魔法を使う", "heal", 20, executer);
   }
 
   @Override

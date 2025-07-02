@@ -11,11 +11,14 @@ public abstract class Item {
   protected String name;
   protected String description;
   protected int price;
+  protected Entity owner;
 
-  public Item(String name, String description, int price) {
+
+  public Item(String name, String description, int price, Entity owner) {
     this.name = name;
     this.description = description;
     this.price = price;
+    this.owner = owner;
   }
 
   public String getDescription() {

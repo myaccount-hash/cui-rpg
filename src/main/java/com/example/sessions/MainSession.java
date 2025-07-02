@@ -4,6 +4,7 @@ import com.example.commands.Command;
 import com.example.commands.QuitCommand;
 import com.example.entities.Dragon;
 import com.example.entities.Player;
+import com.example.entities.Entity;
 
 /*
  * はじめに開始されるセッション。メインメニュー。
@@ -11,37 +12,37 @@ import com.example.entities.Player;
 public class MainSession extends Session {
   private final Player player;
 
-  public MainSession(Session parentSession) {
-    super("Main", "メイン対話型CUIプログラム", parentSession);
+  public MainSession(Session parentSession, Entity sessionOwner) {
+    super("Main", "メイン対話型CUIプログラム", parentSession, sessionOwner);
     this.player = new Player();
 
     addCommand(
-        new Command("dragon", "ドラゴンバトルセッションを開始します") {
+        new Command("dragon", "ドラゴンバトルセッションを開始します", sessionOwner) {
           @Override
           public boolean execute() {
             new BattleSession(
-                    "DragonBattle", "ドラゴンバトルセッション", new Dragon(1), player, MainSession.this)
+                    "DragonBattle", "ドラゴンバトルセッション", new Dragon(1), MainSession.this, sessionOwner)
                 .run();
             return true;
           }
         });
     addCommand(
-        new Command("items", "所持アイテム一覧を表示") {
+        new Command("items", "所持アイテム一覧を表示", sessionOwner) {
           @Override
           public boolean execute() {
-            new PlayerItemListSession(player, MainSession.this).run();
+            new PlayerItemListSession(MainSession.this, sessionOwner).run();
             return true;
           }
         });
     addCommand(
-        new Command("shop", "ショップに入る") {
+        new Command("shop", "ショップに入る", sessionOwner) {
           @Override
           public boolean execute() {
-            new ShopSession(player, MainSession.this).run();
+            new ShopSession(MainSession.this, sessionOwner).run();
             return true;
           }
         });
-    addCommand(new QuitCommand(this));
+    addCommand(new QuitCommand(this, sessionOwner));
 
     // 初期表示テキストを設定
     setDisplayText("ゲームを開始しました。");

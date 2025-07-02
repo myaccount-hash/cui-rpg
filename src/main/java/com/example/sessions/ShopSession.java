@@ -2,18 +2,17 @@ package com.example.sessions;
 
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
+import com.example.entities.Entity;
 import com.example.entities.Player;
 import com.example.items.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShopSession extends Session {
-  private final Player player;
   private final List<Item> itemsForSale;
 
-  public ShopSession(Player player, Session parentSession) {
-    super("Shop", "ショップ", parentSession);
-    this.player = player;
+  public ShopSession(Session parentSession, Entity sessionOwner) {
+    super("Shop", "ショップ", parentSession, sessionOwner);
     this.itemsForSale = initializeItems();
 
     updateMenu();
@@ -22,10 +21,11 @@ public class ShopSession extends Session {
 
   private List<Item> initializeItems() {
     List<Item> items = new ArrayList<>();
-    items.add(new IronSword());
-    items.add(new IronArmor());
-    items.add(new HealPotion());
-    items.add(new DragonSword());
+    //TODO: 店主のエンティティを作り、アイテムの受け渡しで実装。
+    items.add(new IronSword(sessionOwner));
+    items.add(new IronArmor(sessionOwner));
+    items.add(new HealPotion(sessionOwner));
+    items.add(new DragonSword(sessionOwner));
     return items;
   }
 
@@ -36,7 +36,7 @@ public class ShopSession extends Session {
 
     for (Item item : itemsForSale) {
       addCommand(
-          new Command(item.getName(), item.getDescription() + " (" + item.getPrice() + "G)") {
+          new Command(item.getName(), item.getDescription() + " (" + item.getPrice() + "G)", sessionOwner) {
             @Override
             public String getName() {
               int count = getItemCount(item);
@@ -45,18 +45,18 @@ public class ShopSession extends Session {
 
             @Override
             public boolean execute() {
-              new ItemPurchaseSession(player, item, ShopSession.this).run();
+              new ItemPurchaseSession(sessionOwner, item, ShopSession.this).run();
               return true;
             }
           });
     }
 
-    addCommand(new QuitCommand(this));
+    addCommand(new QuitCommand(this, sessionOwner));
   }
 
   private String buildShopInfo() {
     StringBuilder sb = new StringBuilder();
-    sb.append("【ショップ】\n所持金: ").append(player.getGold()).append("G\n");
+    sb.append("【ショップ】\n所持金: ").append(sessionOwner.getGold()).append("G\n");
     sb.append("---------------------\n");
     for (Item item : itemsForSale) {
       sb.append(item.getName())
@@ -76,32 +76,32 @@ public class ShopSession extends Session {
 
   // 購入確認セッション
   class ItemPurchaseSession extends Session {
-    public ItemPurchaseSession(Player player, Item item, Session parentSession) {
-      super("ItemPurchase", "アイテム購入", parentSession);
+    public ItemPurchaseSession(Entity sessionOwner, Item item, Session parentSession) {
+      super("ItemPurchase", "アイテム購入", parentSession, sessionOwner);
       setDisplayText(buildItemDetail(item));
 
       addCommand(
-          new Command("buy", "購入する") {
+          new Command("buy", "購入する", sessionOwner) {
             @Override
             public boolean execute() {
-              if (player.getGold() < item.getPrice()) {
+              if (sessionOwner.getGold() < item.getPrice()) {
                 showMessage("お金が足りません。");
                 return false;
               }
-              player.subtractGold(item.getPrice());
-              player.addItem(item);
+              sessionOwner.subtractGold(item.getPrice());
+              sessionOwner.addItem(item);
               showMessage(item.getName() + "を購入しました！");
               stop();
               return true;
             }
           });
-      addCommand(new QuitCommand(this));
+      addCommand(new QuitCommand(this, sessionOwner));
     }
 
     private String buildItemDetail(Item item) {
       return String.format(
           "【アイテム詳細】\n名前: %s\n説明: %s\n価格: %dG\n所持金: %dG",
-          item.getName(), item.getDescription(), item.getPrice(), player.getGold());
+          item.getName(), item.getDescription(), item.getPrice(), sessionOwner.getGold());
     }
 
     @Override
@@ -113,6 +113,6 @@ public class ShopSession extends Session {
   // アイテム所持数取得
   private int getItemCount(Item item) {
     return (int)
-        player.getItems().stream().filter(i -> i.getClass().equals(item.getClass())).count();
+        sessionOwner.getItems().stream().filter(i -> i.getClass().equals(item.getClass())).count();
   }
 }

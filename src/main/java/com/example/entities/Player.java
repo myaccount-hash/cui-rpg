@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class Player extends Entity {
   public Player() {
     super("プレイヤー", 10000, 50, 25, 26, 1, new ArrayList<>());
-    this.itemBox.addItem(new BronzeSword());
-    this.itemBox.addItem(new LeatherArmor());
+    this.itemBox.addItem(new BronzeSword(this));
+    this.itemBox.addItem(new LeatherArmor(this));
     this.itemBox.addGold(100000000);
     // プレイヤーのスキルを設定
     addSkill(new HpHeal(this, this));

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import com.example.entities.Entity;
 
 /*
  * 全てのセッションの抽象クラス。メニュー・ディスプレイ・ログの表示、コマンドの実行を管理。
@@ -28,9 +29,10 @@ public abstract class Session {
   protected List<String> commandNames;
   protected Session parentSession;
   protected String currentLog;
+  protected Entity sessionOwner;
 
   // コンストラクタ
-  public Session(String name, String description, Session parentSession) {
+  public Session(String name, String description, Session parentSession, Entity sessionOwner) {
     this.name = name;
     this.scanner = new Scanner(System.in);
     this.commands = new HashMap<>();
@@ -38,6 +40,7 @@ public abstract class Session {
     this.displayText = "";
     this.currentLog = "";
     this.parentSession = parentSession;
+    this.sessionOwner = sessionOwner;
   }
 
   /*

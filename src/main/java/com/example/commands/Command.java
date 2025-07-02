@@ -12,7 +12,7 @@ public abstract class Command {
   protected Entity source;
   protected Entity target;
 
-  public Command(String name, String description) {
+  public Command(String name, String description, Entity executor) {
     this.name = name;
     this.description = description;
   }

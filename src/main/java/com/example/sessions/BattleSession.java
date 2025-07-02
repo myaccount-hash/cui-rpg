@@ -2,6 +2,7 @@ package com.example.sessions;
 
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
+import com.example.entities.Entity;
 import com.example.entities.Monster;
 import com.example.entities.Player;
 
@@ -11,17 +12,15 @@ import com.example.entities.Player;
 public class BattleSession extends Session {
 
   private final Monster monster;
-  private final Player player;
   private boolean battleEnded = false;
 
   public BattleSession(
-      String name, String description, Monster monster, Player player, Session parentSession) {
-    super(name, description, parentSession);
+      String name, String description, Monster monster, Session parentSession, Entity sessionOwner) {
+    super(name, description, parentSession, sessionOwner);
     this.monster = monster;
-    this.player = player;
 
     addCommand(
-        new Command("action", "アクションを選択") {
+        new Command("action", "アクションを選択", sessionOwner) {
           @Override
           public boolean execute() {
             if (battleEnded) {
@@ -29,7 +28,7 @@ public class BattleSession extends Session {
               return true;
             }
 
-            new BattleCommandSelectionSession(BattleSession.this).run();
+            new BattleCommandSelectionSession(BattleSession.this, sessionOwner).run();
             setDisplayText(getBattleInfo());
 
             // 勝負判定
@@ -44,14 +43,14 @@ public class BattleSession extends Session {
           }
         });
     addCommand(
-        new Command("status", "ステータスメニュー") {
+        new Command("status", "ステータスメニュー", sessionOwner) {
           @Override
           public boolean execute() {
-            new PlayerItemListSession(player, BattleSession.this).run();
+            new PlayerItemListSession(BattleSession.this, sessionOwner).run();
             return true;
           }
         });
-    addCommand(new QuitCommand(this));
+    addCommand(new QuitCommand(this, sessionOwner));
     setDisplayText(getBattleInfo());
   }
 
@@ -64,8 +63,8 @@ public class BattleSession extends Session {
     return monster;
   }
 
-  public Player getPlayer() {
-    return player;
+  public Entity getPlayer() {
+    return sessionOwner;
   }
 
   private String getBattleInfo() {
@@ -73,31 +72,31 @@ public class BattleSession extends Session {
         "%s\n%s\n\nHP: %d/%d  MP: %d/%d",
         monster.getIcon(),
         monster.getInfoText(),
-        player.getHp(),
-        player.getMaxHp(),
-        player.getMp(),
-        player.getMaxMp());
+        sessionOwner.getHp(),
+        sessionOwner.getMaxHp(),
+        sessionOwner.getMp(),
+        sessionOwner.getMaxMp());
   }
 
-  private static String executeRandomAction(Monster monster, Player player) {
+  private static String executeRandomAction(Monster monster, Entity sessionOwner) {
     var availableCommands = monster.getAvailableCommands();
     java.util.Random random = new java.util.Random();
 
     if (!availableCommands.isEmpty()) {
       var selectedCommand = availableCommands.get(random.nextInt(availableCommands.size()));
-      com.example.utils.TargetUtils.setAppropriateTarget(selectedCommand, monster, player);
+      com.example.utils.TargetUtils.setAppropriateTarget(selectedCommand, monster, sessionOwner);
       selectedCommand.execute();
       return selectedCommand.getCommandLog();
     }
     // 通常攻撃
-    var normalAttack = new com.example.actions.NormalAttack(monster, player);
+    var normalAttack = new com.example.actions.NormalAttack(monster, sessionOwner);
     normalAttack.execute();
     return normalAttack.getCommandLog();
   }
 
   private void executeMonsterTurn() {
     if (battleEnded) return;
-    String actionResult = executeRandomAction(monster, player);
+    String actionResult = executeRandomAction(monster, sessionOwner);
     showMessage(actionResult);
   }
 
@@ -106,9 +105,9 @@ public class BattleSession extends Session {
     if (monster.getHp() <= 0) {
       battleEnded = true;
       int gainedExp = monster.getDropExp();
-      int oldLevel = player.getLevel();
-      player.gainExp(gainedExp);
-      int newLevel = player.getLevel();
+      int oldLevel = sessionOwner.getLevel();
+      sessionOwner.gainExp(gainedExp);
+      int newLevel = sessionOwner.getLevel();
 
       showMessage(String.format("勝利！ %sを倒しました！", monster.getName()));
       showMessage(String.format("%d EXPを獲得しました！", gainedExp));
@@ -116,13 +115,13 @@ public class BattleSession extends Session {
       showMessage(
           String.format(
               "現在のEXP: %d/%d (レベル%d)",
-              player.getExp(), player.getRequiredExpForNextLevel(), player.getLevel()));
+              sessionOwner.getExp(), sessionOwner.getRequiredExpForNextLevel(), sessionOwner.getLevel()));
 
       stop();
       return true;
     }
 
-    if (player.getHp() <= 0) {
+    if (sessionOwner.getHp() <= 0) {
       battleEnded = true;
       showMessage("敗北... " + monster.getName() + "に倒されました...");
       stop();

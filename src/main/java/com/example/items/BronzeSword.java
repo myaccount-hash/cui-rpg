@@ -1,7 +1,9 @@
 package com.example.items;
 
+import com.example.entities.Entity;
+
 public class BronzeSword extends Weapon {
-  public BronzeSword() {
-    super("BronzeSword", "銅の剣", 10, 10);
+  public BronzeSword(Entity owner) {
+    super("BronzeSword", "銅の剣", 10, owner, 10);
   }
 }

@@ -9,8 +9,8 @@ import java.util.List;
 public abstract class Armor extends Item {
   protected int defense;
 
-  public Armor(String name, String description, int price, int defense) {
-    super(name, description, price);
+  public Armor(String name, String description, int price, Entity owner, int defense) {
+    super(name, description, price, owner);
     this.defense = defense;
   }
 
@@ -24,8 +24,8 @@ public abstract class Armor extends Item {
   }
 
   public class EquipCommand extends Command implements SelfTarget {
-    public EquipCommand(Entity source) {
-      super("装備", "装備する");
+    public EquipCommand(Entity executor) {
+      super("装備", "装備する", executor);
     }
 
     public String getLabel() {

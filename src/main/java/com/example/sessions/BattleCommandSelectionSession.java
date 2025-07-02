@@ -2,6 +2,7 @@ package com.example.sessions;
 
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
+import com.example.entities.Entity;
 import com.example.utils.TargetUtils;
 
 /*
@@ -10,8 +11,8 @@ import com.example.utils.TargetUtils;
  */
 public class BattleCommandSelectionSession extends Session {
 
-  public BattleCommandSelectionSession(Session parentSession) {
-    super("アクション選択", "アクション選択", parentSession);
+  public BattleCommandSelectionSession(Session parentSession, Entity sessionOwner) {
+    super("アクション選択", "アクション選択", parentSession, sessionOwner);
     BattleSession battleSession = (BattleSession) parentSession;
     this.displayText = parentSession.getDisplayText();
 
@@ -22,7 +23,7 @@ public class BattleCommandSelectionSession extends Session {
       addCommand(action);
     }
 
-    addCommand(new QuitCommand(this));
+    addCommand(new QuitCommand(this, sessionOwner));
   }
 
   @Override

@@ -3,6 +3,7 @@ package com.example.sessions;
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
 import com.example.entities.ItemBox.ItemCount;
+import com.example.entities.Entity;
 import com.example.entities.Player;
 
 /*
@@ -10,18 +11,16 @@ import com.example.entities.Player;
  * メニューからItemを選ぶとCommandSessionに推移しCommandを選択できる。
  */
 public class PlayerItemListSession extends Session {
-  private final Player player;
 
-  public PlayerItemListSession(Player player, Session parentSession) {
-    super("ItemList", "所持アイテム一覧", parentSession);
-    this.player = player;
+  public PlayerItemListSession(Session parentSession, Entity sessionOwner) {
+    super("ItemList", "所持アイテム一覧", parentSession, sessionOwner);
     updateMenu();
-    setDisplayText(player.getInfoText());
+    setDisplayText(sessionOwner.getInfoText());
   }
 
   @Override
   protected void afterCommandExecuted() {
-    setDisplayText(player.getInfoText());
+    setDisplayText(sessionOwner.getInfoText());
     updateMenu();
   }
 
@@ -31,17 +30,17 @@ public class PlayerItemListSession extends Session {
     this.commandNames.clear();
 
     // ItemBoxに集計処理を委譲
-    for (ItemCount itemCount : player.itemBox.getItemCounts().values()) {
+    for (ItemCount itemCount : sessionOwner.itemBox.getItemCounts().values()) {
       addCommand(
-          new Command(itemCount.getDisplayName(), itemCount.item.getDescription()) {
+          new Command(itemCount.getDisplayName(), itemCount.item.getDescription(), sessionOwner) {
             @Override
             public boolean execute() {
-              new ItemCommandSession(player, itemCount.item, PlayerItemListSession.this).run();
+              new ItemCommandSession(itemCount.item, PlayerItemListSession.this, sessionOwner).run();
               return true;
             }
           });
     }
 
-    addCommand(new QuitCommand(this));
+    addCommand(new QuitCommand(this, sessionOwner));
   }
 }

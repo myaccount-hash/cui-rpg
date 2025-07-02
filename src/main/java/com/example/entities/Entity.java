@@ -48,8 +48,8 @@ public abstract class Entity {
     this.exp = 0;
 
     // デフォルトの武器と防具を匿名クラスで作成
-    this.weapon = new Weapon("素手", "何も持っていない", 0, 0) {};
-    this.armor = new Armor("素肌", "何も着ていない", 0, 0) {};
+    this.weapon = new Weapon("素手", "何も持っていない", 0, this, 0) {};
+    this.armor = new Armor("素肌", "何も着ていない", 0, this, 0) {};
 
     // デフォルトで通常攻撃を追加
     this.skills.add(new com.example.actions.NormalAttack(this, null));
@@ -268,7 +268,7 @@ public abstract class Entity {
   }
 
   // 情報表示
-  protected String getInfoText() {
+  public String getInfoText() {
     return String.format(
         "%s: %s\n%s: %d\n%s: %d/%d\n%s: %d/%d\n%s: %d\n%s: %d\n%s: %d",
         Utils.format("名前", 8),

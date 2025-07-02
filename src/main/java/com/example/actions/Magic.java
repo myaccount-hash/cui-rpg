@@ -1,6 +1,7 @@
 package com.example.actions;
 
 import com.example.commands.Command;
+import com.example.entities.Entity;
 
 /*
  * 魔法の抽象クラス。mpを消費するCommand。
@@ -8,8 +9,8 @@ import com.example.commands.Command;
 public abstract class Magic extends Command {
   protected int mpCost;
 
-  public Magic(String name, String description, String commandName, int mpCost) {
-    super(name, description);
+  public Magic(String name, String description, String commandName, int mpCost, Entity executer) {
+    super(name, description, executer);
     this.mpCost = mpCost;
   }
 
