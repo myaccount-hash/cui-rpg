@@ -1,8 +1,5 @@
 package com.example.sessions;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
 import com.example.entities.Entity;
@@ -11,6 +8,8 @@ import com.example.items.HealPotion;
 import com.example.items.IronArmor;
 import com.example.items.IronSword;
 import com.example.items.Item;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShopSession extends Session {
   private final List<Item> itemsForSale;
@@ -25,7 +24,7 @@ public class ShopSession extends Session {
 
   private List<Item> initializeItems() {
     List<Item> items = new ArrayList<>();
-    //TODO: 店主のエンティティを作り、アイテムの受け渡しで実装。
+    // TODO: 店主のエンティティを作り、アイテムの受け渡しで実装。
     items.add(new IronSword(sessionOwner));
     items.add(new IronArmor(sessionOwner));
     items.add(new HealPotion(sessionOwner));
@@ -40,7 +39,8 @@ public class ShopSession extends Session {
 
     for (Item item : itemsForSale) {
       addCommand(
-          new Command(item.getName(), item.getDescription() + " (" + item.getPrice() + "G)", sessionOwner) {
+          new Command(
+              item.getName(), item.getDescription() + " (" + item.getPrice() + "G)", sessionOwner) {
             @Override
             public String getName() {
               int count = getItemCount(item);

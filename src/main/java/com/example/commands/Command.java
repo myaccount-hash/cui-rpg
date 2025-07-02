@@ -25,10 +25,10 @@ public abstract class Command {
   }
 
   public Entity getTarget() {
-    if(target == null){
+    if (target == null) {
       throw new IllegalStateException("ターゲットが設定されていません。");
     }
-     return target;
+    return target;
   }
 
   public String getDescription() {

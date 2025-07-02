@@ -13,7 +13,7 @@ public class ItemCommandSession extends Session {
     super("Command", "アイテムアクション", parentSession, sessionOwner);
     setDisplayText(buildItemDetail(item));
 
-    //TODO:バトルセッション中でのターゲットを適切に選択
+    // TODO:バトルセッション中でのターゲットを適切に選択
     var itemCommands = item.getCommands(sessionOwner);
     for (Command action : itemCommands) {
       action.setTarget(sessionOwner);

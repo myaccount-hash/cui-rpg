@@ -14,7 +14,11 @@ public class BattleSession extends Session {
   private boolean battleEnded = false;
 
   public BattleSession(
-      String name, String description, Monster monster, Session parentSession, Entity sessionOwner) {
+      String name,
+      String description,
+      Monster monster,
+      Session parentSession,
+      Entity sessionOwner) {
     super(name, description, parentSession, sessionOwner);
     this.monster = monster;
 
@@ -114,7 +118,9 @@ public class BattleSession extends Session {
       showMessage(
           String.format(
               "現在のEXP: %d/%d (レベル%d)",
-              sessionOwner.getExp(), sessionOwner.getRequiredExpForNextLevel(), sessionOwner.getLevel()));
+              sessionOwner.getExp(),
+              sessionOwner.getRequiredExpForNextLevel(),
+              sessionOwner.getLevel()));
 
       stop();
       return true;

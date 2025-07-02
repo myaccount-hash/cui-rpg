@@ -227,7 +227,7 @@ public abstract class Entity {
   }
 
   public Entity getBattleTarget() {
-    if (battleTarget == null){
+    if (battleTarget == null) {
       throw new IllegalStateException("battleTargetが設定されていません。");
     }
     return battleTarget;

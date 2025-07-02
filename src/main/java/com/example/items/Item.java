@@ -13,7 +13,6 @@ public abstract class Item {
   protected int price;
   protected Entity owner;
 
-
   public Item(String name, String description, int price, Entity owner) {
     this.name = name;
     this.description = description;

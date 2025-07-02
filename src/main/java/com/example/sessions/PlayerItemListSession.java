@@ -34,7 +34,8 @@ public class PlayerItemListSession extends Session {
           new Command(itemCount.getDisplayName(), itemCount.item.getDescription(), sessionOwner) {
             @Override
             public boolean execute() {
-              new ItemCommandSession(itemCount.item, PlayerItemListSession.this, sessionOwner).run();
+              new ItemCommandSession(itemCount.item, PlayerItemListSession.this, sessionOwner)
+                  .run();
               return true;
             }
           });

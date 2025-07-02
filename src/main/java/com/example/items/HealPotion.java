@@ -6,6 +6,7 @@ import java.util.List;
 
 public class HealPotion extends Item {
   Entity owner;
+
   public HealPotion(Entity owner) {
     super("ヒールポーション", "HPを50回復", 10, owner);
     this.owner = owner;
