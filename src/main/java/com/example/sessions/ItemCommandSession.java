@@ -14,7 +14,6 @@ public class ItemCommandSession extends Session {
     setDisplayText(buildItemDetail(item));
 
     //TODO:バトルセッション中でのターゲットを適切に選択
-    // アイテムのアクションを適切なターゲット設定で追加
     var itemCommands = item.getCommands(sessionOwner);
     for (Command action : itemCommands) {
       action.setTarget(sessionOwner);
