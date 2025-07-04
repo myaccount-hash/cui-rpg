@@ -1,14 +1,13 @@
 package com.example.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.example.commands.Command;
 import com.example.commands.Magic;
 import com.example.items.Armor;
 import com.example.items.Item;
 import com.example.items.Weapon;
 import com.example.utils.Utils;
+import java.util.ArrayList;
+import java.util.List;
 
 // プレイヤーやモンスターを含む抽象クラス。
 public abstract class Entity {
