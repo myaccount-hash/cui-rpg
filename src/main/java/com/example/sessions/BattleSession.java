@@ -92,7 +92,7 @@ public class BattleSession extends Session {
       return selectedCommand.getCommandLog();
     }
     // 通常攻撃
-    var normalAttack = new com.example.actions.NormalAttack(monster, sessionOwner);
+    var normalAttack = new com.example.commands.NormalAttack(monster, sessionOwner);
     normalAttack.execute();
     return normalAttack.getCommandLog();
   }

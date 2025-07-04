@@ -1,6 +1,7 @@
 package com.example.entities;
 
-import com.example.actions.*;
+import com.example.commands.FireBall;
+import com.example.commands.HpHeal;
 
 /*
  * ドラゴンクラス

@@ -1,5 +1,8 @@
 package com.example.sessions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
 import com.example.entities.Entity;
@@ -8,8 +11,6 @@ import com.example.items.HealPotion;
 import com.example.items.IronArmor;
 import com.example.items.IronSword;
 import com.example.items.Item;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ShopSession extends Session {
   private final List<Item> itemsForSale;

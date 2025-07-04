@@ -1,9 +1,12 @@
 package com.example.entities;
 
-import com.example.actions.*;
-import com.example.items.*;
-import com.example.utils.Utils;
 import java.util.ArrayList;
+
+import com.example.commands.FireBall;
+import com.example.commands.HpHeal;
+import com.example.items.BronzeSword;
+import com.example.items.LeatherArmor;
+import com.example.utils.Utils;
 
 /*
  * プレイヤーデータを管理するクラス。将来的にはセーブファイルからロードする。

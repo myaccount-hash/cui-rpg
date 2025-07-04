@@ -1,6 +1,5 @@
-package com.example.actions;
+package com.example.commands;
 
-import com.example.commands.Command;
 import com.example.entities.Entity;
 
 /*

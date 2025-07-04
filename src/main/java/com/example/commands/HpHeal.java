@@ -1,4 +1,4 @@
-package com.example.actions;
+package com.example.commands;
 
 import com.example.entities.Entity;
 
