@@ -29,7 +29,7 @@ public class Dragon extends Monster {
         DRAGON_ICON);
 
     // ドラゴンのスキルを設定
-    addSkill(new FireBall(this, null));
-    addSkill(new HpHeal(this, null));
+    addSkill(new FireBall(this));
+    addSkill(new HpHeal(this));
   }
 }

@@ -18,8 +18,8 @@ public class Player extends Entity {
     this.itemBox.addItem(new LeatherArmor(this));
     this.itemBox.addGold(100000000);
     // プレイヤーのスキルを設定
-    addSkill(new HpHeal(this, this));
-    addSkill(new FireBall(this, null));
+    addSkill(new HpHeal(this));
+    addSkill(new FireBall(this));
   }
 
   @Override

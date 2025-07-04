@@ -13,7 +13,6 @@ public abstract class Magic extends Command {
     this.mpCost = mpCost;
   }
 
-  // 各魔法クラスで実装する抽象メソッド
   public int getMpCost() {
     return mpCost;
   }
