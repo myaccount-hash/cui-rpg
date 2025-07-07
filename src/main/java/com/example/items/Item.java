@@ -1,19 +1,19 @@
 package com.example.items;
 
-import com.example.commands.Command;
-import com.example.entities.Entity;
+import com.example.commands.ICommand;
+import com.example.entities.IEntity;
 import java.util.List;
 
 /*
  * アイテムの抽象クラス。装備, 消費等のアクションはCommandとして記述する。
  */
-public abstract class Item {
+public abstract class Item implements IItem {
   protected String name;
   protected String description;
   protected int price;
-  protected Entity owner;
+  protected IEntity owner;
 
-  public Item(String name, String description, int price, Entity owner) {
+  public Item(String name, String description, int price, IEntity owner) {
     this.name = name;
     this.description = description;
     this.price = price;
@@ -32,9 +32,14 @@ public abstract class Item {
     return price;
   }
 
-  protected abstract List<Command> createCommands(Entity source);
+  @Override
+  public IEntity getOwner() {
+    return owner;
+  }
 
-  public final List<Command> getCommands(Entity source) {
+  protected abstract List<ICommand> createCommands(IEntity source);
+
+  public final List<ICommand> getCommands(IEntity source) {
     return createCommands(source);
   }
 }

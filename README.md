@@ -9,12 +9,11 @@ Session.javaとその内部クラスであるCommandクラスを中心として�
 主要なクラスは以下です。
 - Session: 全体の統一的な制御を提供。詳細はSession.javaを参照。
 - BattleSession: バトルを制御するSession。
-- Command: Sessionが実行する処理。
-- Command: 攻撃・魔法等の抽象クラス。実行元、対象を伴うCommand。
-- Command : アイテムを使って実行するCommand。
-- Item: 全てのアイテムの抽象クラス
-- Entity: プレイヤー、モンスター等の抽象クラス
+- ICommand: Sessionが実行する処理。
+- ICommand: 攻撃・魔法等の抽象クラス。実行元、対象を伴うCommand。
+- ICommand : アイテムを使って実行するCommand。
+- IItem: 全てのアイテムの抽象クラス
+- IEntity: プレイヤー、モンスター等の抽象クラス
 
 # TODO
 - [ ] セーブシステム導入
-- [ ] コマンドの内部状態を削除。ソース・ターゲットは引数として渡す。関数的に。

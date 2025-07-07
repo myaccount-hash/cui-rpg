@@ -1,6 +1,6 @@
 package com.example.entities;
 
-import com.example.items.Item;
+import com.example.items.IItem;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.Map;
 
 /** アイテムとゴールドを管理するクラス */
 public class ItemBox {
-  private List<Item> items = new ArrayList<>();
+  private List<IItem> IItems = new ArrayList<>();
   private int gold;
 
   public ItemBox() {
@@ -20,46 +20,46 @@ public class ItemBox {
   }
 
   // アイテム管理
-  public List<Item> getItems() {
-    return new ArrayList<>(items); // 防御的コピー
+  public List<IItem> getItems() {
+    return new ArrayList<>(IItems); // 防御的コピー
   }
 
-  public void addItem(Item item) {
-    if (item != null) {
-      items.add(item);
+  public void addItem(IItem IItem) {
+    if (IItem != null) {
+      IItems.add(IItem);
     }
   }
 
-  public boolean removeItem(Item item) {
-    return items.remove(item);
+  public boolean removeItem(IItem IItem) {
+    return IItems.remove(IItem);
   }
 
-  public boolean hasItem(Item item) {
-    return items.contains(item);
+  public boolean hasItem(IItem IItem) {
+    return IItems.contains(IItem);
   }
 
   public int getItemCount() {
-    return items.size();
+    return IItems.size();
   }
 
   public void clearItems() {
-    items.clear();
+    IItems.clear();
   }
 
   // アイテム集計機能
-  public Map<String, ItemCount> getItemCounts() {
-    Map<String, ItemCount> itemCountMap = new LinkedHashMap<>();
-    for (Item item : items) {
-      String key = item.getName();
-      itemCountMap.merge(
+  public Map<String, IItemCount> getItemCounts() {
+    Map<String, IItemCount> IItemCountMap = new LinkedHashMap<>();
+    for (IItem IItem : IItems) {
+      String key = IItem.getName();
+      IItemCountMap.merge(
           key,
-          new ItemCount(item, 1),
+          new IItemCount(IItem, 1),
           (existing, newCount) -> {
             existing.count++;
             return existing;
           });
     }
-    return itemCountMap;
+    return IItemCountMap;
   }
 
   // ゴールド管理
@@ -90,17 +90,17 @@ public class ItemBox {
   }
 
   // アイテム個数管理用クラス
-  public static class ItemCount {
-    public final Item item;
+  public static class IItemCount {
+    public final IItem IItem;
     public int count;
 
-    public ItemCount(Item item, int count) {
-      this.item = item;
+    public IItemCount(IItem IItem, int count) {
+      this.IItem = IItem;
       this.count = count;
     }
 
     public String getDisplayName() {
-      return count > 1 ? item.getName() + "(" + count + ")" : item.getName();
+      return count > 1 ? IItem.getName() + "(" + count + ")" : IItem.getName();
     }
   }
 }

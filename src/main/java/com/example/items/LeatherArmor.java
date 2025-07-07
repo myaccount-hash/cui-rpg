@@ -1,9 +1,9 @@
 package com.example.items;
 
-import com.example.entities.Entity;
+import com.example.entities.IEntity;
 
 public class LeatherArmor extends Armor {
-  public LeatherArmor(Entity owner) {
+  public LeatherArmor(IEntity owner) {
     super("LeatherArmor", "革の鎧", 2, owner, 5);
   }
 }

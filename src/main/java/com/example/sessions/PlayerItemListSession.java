@@ -2,8 +2,8 @@ package com.example.sessions;
 
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
-import com.example.entities.Entity;
-import com.example.entities.ItemBox.ItemCount;
+import com.example.entities.IEntity;
+import com.example.entities.ItemBox.IItemCount;
 
 /*
  * Playerの所有するItemの一覧を表示するセッション。
@@ -11,7 +11,7 @@ import com.example.entities.ItemBox.ItemCount;
  */
 public class PlayerItemListSession extends Session {
 
-  public PlayerItemListSession(Session parentSession, Entity sessionOwner) {
+  public PlayerItemListSession(Session parentSession, IEntity sessionOwner) {
     super("ItemList", "所持アイテム一覧", parentSession, sessionOwner);
     updateMenu();
     setDisplayText(sessionOwner.getInfoText());
@@ -29,12 +29,13 @@ public class PlayerItemListSession extends Session {
     this.commandNames.clear();
 
     // ItemBoxに集計処理を委譲
-    for (ItemCount itemCount : sessionOwner.itemBox.getItemCounts().values()) {
+    for (IItemCount IItemCount : sessionOwner.getItemBox().getItemCounts().values()) {
       addCommand(
-          new Command(itemCount.getDisplayName(), itemCount.item.getDescription(), sessionOwner) {
+          new Command(
+              IItemCount.getDisplayName(), IItemCount.IItem.getDescription(), sessionOwner) {
             @Override
             public boolean execute() {
-              new ItemCommandSession(itemCount.item, PlayerItemListSession.this, sessionOwner)
+              new IItemCommandSession(IItemCount.IItem, PlayerItemListSession.this, sessionOwner)
                   .run();
               return true;
             }

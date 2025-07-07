@@ -1,9 +1,9 @@
 package com.example.commands;
 
-import com.example.entities.Entity;
+import com.example.entities.IEntity;
 
 public class FireBall extends Magic {
-  public FireBall(Entity executer) {
+  public FireBall(IEntity executer) {
     super("fireball", "ファイアボールを使う", "fireball", 25, executer);
   }
 

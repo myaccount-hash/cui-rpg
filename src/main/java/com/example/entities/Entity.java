@@ -1,16 +1,16 @@
 package com.example.entities;
 
-import com.example.commands.Command;
+import com.example.commands.ICommand;
 import com.example.commands.Magic;
 import com.example.items.Armor;
-import com.example.items.Item;
+import com.example.items.IItem;
 import com.example.items.Weapon;
 import com.example.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
 // プレイヤーやモンスターを含む抽象クラス。
-public abstract class Entity {
+public abstract class Entity implements IEntity {
   private String name;
   private int hp;
   private int mp;
@@ -22,11 +22,11 @@ public abstract class Entity {
   private int baseDefence;
   protected Weapon weapon;
   protected Armor armor;
-  private List<Command> skills = new ArrayList<>();
-  private Entity battleTarget;
+  private List<ICommand> skills = new ArrayList<>();
+  private IEntity battleTarget;
 
   // ItemBoxでアイテムとゴールドを管理
-  public ItemBox itemBox = new ItemBox();
+  public ItemBox ItemBox = new ItemBox();
 
   protected Entity(
       String name,
@@ -35,7 +35,7 @@ public abstract class Entity {
       int baseAttack,
       int baseDefence,
       int level,
-      List<Command> skills) {
+      List<ICommand> skills) {
     this.name = name;
     this.level = level;
     this.baseHp = baseHp;
@@ -63,6 +63,10 @@ public abstract class Entity {
   // 基本ゲッター
   public String getName() {
     return name;
+  }
+
+  public ItemBox getItemBox() {
+    return ItemBox;
   }
 
   public int getHp() {
@@ -124,15 +128,15 @@ public abstract class Entity {
   }
 
   // スキル管理
-  public List<Command> getSkills() {
+  public List<ICommand> getSkills() {
     return skills;
   }
 
-  public void addSkill(Command skill) {
+  public void addSkill(ICommand skill) {
     skills.add(skill);
   }
 
-  public void removeSkill(Command skill) {
+  public void removeSkill(ICommand skill) {
     skills.remove(skill);
   }
 
@@ -141,9 +145,9 @@ public abstract class Entity {
   }
 
   // 使用可能なアクションを取得
-  public List<Command> getAvailableCommands() {
-    List<Command> available = new ArrayList<>();
-    for (Command action : skills) {
+  public List<ICommand> getAvailableCommands() {
+    List<ICommand> available = new ArrayList<>();
+    for (ICommand action : skills) {
       // 使用可能判定をここで直接実行
       if (action instanceof Magic) {
         Magic magic = (Magic) action;
@@ -219,14 +223,14 @@ public abstract class Entity {
     this.armor = armor;
   }
 
-  public void setBattleTarget(Entity battleTarget) {
+  public void setBattleTarget(IEntity battleTarget) {
     this.battleTarget = battleTarget;
-    for (Command skill : skills) {
+    for (ICommand skill : skills) {
       skill.setTarget(battleTarget);
     }
   }
 
-  public Entity getBattleTarget() {
+  public IEntity getBattleTarget() {
     if (battleTarget == null) {
       throw new IllegalStateException("battleTargetが設定されていません。");
     }
@@ -278,7 +282,7 @@ public abstract class Entity {
   }
 
   // 現在のレベルに必要な経験値
-  private int getRequiredExpForCurrentLevel() {
+  public int getRequiredExpForCurrentLevel() {
     return (level - 1) * 100;
   }
 
@@ -305,43 +309,43 @@ public abstract class Entity {
   }
 
   // ItemBoxへの委譲メソッド
-  public List<Item> getItems() {
-    return itemBox.getItems();
+  public List<IItem> getItems() {
+    return ItemBox.getItems();
   }
 
-  public void addItem(Item item) {
-    itemBox.addItem(item);
+  public void addItem(IItem item) {
+    ItemBox.addItem(item);
   }
 
-  public boolean removeItem(Item item) {
-    return itemBox.removeItem(item);
+  public boolean removeItem(IItem item) {
+    return ItemBox.removeItem(item);
   }
 
-  public boolean hasItem(Item item) {
-    return itemBox.hasItem(item);
+  public boolean hasItem(IItem item) {
+    return ItemBox.hasItem(item);
   }
 
   public int getItemCount() {
-    return itemBox.getItemCount();
+    return ItemBox.getItemCount();
   }
 
   public int getGold() {
-    return itemBox.getGold();
+    return ItemBox.getGold();
   }
 
   public void setGold(int gold) {
-    itemBox.setGold(gold);
+    ItemBox.setGold(gold);
   }
 
   public void addGold(int amount) {
-    itemBox.addGold(amount);
+    ItemBox.addGold(amount);
   }
 
   public boolean subtractGold(int amount) {
-    return itemBox.subtractGold(amount);
+    return ItemBox.subtractGold(amount);
   }
 
   public boolean canAfford(int cost) {
-    return itemBox.canAfford(cost);
+    return ItemBox.canAfford(cost);
   }
 }

@@ -1,12 +1,12 @@
 package com.example.commands;
 
-import com.example.entities.Entity;
+import com.example.entities.IEntity;
 
 /*
  * 通常攻撃。全てのEntityがこれを可能。
  */
 public class NormalAttack extends Command {
-  public NormalAttack(Entity executer, Entity target) {
+  public NormalAttack(IEntity executer, IEntity target) {
     super("attack", "通常攻撃", executer);
   }
 

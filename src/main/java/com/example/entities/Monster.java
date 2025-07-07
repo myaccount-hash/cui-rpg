@@ -1,6 +1,6 @@
 package com.example.entities;
 
-import com.example.commands.Command;
+import com.example.commands.ICommand;
 import com.example.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +24,10 @@ public abstract class Monster extends Entity {
     this.icon = icon;
   }
 
-  private static List<Command> createDefaultSkills() {
-    List<Command> skills = new ArrayList<>();
+  private static List<ICommand> createDefaultSkills() {
+    List<ICommand> skills = new ArrayList<>();
+    // skills.add(new FireBall(this)); // static文脈でthisは使えないためコメントアウト
+    // skills.add(new HpHeal(this));
     // デフォルトスキルは空のリスト（サブクラスで設定）
     return skills;
   }

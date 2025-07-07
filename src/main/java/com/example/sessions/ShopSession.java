@@ -2,34 +2,34 @@ package com.example.sessions;
 
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
-import com.example.entities.Entity;
+import com.example.entities.IEntity;
 import com.example.items.DragonSword;
 import com.example.items.HealPotion;
+import com.example.items.IItem;
 import com.example.items.IronArmor;
 import com.example.items.IronSword;
-import com.example.items.Item;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShopSession extends Session {
-  private final List<Item> itemsForSale;
+  private final List<IItem> IItemsForSale;
 
-  public ShopSession(Session parentSession, Entity sessionOwner) {
+  public ShopSession(Session parentSession, IEntity sessionOwner) {
     super("Shop", "ショップ", parentSession, sessionOwner);
-    this.itemsForSale = initializeItems();
+    this.IItemsForSale = initializeItems();
 
     updateMenu();
     setDisplayText(buildShopInfo());
   }
 
-  private List<Item> initializeItems() {
-    List<Item> items = new ArrayList<>();
+  private List<IItem> initializeItems() {
+    List<IItem> IItems = new ArrayList<>();
     // TODO: 店主のエンティティを作り、アイテムの受け渡しで実装。
-    items.add(new IronSword(sessionOwner));
-    items.add(new IronArmor(sessionOwner));
-    items.add(new HealPotion(sessionOwner));
-    items.add(new DragonSword(sessionOwner));
-    return items;
+    IItems.add(new IronSword(sessionOwner));
+    IItems.add(new IronArmor(sessionOwner));
+    IItems.add(new HealPotion(sessionOwner));
+    IItems.add(new DragonSword(sessionOwner));
+    return IItems;
   }
 
   @Override
@@ -37,19 +37,21 @@ public class ShopSession extends Session {
     this.commands.clear();
     this.commandNames.clear();
 
-    for (Item item : itemsForSale) {
+    for (IItem IItem : IItemsForSale) {
       addCommand(
           new Command(
-              item.getName(), item.getDescription() + " (" + item.getPrice() + "G)", sessionOwner) {
+              IItem.getName(),
+              IItem.getDescription() + " (" + IItem.getPrice() + "G)",
+              sessionOwner) {
             @Override
             public String getName() {
-              int count = getItemCount(item);
-              return item.getName() + "(" + count + ")";
+              int count = getItemCount(IItem);
+              return IItem.getName() + "(" + count + ")";
             }
 
             @Override
             public boolean execute() {
-              new ItemPurchaseSession(sessionOwner, item, ShopSession.this).run();
+              new IItemPurchaseSession(sessionOwner, IItem, ShopSession.this).run();
               return true;
             }
           });
@@ -62,12 +64,12 @@ public class ShopSession extends Session {
     StringBuilder sb = new StringBuilder();
     sb.append("【ショップ】\n所持金: ").append(sessionOwner.getGold()).append("G\n");
     sb.append("---------------------\n");
-    for (Item item : itemsForSale) {
-      sb.append(item.getName())
+    for (IItem IItem : IItemsForSale) {
+      sb.append(IItem.getName())
           .append(": ")
-          .append(item.getDescription())
+          .append(IItem.getDescription())
           .append(" (")
-          .append(item.getPrice())
+          .append(IItem.getPrice())
           .append("G)\n");
     }
     return sb.toString();
@@ -79,22 +81,22 @@ public class ShopSession extends Session {
   }
 
   // 購入確認セッション
-  class ItemPurchaseSession extends Session {
-    public ItemPurchaseSession(Entity sessionOwner, Item item, Session parentSession) {
+  class IItemPurchaseSession extends Session {
+    public IItemPurchaseSession(IEntity sessionOwner, IItem IItem, Session parentSession) {
       super("ItemPurchase", "アイテム購入", parentSession, sessionOwner);
-      setDisplayText(buildItemDetail(item));
+      setDisplayText(buildItemDetail(IItem));
 
       addCommand(
           new Command("buy", "購入する", sessionOwner) {
             @Override
             public boolean execute() {
-              if (sessionOwner.getGold() < item.getPrice()) {
+              if (sessionOwner.getGold() < IItem.getPrice()) {
                 showMessage("お金が足りません。");
                 return false;
               }
-              sessionOwner.subtractGold(item.getPrice());
-              sessionOwner.addItem(item);
-              showMessage(item.getName() + "を購入しました！");
+              sessionOwner.subtractGold(IItem.getPrice());
+              sessionOwner.addItem(IItem);
+              showMessage(IItem.getName() + "を購入しました！");
               stop();
               return true;
             }
@@ -102,10 +104,10 @@ public class ShopSession extends Session {
       addCommand(new QuitCommand(this, sessionOwner));
     }
 
-    private String buildItemDetail(Item item) {
+    private String buildItemDetail(IItem IItem) {
       return String.format(
           "【アイテム詳細】\n名前: %s\n説明: %s\n価格: %dG\n所持金: %dG",
-          item.getName(), item.getDescription(), item.getPrice(), sessionOwner.getGold());
+          IItem.getName(), IItem.getDescription(), IItem.getPrice(), sessionOwner.getGold());
     }
 
     @Override
@@ -115,8 +117,8 @@ public class ShopSession extends Session {
   }
 
   // アイテム所持数取得
-  private int getItemCount(Item item) {
+  private int getItemCount(IItem IItem) {
     return (int)
-        sessionOwner.getItems().stream().filter(i -> i.getClass().equals(item.getClass())).count();
+        sessionOwner.getItems().stream().filter(i -> i.getClass().equals(IItem.getClass())).count();
   }
 }
