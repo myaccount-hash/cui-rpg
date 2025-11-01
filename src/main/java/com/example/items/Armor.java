@@ -23,7 +23,7 @@ public abstract class Armor extends Item {
     return List.of(new EquipCommand(source));
   }
 
-  public class EquipCommand extends Command implements ICommand {
+  public class EquipCommand extends Command {
     public EquipCommand(IEntity executor) {
       super("装備", "装備する", executor);
     }

@@ -1,0 +1,1660 @@
+{
+  "nodes" : [ {
+    "id" : "com.example.utils.Utils",
+    "name" : "com.example.utils.Utils",
+    "type" : "Class",
+    "linesOfCode" : 8,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/utils/Utils.java"
+  }, {
+    "id" : "java.lang.String",
+    "name" : "java.lang.String",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "int",
+    "name" : "int",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.nio.charset.Charset",
+    "name" : "java.nio.charset.Charset",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "com.example.sessions.IItemCommandSession",
+    "name" : "com.example.sessions.IItemCommandSession",
+    "type" : "Class",
+    "linesOfCode" : 23,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/IItemCommandSession.java"
+  }, {
+    "id" : "com.example.items.IItem",
+    "name" : "com.example.items.IItem",
+    "type" : "Interface",
+    "linesOfCode" : 11,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/IItem.java"
+  }, {
+    "id" : "void",
+    "name" : "void",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.util.List<com.example.commands.ICommand>",
+    "name" : "java.util.List<com.example.commands.ICommand>",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "com.example.commands.ICommand",
+    "name" : "com.example.commands.ICommand",
+    "type" : "Interface",
+    "linesOfCode" : 15,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/ICommand.java"
+  }, {
+    "id" : "com.example.sessions.Session",
+    "name" : "com.example.sessions.Session",
+    "type" : "AbstractClass",
+    "linesOfCode" : 189,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/Session.java"
+  }, {
+    "id" : "com.example.commands.QuitCommand",
+    "name" : "com.example.commands.QuitCommand",
+    "type" : "Class",
+    "linesOfCode" : 14,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/QuitCommand.java"
+  }, {
+    "id" : "com.example.sessions.BattleSession",
+    "name" : "com.example.sessions.BattleSession",
+    "type" : "Class",
+    "linesOfCode" : 127,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/BattleSession.java"
+  }, {
+    "id" : "com.example.entities.Monster",
+    "name" : "com.example.entities.Monster",
+    "type" : "AbstractClass",
+    "linesOfCode" : 52,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/Monster.java"
+  }, {
+    "id" : "boolean",
+    "name" : "boolean",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "com.example.entities.IEntity",
+    "name" : "com.example.entities.IEntity",
+    "type" : "Interface",
+    "linesOfCode" : 87,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/IEntity.java"
+  }, {
+    "id" : "java.util.Random",
+    "name" : "java.util.Random",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "com.example.commands.NormalAttack",
+    "name" : "com.example.commands.NormalAttack",
+    "type" : "Class",
+    "linesOfCode" : 18,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/NormalAttack.java"
+  }, {
+    "id" : "com.example.entities.Entity",
+    "name" : "com.example.entities.Entity",
+    "type" : "AbstractClass",
+    "linesOfCode" : 339,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/Entity.java"
+  }, {
+    "id" : "java.util.List",
+    "name" : "java.util.List",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "com.example.commands.Command",
+    "name" : "com.example.commands.Command",
+    "type" : "AbstractClass",
+    "linesOfCode" : 43,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/Command.java"
+  }, {
+    "id" : "com.example.sessions.BattleCommandSelectionSession",
+    "name" : "com.example.sessions.BattleCommandSelectionSession",
+    "type" : "Class",
+    "linesOfCode" : 31,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/BattleCommandSelectionSession.java"
+  }, {
+    "id" : "com.example.sessions.PlayerItemListSession",
+    "name" : "com.example.sessions.PlayerItemListSession",
+    "type" : "Class",
+    "linesOfCode" : 36,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/PlayerItemListSession.java"
+  }, {
+    "id" : "com.example.entities.ItemBox.IItemCount",
+    "name" : "com.example.entities.ItemBox.IItemCount",
+    "type" : "Class",
+    "linesOfCode" : 13,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/ItemBox.java"
+  }, {
+    "id" : "java.util.Map",
+    "name" : "java.util.Map",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "com.example.entities.ItemBox",
+    "name" : "com.example.entities.ItemBox",
+    "type" : "Class",
+    "linesOfCode" : 97,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/ItemBox.java"
+  }, {
+    "id" : "com.example.sessions.ShopSession",
+    "name" : "com.example.sessions.ShopSession",
+    "type" : "Class",
+    "linesOfCode" : 111,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/ShopSession.java"
+  }, {
+    "id" : "java.util.List<com.example.items.IItem>",
+    "name" : "java.util.List<com.example.items.IItem>",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "name" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "type" : "Class",
+    "linesOfCode" : 34,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/ShopSession.java"
+  }, {
+    "id" : "java.lang.StringBuilder",
+    "name" : "java.lang.StringBuilder",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.util.stream.Stream",
+    "name" : "java.util.stream.Stream",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.util.Collection",
+    "name" : "java.util.Collection",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.lang.Object",
+    "name" : "java.lang.Object",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.util.ArrayList",
+    "name" : "java.util.ArrayList",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "com.example.items.IronSword",
+    "name" : "com.example.items.IronSword",
+    "type" : "Class",
+    "linesOfCode" : 5,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/IronSword.java"
+  }, {
+    "id" : "com.example.items.IronArmor",
+    "name" : "com.example.items.IronArmor",
+    "type" : "Class",
+    "linesOfCode" : 5,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/IronArmor.java"
+  }, {
+    "id" : "com.example.items.HealPotion",
+    "name" : "com.example.items.HealPotion",
+    "type" : "Class",
+    "linesOfCode" : 31,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/HealPotion.java"
+  }, {
+    "id" : "com.example.items.DragonSword",
+    "name" : "com.example.items.DragonSword",
+    "type" : "Class",
+    "linesOfCode" : 5,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/DragonSword.java"
+  }, {
+    "id" : "java.util.Map<java.lang.String, com.example.commands.ICommand>",
+    "name" : "java.util.Map<java.lang.String, com.example.commands.ICommand>",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.util.Scanner",
+    "name" : "java.util.Scanner",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.util.List<java.lang.String>",
+    "name" : "java.util.List<java.lang.String>",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.util.List<? extends com.example.commands.ICommand>",
+    "name" : "java.util.List<? extends com.example.commands.ICommand>",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.lang.String[]",
+    "name" : "java.lang.String[]",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.lang.Integer",
+    "name" : "java.lang.Integer",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.io.PrintStream",
+    "name" : "java.io.PrintStream",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.lang.Math",
+    "name" : "java.lang.Math",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.util.HashMap",
+    "name" : "java.util.HashMap",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "com.example.sessions.MainSession",
+    "name" : "com.example.sessions.MainSession",
+    "type" : "Class",
+    "linesOfCode" : 43,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/MainSession.java"
+  }, {
+    "id" : "com.example.entities.Player",
+    "name" : "com.example.entities.Player",
+    "type" : "Class",
+    "linesOfCode" : 33,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/Player.java"
+  }, {
+    "id" : "com.example.entities.Dragon",
+    "name" : "com.example.entities.Dragon",
+    "type" : "Class",
+    "linesOfCode" : 27,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/Dragon.java"
+  }, {
+    "id" : "com.example.Main",
+    "name" : "com.example.Main",
+    "type" : "Class",
+    "linesOfCode" : 5,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/Main.java"
+  }, {
+    "id" : "com.example.items.Weapon",
+    "name" : "com.example.items.Weapon",
+    "type" : "AbstractClass",
+    "linesOfCode" : 34,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/Weapon.java"
+  }, {
+    "id" : "com.example.commands.HpHeal",
+    "name" : "com.example.commands.HpHeal",
+    "type" : "Class",
+    "linesOfCode" : 12,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/HpHeal.java"
+  }, {
+    "id" : "com.example.commands.Magic",
+    "name" : "com.example.commands.Magic",
+    "type" : "AbstractClass",
+    "linesOfCode" : 12,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/Magic.java"
+  }, {
+    "id" : "java.lang.IllegalStateException",
+    "name" : "java.lang.IllegalStateException",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "com.example.commands.FireBall",
+    "name" : "com.example.commands.FireBall",
+    "type" : "Class",
+    "linesOfCode" : 13,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/FireBall.java"
+  }, {
+    "id" : "com.example.items.Armor",
+    "name" : "com.example.items.Armor",
+    "type" : "AbstractClass",
+    "linesOfCode" : 33,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/Armor.java"
+  }, {
+    "id" : "com.example.items.HealPotion.UseCommand",
+    "name" : "com.example.items.HealPotion.UseCommand",
+    "type" : "Class",
+    "linesOfCode" : 17,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/HealPotion.java"
+  }, {
+    "id" : "com.example.items.Item",
+    "name" : "com.example.items.Item",
+    "type" : "AbstractClass",
+    "linesOfCode" : 36,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/Item.java"
+  }, {
+    "id" : "com.example.items.BronzeSword",
+    "name" : "com.example.items.BronzeSword",
+    "type" : "Class",
+    "linesOfCode" : 5,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/BronzeSword.java"
+  }, {
+    "id" : "com.example.items.LeatherArmor",
+    "name" : "com.example.items.LeatherArmor",
+    "type" : "Class",
+    "linesOfCode" : 5,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/LeatherArmor.java"
+  }, {
+    "id" : "com.example.items.Armor.EquipCommand",
+    "name" : "com.example.items.Armor.EquipCommand",
+    "type" : "Class",
+    "linesOfCode" : 15,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/Armor.java"
+  }, {
+    "id" : "com.example.items.Weapon.EquipCommand",
+    "name" : "com.example.items.Weapon.EquipCommand",
+    "type" : "Class",
+    "linesOfCode" : 16,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/Weapon.java"
+  }, {
+    "id" : "java.util.Map<java.lang.String, com.example.entities.ItemBox.IItemCount>",
+    "name" : "java.util.Map<java.lang.String, com.example.entities.ItemBox.IItemCount>",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.util.LinkedHashMap",
+    "name" : "java.util.LinkedHashMap",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  } ],
+  "links" : [ {
+    "source" : "com.example.utils.Utils",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.utils.Utils",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.utils.Utils",
+    "target" : "java.lang.String",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.utils.Utils",
+    "target" : "java.nio.charset.Charset",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "com.example.items.IItem",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "java.util.List<com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "com.example.commands.ICommand",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "com.example.sessions.IItemCommandSession",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "com.example.items.IItem",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "com.example.commands.ICommand",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "java.lang.String",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "com.example.commands.QuitCommand",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.IItemCommandSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.entities.Monster",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "java.util.List<com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "java.util.Random",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.commands.ICommand",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.commands.NormalAttack",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.sessions.BattleSession",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "java.lang.String",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.entities.Monster",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.entities.IEntity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.entities.Entity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "java.util.List",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "java.util.Random",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.commands.ICommand",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.commands.NormalAttack",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.commands.Command",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.commands.Command",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.sessions.BattleCommandSelectionSession",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.sessions.PlayerItemListSession",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.commands.QuitCommand",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "java.util.Random",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.commands.NormalAttack",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.BattleSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "com.example.entities.ItemBox.IItemCount",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "com.example.sessions.PlayerItemListSession",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "com.example.entities.IEntity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "java.util.Map",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "java.util.List",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "com.example.entities.ItemBox",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "com.example.entities.ItemBox.IItemCount",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "com.example.items.IItem",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "com.example.commands.Command",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "com.example.sessions.IItemCommandSession",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "com.example.commands.QuitCommand",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.PlayerItemListSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "java.util.List<com.example.items.IItem>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.items.IItem",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "com.example.items.IItem",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "java.lang.StringBuilder",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.sessions.ShopSession",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "java.util.List",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "java.util.Map",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.items.IItem",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "java.lang.StringBuilder",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.entities.IEntity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "com.example.entities.IEntity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "com.example.items.IItem",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "java.lang.String",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "java.util.stream.Stream",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "java.util.Collection",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "java.lang.Object",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "java.util.ArrayList",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.items.IronSword",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.items.IronArmor",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.items.HealPotion",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.items.DragonSword",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.commands.Command",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.commands.QuitCommand",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "java.lang.StringBuilder",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "com.example.commands.Command",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "com.example.commands.QuitCommand",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.util.Map<java.lang.String, com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.util.Scanner",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.util.List<java.lang.String>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "com.example.sessions.Session",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "com.example.commands.ICommand",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.util.List<? extends com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.lang.String[]",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "com.example.sessions.Session",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.util.Scanner",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.lang.String",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.util.List",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "com.example.commands.ICommand",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.util.Map",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.lang.Integer",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.io.PrintStream",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.lang.Math",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "com.example.utils.Utils",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.util.Scanner",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.util.HashMap",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.Session",
+    "target" : "java.util.ArrayList",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.MainSession",
+    "target" : "com.example.entities.Player",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.MainSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.MainSession",
+    "target" : "com.example.entities.Player",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.MainSession",
+    "target" : "com.example.commands.Command",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.MainSession",
+    "target" : "com.example.sessions.BattleSession",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.MainSession",
+    "target" : "com.example.entities.Dragon",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.MainSession",
+    "target" : "com.example.sessions.PlayerItemListSession",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.MainSession",
+    "target" : "com.example.sessions.ShopSession",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.MainSession",
+    "target" : "com.example.commands.QuitCommand",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.MainSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.sessions.BattleCommandSelectionSession",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleCommandSelectionSession",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleCommandSelectionSession",
+    "target" : "com.example.sessions.BattleSession",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleCommandSelectionSession",
+    "target" : "com.example.commands.ICommand",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.BattleCommandSelectionSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleCommandSelectionSession",
+    "target" : "com.example.entities.IEntity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleCommandSelectionSession",
+    "target" : "com.example.sessions.BattleSession",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.BattleCommandSelectionSession",
+    "target" : "com.example.commands.QuitCommand",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.BattleCommandSelectionSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.Main",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.Main",
+    "target" : "java.lang.String[]",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.Main",
+    "target" : "com.example.sessions.Session",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.Main",
+    "target" : "com.example.sessions.MainSession",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.Main",
+    "target" : "com.example.entities.Player",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.commands.NormalAttack",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.NormalAttack",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.NormalAttack",
+    "target" : "com.example.entities.IEntity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.commands.NormalAttack",
+    "target" : "com.example.items.Weapon",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.commands.NormalAttack",
+    "target" : "com.example.commands.Command",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.commands.NormalAttack",
+    "target" : "com.example.commands.Command",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.commands.HpHeal",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.HpHeal",
+    "target" : "com.example.entities.IEntity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.commands.HpHeal",
+    "target" : "com.example.commands.Command",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.commands.HpHeal",
+    "target" : "com.example.commands.Magic",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.commands.Command",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.Command",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.Command",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.Command",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.Command",
+    "target" : "java.lang.IllegalStateException",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.commands.Command",
+    "target" : "com.example.commands.ICommand",
+    "type" : "Implements"
+  }, {
+    "source" : "com.example.commands.QuitCommand",
+    "target" : "com.example.sessions.Session",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.QuitCommand",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.QuitCommand",
+    "target" : "com.example.sessions.Session",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.commands.QuitCommand",
+    "target" : "com.example.commands.Command",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.commands.ICommand",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.ICommand",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.ICommand",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.ICommand",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.FireBall",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.FireBall",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.FireBall",
+    "target" : "com.example.entities.IEntity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.commands.FireBall",
+    "target" : "com.example.commands.Command",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.commands.FireBall",
+    "target" : "com.example.commands.Magic",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.commands.Magic",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.commands.Magic",
+    "target" : "com.example.commands.Command",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.items.IronArmor",
+    "target" : "com.example.items.Armor",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.items.DragonSword",
+    "target" : "com.example.items.Weapon",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.items.HealPotion",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.HealPotion",
+    "target" : "java.util.List<com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.HealPotion.UseCommand",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.HealPotion.UseCommand",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.HealPotion",
+    "target" : "java.util.List",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.HealPotion.UseCommand",
+    "target" : "com.example.entities.IEntity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.HealPotion.UseCommand",
+    "target" : "com.example.items.HealPotion.UseCommand",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.HealPotion.UseCommand",
+    "target" : "com.example.commands.Command",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.HealPotion.UseCommand",
+    "target" : "java.util.List",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.HealPotion",
+    "target" : "com.example.items.HealPotion.UseCommand",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.items.HealPotion",
+    "target" : "com.example.items.Item",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.items.HealPotion.UseCommand",
+    "target" : "com.example.commands.Command",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.items.HealPotion.UseCommand",
+    "target" : "com.example.commands.ICommand",
+    "type" : "Implements"
+  }, {
+    "source" : "com.example.items.IronSword",
+    "target" : "com.example.items.Weapon",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.items.BronzeSword",
+    "target" : "com.example.items.Weapon",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.items.LeatherArmor",
+    "target" : "com.example.items.Armor",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.items.IItem",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.IItem",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.IItem",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.IItem",
+    "target" : "java.util.List<com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Item",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Item",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Item",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Item",
+    "target" : "java.util.List<com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Item",
+    "target" : "com.example.items.Item",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.Item",
+    "target" : "com.example.items.IItem",
+    "type" : "Implements"
+  }, {
+    "source" : "com.example.items.Armor",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Armor",
+    "target" : "java.util.List<com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Armor",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Armor.EquipCommand",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Armor.EquipCommand",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Armor",
+    "target" : "java.util.List",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.Armor.EquipCommand",
+    "target" : "com.example.entities.IEntity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.Armor.EquipCommand",
+    "target" : "com.example.commands.Command",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.Armor.EquipCommand",
+    "target" : "com.example.items.Item",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.Armor",
+    "target" : "com.example.items.Armor.EquipCommand",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.items.Armor",
+    "target" : "com.example.items.Item",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.items.Armor.EquipCommand",
+    "target" : "com.example.commands.Command",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.items.Weapon",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Weapon",
+    "target" : "java.util.List<com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Weapon",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Weapon.EquipCommand",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Weapon.EquipCommand",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.items.Weapon",
+    "target" : "java.util.List",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.Weapon.EquipCommand",
+    "target" : "com.example.entities.IEntity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.Weapon.EquipCommand",
+    "target" : "com.example.commands.Command",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.Weapon.EquipCommand",
+    "target" : "com.example.items.Item",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.items.Weapon",
+    "target" : "com.example.items.Weapon.EquipCommand",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.items.Weapon",
+    "target" : "com.example.items.Item",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.items.Weapon.EquipCommand",
+    "target" : "com.example.commands.Command",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "java.util.List<com.example.items.IItem>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "com.example.items.IItem",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "java.util.Map<java.lang.String, com.example.entities.ItemBox.IItemCount>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.ItemBox.IItemCount",
+    "target" : "com.example.items.IItem",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.ItemBox.IItemCount",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.ItemBox.IItemCount",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "java.util.List",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "com.example.items.IItem",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "java.util.Map",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "java.lang.Math",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.ItemBox.IItemCount",
+    "target" : "com.example.items.IItem",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "java.util.ArrayList",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "java.util.LinkedHashMap",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.ItemBox",
+    "target" : "com.example.entities.ItemBox.IItemCount",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "com.example.items.Weapon",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "com.example.items.Armor",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "java.util.List<com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "com.example.commands.ICommand",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "java.util.List<com.example.items.IItem>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "com.example.items.IItem",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.ItemBox",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "java.lang.String[]",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "com.example.entities.ItemBox",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "com.example.entities.Entity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "com.example.utils.Utils",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "com.example.items.Item",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "com.example.items.Weapon",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "com.example.items.Armor",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "java.lang.String",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "java.util.ArrayList",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "com.example.items.BronzeSword",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "com.example.items.LeatherArmor",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "com.example.commands.HpHeal",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "com.example.commands.FireBall",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Player",
+    "target" : "com.example.entities.Entity",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.entities.Monster",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Monster",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Monster",
+    "target" : "java.util.List<com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Monster",
+    "target" : "com.example.entities.Monster",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Monster",
+    "target" : "com.example.entities.Entity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Monster",
+    "target" : "java.lang.String",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Monster",
+    "target" : "com.example.utils.Utils",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Monster",
+    "target" : "java.util.ArrayList",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Monster",
+    "target" : "com.example.entities.Entity",
+    "type" : "Extends"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.items.Weapon",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.items.Armor",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "java.util.List<com.example.commands.ICommand>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.entities.IEntity",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.entities.ItemBox",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.commands.ICommand",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "java.util.List<com.example.items.IItem>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.items.IItem",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "boolean",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.commands.Magic",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.entities.Entity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "java.util.List",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.items.Weapon",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.items.Armor",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.commands.Magic",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "java.lang.String",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.items.Item",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.commands.ICommand",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "java.lang.Math",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.utils.Utils",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.entities.ItemBox",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "java.util.ArrayList",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.entities.ItemBox",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.items.Weapon",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.items.Armor",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.commands.NormalAttack",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "java.lang.IllegalStateException",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Entity",
+    "target" : "com.example.entities.IEntity",
+    "type" : "Implements"
+  }, {
+    "source" : "com.example.entities.Dragon",
+    "target" : "int",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Dragon",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.entities.Dragon",
+    "target" : "com.example.entities.Entity",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.entities.Dragon",
+    "target" : "com.example.commands.FireBall",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Dragon",
+    "target" : "com.example.commands.HpHeal",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.entities.Dragon",
+    "target" : "com.example.entities.Monster",
+    "type" : "Extends"
+  } ]
+}
