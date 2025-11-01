@@ -16,7 +16,7 @@
     "forceGraphViewer.focusDistance": 80,
     "forceGraphViewer.nameFontSize": 12,
     "forceGraphViewer.autoRotate": true,
-    "forceGraphViewer.rotateSpeed": 5,
+    "forceGraphViewer.rotateSpeed": 3,
     "forceGraphViewer.showClass": true,
     "forceGraphViewer.showAbstractClass": true,
     "forceGraphViewer.showInterface": true,
@@ -24,6 +24,16 @@
     "forceGraphViewer.showObjectCreate": false,
     "forceGraphViewer.showExtends": true,
     "forceGraphViewer.showImplements": true,
-    "forceGraphViewer.showTypeUsage": false,
-    "forceGraphViewer.showMethodCall": false
+    "forceGraphViewer.showTypeUsage": true,
+    "forceGraphViewer.showMethodCall": false,
+    "forceGraphViewer.showTypeUse": false,
+    "forceGraphViewer.colorClass": "#3b82f6",
+    "forceGraphViewer.colorAbstractClass": "#a21caf",
+    "forceGraphViewer.colorInterface": "#10b981",
+    "forceGraphViewer.colorUnknown": "#6b7280",
+    "forceGraphViewer.colorObjectCreate": "#facc15",
+    "forceGraphViewer.colorExtends": "#a21caf",
+    "forceGraphViewer.colorImplements": "#10b981",
+    "forceGraphViewer.colorTypeUse": "#fb923c",
+    "forceGraphViewer.colorMethodCall": "#fb923c"
 }
