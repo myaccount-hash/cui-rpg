@@ -279,7 +279,7 @@
     "id" : "com.example.sessions.MainSession",
     "name" : "com.example.sessions.MainSession",
     "type" : "Class",
-    "linesOfCode" : 43,
+    "linesOfCode" : 50,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/MainSession.java"
   }, {
     "id" : "com.example.entities.Player",
@@ -293,6 +293,12 @@
     "type" : "Class",
     "linesOfCode" : 27,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/Dragon.java"
+  }, {
+    "id" : "java.lang.RuntimeException",
+    "name" : "java.lang.RuntimeException",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
   }, {
     "id" : "com.example.Main",
     "name" : "com.example.Main",
@@ -895,6 +901,10 @@
   }, {
     "source" : "com.example.sessions.MainSession",
     "target" : "com.example.sessions.ShopSession",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.MainSession",
+    "target" : "java.lang.RuntimeException",
     "type" : "ObjectCreate"
   }, {
     "source" : "com.example.sessions.MainSession",

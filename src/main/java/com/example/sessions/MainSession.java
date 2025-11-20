@@ -42,6 +42,13 @@ public class MainSession extends Session {
             return true;
           }
         });
+    addCommand(
+        new Command("error", "意図的にエラーを発生させる", sessionOwner) {
+          @Override
+          public boolean execute() {
+            throw new RuntimeException("デバッグ用: 意図的に発生させたエラー");
+          }
+        });
     addCommand(new QuitCommand(this, sessionOwner));
 
     // 初期表示テキストを設定
