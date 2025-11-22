@@ -1,8 +1,8 @@
 package com.example.sessions;
 
-import com.example.commands.ICommand;
+import com.example.commands.Command;
 import com.example.commands.QuitCommand;
-import com.example.entities.IEntity;
+import com.example.entities.Entity;
 
 /*
  * Playerの持つスキル等から、攻撃や魔法等のアクションを選択するセッション。
@@ -10,14 +10,14 @@ import com.example.entities.IEntity;
  */
 public class BattleCommandSelectionSession extends Session {
 
-  public BattleCommandSelectionSession(Session parentSession, IEntity sessionOwner) {
+  public BattleCommandSelectionSession(Session parentSession, Entity sessionOwner) {
     super("アクション選択", "アクション選択", parentSession, sessionOwner);
     BattleSession battleSession = (BattleSession) parentSession;
     this.displayText = parentSession.getDisplayText();
 
     // プレイヤーの戦闘コマンドを取得（ターゲット設定済み）
     sessionOwner.setBattleTarget(battleSession.getMonster());
-    for (ICommand action : sessionOwner.getSkills()) {
+    for (Command action : sessionOwner.getSkills()) {
       addCommand(action);
     }
 

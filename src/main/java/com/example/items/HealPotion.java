@@ -1,25 +1,24 @@
 package com.example.items;
 
 import com.example.commands.Command;
-import com.example.commands.ICommand;
-import com.example.entities.IEntity;
+import com.example.entities.Entity;
 import java.util.List;
 
 public class HealPotion extends Item {
-  IEntity owner;
+  Entity owner;
 
-  public HealPotion(IEntity owner) {
+  public HealPotion(Entity owner) {
     super("ヒールポーション", "HPを50回復", 10, owner);
     this.owner = owner;
   }
 
   @Override
-  protected List<ICommand> createCommands(IEntity source) {
+  protected List<Command> createCommands(Entity source) {
     return List.of(new UseCommand(owner));
   }
 
-  public class UseCommand extends Command implements ICommand {
-    public UseCommand(IEntity executor) {
+  public class UseCommand extends Command {
+    public UseCommand(Entity executor) {
       super("使う", "HPを50回復する", executor);
     }
 
@@ -31,7 +30,7 @@ public class HealPotion extends Item {
       return true;
     }
 
-    private IEntity getExecutor() {
+    private Entity getExecutor() {
       return super.executor;
     }
   }

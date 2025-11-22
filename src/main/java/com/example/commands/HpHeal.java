@@ -1,9 +1,9 @@
 package com.example.commands;
 
-import com.example.entities.IEntity;
+import com.example.entities.Entity;
 
 public class HpHeal extends Magic {
-  public HpHeal(IEntity executer) {
+  public HpHeal(Entity executer) {
     super("heal", "回復魔法を使う", "heal", 20, executer);
   }
 

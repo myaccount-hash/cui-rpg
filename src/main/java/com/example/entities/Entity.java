@@ -1,16 +1,16 @@
 package com.example.entities;
 
-import com.example.commands.ICommand;
+import com.example.commands.Command;
 import com.example.commands.Magic;
 import com.example.items.Armor;
-import com.example.items.IItem;
+import com.example.items.Item;
 import com.example.items.Weapon;
 import com.example.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
 // プレイヤーやモンスターを含む抽象クラス。
-public abstract class Entity implements IEntity {
+public abstract class Entity {
   private String name;
   private int hp;
   private int mp;
@@ -22,8 +22,8 @@ public abstract class Entity implements IEntity {
   private int baseDefence;
   protected Weapon weapon;
   protected Armor armor;
-  private List<ICommand> skills = new ArrayList<>();
-  private IEntity battleTarget;
+  private List<Command> skills = new ArrayList<>();
+  private Entity battleTarget;
 
   // ItemBoxでアイテムとゴールドを管理
   public ItemBox ItemBox = new ItemBox();
@@ -35,7 +35,7 @@ public abstract class Entity implements IEntity {
       int baseAttack,
       int baseDefence,
       int level,
-      List<ICommand> skills) {
+      List<Command> skills) {
     this.name = name;
     this.level = level;
     this.baseHp = baseHp;
@@ -128,15 +128,15 @@ public abstract class Entity implements IEntity {
   }
 
   // スキル管理
-  public List<ICommand> getSkills() {
+  public List<Command> getSkills() {
     return skills;
   }
 
-  public void addSkill(ICommand skill) {
+  public void addSkill(Command skill) {
     skills.add(skill);
   }
 
-  public void removeSkill(ICommand skill) {
+  public void removeSkill(Command skill) {
     skills.remove(skill);
   }
 
@@ -145,9 +145,9 @@ public abstract class Entity implements IEntity {
   }
 
   // 使用可能なアクションを取得
-  public List<ICommand> getAvailableCommands() {
-    List<ICommand> available = new ArrayList<>();
-    for (ICommand action : skills) {
+  public List<Command> getAvailableCommands() {
+    List<Command> available = new ArrayList<>();
+    for (Command action : skills) {
       // 使用可能判定をここで直接実行
       if (action instanceof Magic) {
         Magic magic = (Magic) action;
@@ -223,14 +223,14 @@ public abstract class Entity implements IEntity {
     this.armor = armor;
   }
 
-  public void setBattleTarget(IEntity battleTarget) {
+  public void setBattleTarget(Entity battleTarget) {
     this.battleTarget = battleTarget;
-    for (ICommand skill : skills) {
+    for (Command skill : skills) {
       skill.setTarget(battleTarget);
     }
   }
 
-  public IEntity getBattleTarget() {
+  public Entity getBattleTarget() {
     if (battleTarget == null) {
       throw new IllegalStateException("battleTargetが設定されていません。");
     }
@@ -309,19 +309,19 @@ public abstract class Entity implements IEntity {
   }
 
   // ItemBoxへの委譲メソッド
-  public List<IItem> getItems() {
+  public List<Item> getItems() {
     return ItemBox.getItems();
   }
 
-  public void addItem(IItem item) {
+  public void addItem(Item item) {
     ItemBox.addItem(item);
   }
 
-  public boolean removeItem(IItem item) {
+  public boolean removeItem(Item item) {
     return ItemBox.removeItem(item);
   }
 
-  public boolean hasItem(IItem item) {
+  public boolean hasItem(Item item) {
     return ItemBox.hasItem(item);
   }
 

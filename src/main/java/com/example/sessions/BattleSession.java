@@ -2,7 +2,7 @@ package com.example.sessions;
 
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
-import com.example.entities.IEntity;
+import com.example.entities.Entity;
 import com.example.entities.Monster;
 
 /*
@@ -18,7 +18,7 @@ public class BattleSession extends Session {
       String description,
       Monster monster,
       Session parentSession,
-      IEntity sessionOwner) {
+      Entity sessionOwner) {
     super(name, description, parentSession, sessionOwner);
     this.monster = monster;
 
@@ -66,7 +66,7 @@ public class BattleSession extends Session {
     return monster;
   }
 
-  public IEntity getPlayer() {
+  public Entity getPlayer() {
     return sessionOwner;
   }
 
@@ -81,7 +81,7 @@ public class BattleSession extends Session {
         sessionOwner.getMaxMp());
   }
 
-  private static String executeRandomAction(Monster monster, IEntity sessionOwner) {
+  private static String executeRandomAction(Monster monster, Entity sessionOwner) {
     var availableCommands = monster.getAvailableCommands();
     java.util.Random random = new java.util.Random();
 

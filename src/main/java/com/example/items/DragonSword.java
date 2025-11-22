@@ -1,9 +1,9 @@
 package com.example.items;
 
-import com.example.entities.IEntity;
+import com.example.entities.Entity;
 
 public class DragonSword extends Weapon {
-  public DragonSword(IEntity owner) {
+  public DragonSword(Entity owner) {
     super("Dragon Sword", "伝説の剣。", 100, owner, 100);
   }
 }

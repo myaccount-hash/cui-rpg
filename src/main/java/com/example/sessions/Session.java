@@ -1,7 +1,7 @@
 package com.example.sessions;
 
-import com.example.commands.ICommand;
-import com.example.entities.IEntity;
+import com.example.commands.Command;
+import com.example.entities.Entity;
 import com.example.utils.Utils;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,17 +22,17 @@ public abstract class Session {
   // フィールド
   protected String displayText; // ディスプレイに表示するString
   protected boolean showingLog; // セッションに表示するログ
-  protected Map<String, ICommand> commands; // セッションに登録されたコマンド
+  protected Map<String, Command> commands; // セッションに登録されたコマンド
   protected boolean running; // セッションの停止を制御
   protected String name;
   protected Scanner scanner;
   protected List<String> commandNames;
   protected Session parentSession;
   protected String currentLog;
-  protected IEntity sessionOwner;
+  protected Entity sessionOwner;
 
   // コンストラクタ
-  public Session(String name, String description, Session parentSession, IEntity sessionOwner) {
+  public Session(String name, String description, Session parentSession, Entity sessionOwner) {
     this.name = name;
     this.scanner = new Scanner(System.in);
     this.commands = new HashMap<>();
@@ -124,14 +124,14 @@ public abstract class Session {
    */
 
   // セッションにコマンドを追加するメソッド。サブクラスはこれを使いセッションにコマンドを登録
-  protected void addCommand(ICommand command) {
+  protected void addCommand(Command command) {
     String key = command.getName().toLowerCase();
     commands.put(key, command);
     commandNames.add(key);
   }
 
-  protected void addCommands(List<? extends ICommand> commandList) {
-    for (ICommand command : commandList) {
+  protected void addCommands(List<? extends Command> commandList) {
+    for (Command command : commandList) {
       addCommand(command);
     }
   }
@@ -146,7 +146,7 @@ public abstract class Session {
       int idx = Integer.parseInt(input) - 1;
       if (idx >= 0 && idx < commandNames.size()) {
         String commandName = commandNames.get(idx);
-        ICommand cmd = commands.get(commandName);
+        Command cmd = commands.get(commandName);
         if (cmd != null) {
           cmd.execute();
           if (cmd.getCommandLog() != null) {
@@ -195,7 +195,7 @@ public abstract class Session {
   private List<String> buildMenu() {
     List<String> menu = new ArrayList<>();
     for (int i = 0; i < commandNames.size(); i++) {
-      ICommand cmd = commands.get(commandNames.get(i));
+      Command cmd = commands.get(commandNames.get(i));
       if (cmd != null) {
         menu.add((i + 1) + ": " + cmd.getName());
       }

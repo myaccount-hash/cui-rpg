@@ -3,7 +3,7 @@ package com.example.sessions;
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
 import com.example.entities.Dragon;
-import com.example.entities.IEntity;
+import com.example.entities.Entity;
 import com.example.entities.Player;
 
 /*
@@ -12,7 +12,7 @@ import com.example.entities.Player;
 public class MainSession extends Session {
   private final Player player;
 
-  public MainSession(Session parentSession, IEntity sessionOwner) {
+  public MainSession(Session parentSession, Entity sessionOwner) {
     super("Main", "メイン対話型CUIプログラム", parentSession, sessionOwner);
     this.player = new Player();
 

@@ -1,17 +1,16 @@
 package com.example.items;
 
 import com.example.commands.Command;
-import com.example.commands.ICommand;
-import com.example.entities.IEntity;
+import com.example.entities.Entity;
 import java.util.List;
 
 /*
- * 武器の抽象クラス。一部の攻撃を強化する。IEntity.javaのweaponフィールドに脱着可能。
+ * 武器の抽象クラス。一部の攻撃を強化する。Entity.javaのweaponフィールドに脱着可能。
  */
 public abstract class Weapon extends Item {
   protected int attack;
 
-  public Weapon(String name, String description, int price, IEntity owner, int attack) {
+  public Weapon(String name, String description, int price, Entity owner, int attack) {
     super(name, description, price, owner);
     this.attack = attack;
   }
@@ -21,7 +20,7 @@ public abstract class Weapon extends Item {
   }
 
   @Override
-  protected List<ICommand> createCommands(IEntity source) {
+  protected List<Command> createCommands(Entity source) {
     return List.of(new EquipCommand());
   }
 

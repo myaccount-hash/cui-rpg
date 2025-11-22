@@ -1,18 +1,18 @@
 package com.example.commands;
 
-import com.example.entities.IEntity;
+import com.example.entities.Entity;
 
 /*
  * コマンドの抽象クラス。メニュー項目、プレイヤーの行動、モンスターの行動等は全てCommandとして記述される。
  */
-public abstract class Command implements ICommand {
+public abstract class Command {
   protected String name;
   protected String description;
   protected String commandLog;
-  protected IEntity executor;
-  private IEntity target;
+  protected Entity executor;
+  private Entity target;
 
-  public Command(String name, String description, IEntity executor) {
+  public Command(String name, String description, Entity executor) {
     this.name = name;
     this.description = description;
     this.executor = executor;
@@ -24,7 +24,7 @@ public abstract class Command implements ICommand {
     return name;
   }
 
-  public IEntity getTarget() {
+  public Entity getTarget() {
     if (target == null) {
       throw new IllegalStateException("ターゲットが設定されていません。");
     }
@@ -39,7 +39,7 @@ public abstract class Command implements ICommand {
     return commandLog;
   }
 
-  public void setTarget(IEntity target) {
+  public void setTarget(Entity target) {
     this.target = target;
   }
 

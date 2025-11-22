@@ -3,8 +3,8 @@
     "java.debug.settings.onBuildFailureProceed": true,
     "forceGraphViewer.search": "",
     "forceGraphViewer.nodeSizeByLoc": false,
-    "forceGraphViewer.hideIsolatedNodes": false,
-    "forceGraphViewer.testMode": false,
+    "forceGraphViewer.hideIsolatedNodes": true,
+    "forceGraphViewer.testMode": true,
     "forceGraphViewer.showNames": true,
     "forceGraphViewer.shortNames": true,
     "forceGraphViewer.nodeSize": 1,
@@ -38,5 +38,9 @@
     "forceGraphViewer.colorMethodCall": "#fb923c",
     "forceGraphViewer.sliceDepth": 2,
     "forceGraphViewer.enableForwardSlice": true,
-    "forceGraphViewer.enableBackwardSlice": true
+    "forceGraphViewer.enableBackwardSlice": true,
+    "forceGraphViewer.checkedSessions": [
+        "11c0f727-4d86-42bf-89b2-e9c97a3f7e8c"
+    ],
+    "forceGraphViewer.showStackTrace": true
 }
