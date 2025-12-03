@@ -24,48 +24,6 @@
     "linesOfCode" : -1,
     "filePath" : null
   }, {
-    "id" : "com.example.sessions.IItemCommandSession",
-    "name" : "com.example.sessions.IItemCommandSession",
-    "type" : "Class",
-    "linesOfCode" : 23,
-    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/IItemCommandSession.java"
-  }, {
-    "id" : "com.example.items.IItem",
-    "name" : "com.example.items.IItem",
-    "type" : "Interface",
-    "linesOfCode" : 11,
-    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/IItem.java"
-  }, {
-    "id" : "void",
-    "name" : "void",
-    "type" : "Unknown",
-    "linesOfCode" : -1,
-    "filePath" : null
-  }, {
-    "id" : "java.util.List<com.example.commands.ICommand>",
-    "name" : "java.util.List<com.example.commands.ICommand>",
-    "type" : "Unknown",
-    "linesOfCode" : -1,
-    "filePath" : null
-  }, {
-    "id" : "com.example.commands.ICommand",
-    "name" : "com.example.commands.ICommand",
-    "type" : "Interface",
-    "linesOfCode" : 15,
-    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/ICommand.java"
-  }, {
-    "id" : "com.example.sessions.Session",
-    "name" : "com.example.sessions.Session",
-    "type" : "AbstractClass",
-    "linesOfCode" : 189,
-    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/Session.java"
-  }, {
-    "id" : "com.example.commands.QuitCommand",
-    "name" : "com.example.commands.QuitCommand",
-    "type" : "Class",
-    "linesOfCode" : 14,
-    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/QuitCommand.java"
-  }, {
     "id" : "com.example.sessions.BattleSession",
     "name" : "com.example.sessions.BattleSession",
     "type" : "Class",
@@ -84,23 +42,11 @@
     "linesOfCode" : -1,
     "filePath" : null
   }, {
-    "id" : "com.example.entities.IEntity",
-    "name" : "com.example.entities.IEntity",
-    "type" : "Interface",
-    "linesOfCode" : 87,
-    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/IEntity.java"
-  }, {
-    "id" : "java.util.Random",
-    "name" : "java.util.Random",
+    "id" : "void",
+    "name" : "void",
     "type" : "Unknown",
     "linesOfCode" : -1,
     "filePath" : null
-  }, {
-    "id" : "com.example.commands.NormalAttack",
-    "name" : "com.example.commands.NormalAttack",
-    "type" : "Class",
-    "linesOfCode" : 18,
-    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/NormalAttack.java"
   }, {
     "id" : "com.example.entities.Entity",
     "name" : "com.example.entities.Entity",
@@ -108,8 +54,14 @@
     "linesOfCode" : 339,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/Entity.java"
   }, {
-    "id" : "java.util.List",
-    "name" : "java.util.List",
+    "id" : "java.util.List<com.example.commands.Command>",
+    "name" : "java.util.List<com.example.commands.Command>",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.util.Random",
+    "name" : "java.util.Random",
     "type" : "Unknown",
     "linesOfCode" : -1,
     "filePath" : null
@@ -119,6 +71,24 @@
     "type" : "AbstractClass",
     "linesOfCode" : 43,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/Command.java"
+  }, {
+    "id" : "com.example.commands.NormalAttack",
+    "name" : "com.example.commands.NormalAttack",
+    "type" : "Class",
+    "linesOfCode" : 18,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/NormalAttack.java"
+  }, {
+    "id" : "com.example.sessions.Session",
+    "name" : "com.example.sessions.Session",
+    "type" : "AbstractClass",
+    "linesOfCode" : 189,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/Session.java"
+  }, {
+    "id" : "java.util.List",
+    "name" : "java.util.List",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
   }, {
     "id" : "com.example.sessions.BattleCommandSelectionSession",
     "name" : "com.example.sessions.BattleCommandSelectionSession",
@@ -132,8 +102,26 @@
     "linesOfCode" : 36,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/PlayerItemListSession.java"
   }, {
-    "id" : "com.example.entities.ItemBox.IItemCount",
-    "name" : "com.example.entities.ItemBox.IItemCount",
+    "id" : "com.example.commands.QuitCommand",
+    "name" : "com.example.commands.QuitCommand",
+    "type" : "Class",
+    "linesOfCode" : 14,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/commands/QuitCommand.java"
+  }, {
+    "id" : "com.example.sessions.ItemCommandSession",
+    "name" : "com.example.sessions.ItemCommandSession",
+    "type" : "Class",
+    "linesOfCode" : 23,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/ItemCommandSession.java"
+  }, {
+    "id" : "com.example.items.Item",
+    "name" : "com.example.items.Item",
+    "type" : "AbstractClass",
+    "linesOfCode" : 35,
+    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/Item.java"
+  }, {
+    "id" : "com.example.entities.ItemBox.ItemCount",
+    "name" : "com.example.entities.ItemBox.ItemCount",
     "type" : "Class",
     "linesOfCode" : 13,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/ItemBox.java"
@@ -153,19 +141,19 @@
     "id" : "com.example.sessions.ShopSession",
     "name" : "com.example.sessions.ShopSession",
     "type" : "Class",
-    "linesOfCode" : 111,
+    "linesOfCode" : 118,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/ShopSession.java"
   }, {
-    "id" : "java.util.List<com.example.items.IItem>",
-    "name" : "java.util.List<com.example.items.IItem>",
+    "id" : "java.util.List<com.example.items.Item>",
+    "name" : "java.util.List<com.example.items.Item>",
     "type" : "Unknown",
     "linesOfCode" : -1,
     "filePath" : null
   }, {
-    "id" : "com.example.sessions.ShopSession.IItemPurchaseSession",
-    "name" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "id" : "com.example.sessions.ShopSession.ItemPurchaseSession",
+    "name" : "com.example.sessions.ShopSession.ItemPurchaseSession",
     "type" : "Class",
-    "linesOfCode" : 34,
+    "linesOfCode" : 41,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/sessions/ShopSession.java"
   }, {
     "id" : "java.lang.StringBuilder",
@@ -222,8 +210,14 @@
     "linesOfCode" : 5,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/DragonSword.java"
   }, {
-    "id" : "java.util.Map<java.lang.String, com.example.commands.ICommand>",
-    "name" : "java.util.Map<java.lang.String, com.example.commands.ICommand>",
+    "id" : "java.lang.RuntimeException",
+    "name" : "java.lang.RuntimeException",
+    "type" : "Unknown",
+    "linesOfCode" : -1,
+    "filePath" : null
+  }, {
+    "id" : "java.util.Map<java.lang.String, com.example.commands.Command>",
+    "name" : "java.util.Map<java.lang.String, com.example.commands.Command>",
     "type" : "Unknown",
     "linesOfCode" : -1,
     "filePath" : null
@@ -240,8 +234,8 @@
     "linesOfCode" : -1,
     "filePath" : null
   }, {
-    "id" : "java.util.List<? extends com.example.commands.ICommand>",
-    "name" : "java.util.List<? extends com.example.commands.ICommand>",
+    "id" : "java.util.List<? extends com.example.commands.Command>",
+    "name" : "java.util.List<? extends com.example.commands.Command>",
     "type" : "Unknown",
     "linesOfCode" : -1,
     "filePath" : null
@@ -294,12 +288,6 @@
     "linesOfCode" : 27,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/entities/Dragon.java"
   }, {
-    "id" : "java.lang.RuntimeException",
-    "name" : "java.lang.RuntimeException",
-    "type" : "Unknown",
-    "linesOfCode" : -1,
-    "filePath" : null
-  }, {
     "id" : "com.example.Main",
     "name" : "com.example.Main",
     "type" : "Class",
@@ -348,12 +336,6 @@
     "linesOfCode" : 17,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/HealPotion.java"
   }, {
-    "id" : "com.example.items.Item",
-    "name" : "com.example.items.Item",
-    "type" : "AbstractClass",
-    "linesOfCode" : 36,
-    "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/Item.java"
-  }, {
     "id" : "com.example.items.BronzeSword",
     "name" : "com.example.items.BronzeSword",
     "type" : "Class",
@@ -378,8 +360,8 @@
     "linesOfCode" : 16,
     "filePath" : "/Users/shotawake/Workspace/cui-rpg/src/main/java/com/example/items/Weapon.java"
   }, {
-    "id" : "java.util.Map<java.lang.String, com.example.entities.ItemBox.IItemCount>",
-    "name" : "java.util.Map<java.lang.String, com.example.entities.ItemBox.IItemCount>",
+    "id" : "java.util.Map<java.lang.String, com.example.entities.ItemBox.ItemCount>",
+    "name" : "java.util.Map<java.lang.String, com.example.entities.ItemBox.ItemCount>",
     "type" : "Unknown",
     "linesOfCode" : -1,
     "filePath" : null
@@ -407,54 +389,6 @@
     "target" : "java.nio.charset.Charset",
     "type" : "MethodCall"
   }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "java.lang.String",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "com.example.items.IItem",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "void",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "java.util.List<com.example.commands.ICommand>",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "com.example.commands.ICommand",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "com.example.sessions.Session",
-    "type" : "MethodCall"
-  }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "com.example.sessions.IItemCommandSession",
-    "type" : "MethodCall"
-  }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "com.example.items.IItem",
-    "type" : "MethodCall"
-  }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "com.example.commands.ICommand",
-    "type" : "MethodCall"
-  }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "java.lang.String",
-    "type" : "MethodCall"
-  }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "com.example.commands.QuitCommand",
-    "type" : "ObjectCreate"
-  }, {
-    "source" : "com.example.sessions.IItemCommandSession",
-    "target" : "com.example.sessions.Session",
-    "type" : "Extends"
-  }, {
     "source" : "com.example.sessions.BattleSession",
     "target" : "com.example.entities.Monster",
     "type" : "TypeUse"
@@ -468,7 +402,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.BattleSession",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.BattleSession",
@@ -476,7 +410,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.BattleSession",
-    "target" : "java.util.List<com.example.commands.ICommand>",
+    "target" : "java.util.List<com.example.commands.Command>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.BattleSession",
@@ -484,7 +418,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.BattleSession",
-    "target" : "com.example.commands.ICommand",
+    "target" : "com.example.commands.Command",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.BattleSession",
@@ -512,10 +446,6 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.BattleSession",
-    "target" : "com.example.entities.IEntity",
-    "type" : "MethodCall"
-  }, {
-    "source" : "com.example.sessions.BattleSession",
     "target" : "com.example.entities.Entity",
     "type" : "MethodCall"
   }, {
@@ -528,15 +458,11 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.BattleSession",
-    "target" : "com.example.commands.ICommand",
+    "target" : "com.example.commands.Command",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.BattleSession",
     "target" : "com.example.commands.NormalAttack",
-    "type" : "MethodCall"
-  }, {
-    "source" : "com.example.sessions.BattleSession",
-    "target" : "com.example.commands.Command",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.BattleSession",
@@ -567,12 +493,60 @@
     "target" : "com.example.sessions.Session",
     "type" : "Extends"
   }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "java.lang.String",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "com.example.items.Item",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "void",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "java.util.List<com.example.commands.Command>",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "com.example.commands.Command",
+    "type" : "TypeUse"
+  }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "com.example.sessions.ItemCommandSession",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "com.example.items.Item",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "com.example.commands.Command",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "java.lang.String",
+    "type" : "MethodCall"
+  }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "com.example.commands.QuitCommand",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ItemCommandSession",
+    "target" : "com.example.sessions.Session",
+    "type" : "Extends"
+  }, {
     "source" : "com.example.sessions.PlayerItemListSession",
     "target" : "void",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.PlayerItemListSession",
-    "target" : "com.example.entities.ItemBox.IItemCount",
+    "target" : "com.example.entities.ItemBox.ItemCount",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.PlayerItemListSession",
@@ -584,7 +558,7 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.PlayerItemListSession",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.PlayerItemListSession",
@@ -600,11 +574,11 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.PlayerItemListSession",
-    "target" : "com.example.entities.ItemBox.IItemCount",
+    "target" : "com.example.entities.ItemBox.ItemCount",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.PlayerItemListSession",
-    "target" : "com.example.items.IItem",
+    "target" : "com.example.items.Item",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.PlayerItemListSession",
@@ -612,7 +586,7 @@
     "type" : "ObjectCreate"
   }, {
     "source" : "com.example.sessions.PlayerItemListSession",
-    "target" : "com.example.sessions.IItemCommandSession",
+    "target" : "com.example.sessions.ItemCommandSession",
     "type" : "ObjectCreate"
   }, {
     "source" : "com.example.sessions.PlayerItemListSession",
@@ -624,7 +598,7 @@
     "type" : "Extends"
   }, {
     "source" : "com.example.sessions.ShopSession",
-    "target" : "java.util.List<com.example.items.IItem>",
+    "target" : "java.util.List<com.example.items.Item>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.ShopSession",
@@ -640,18 +614,18 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.ShopSession",
-    "target" : "com.example.items.IItem",
+    "target" : "com.example.items.Item",
     "type" : "TypeUse"
   }, {
-    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
     "target" : "java.lang.String",
     "type" : "TypeUse"
   }, {
-    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
-    "target" : "com.example.items.IItem",
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
+    "target" : "com.example.items.Item",
     "type" : "TypeUse"
   }, {
-    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
     "target" : "void",
     "type" : "TypeUse"
   }, {
@@ -676,7 +650,7 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.ShopSession",
-    "target" : "com.example.items.IItem",
+    "target" : "com.example.items.Item",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.ShopSession",
@@ -684,26 +658,26 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.ShopSession",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "MethodCall"
   }, {
-    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
     "target" : "com.example.sessions.Session",
     "type" : "MethodCall"
   }, {
-    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
-    "target" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
+    "target" : "com.example.sessions.ShopSession.ItemPurchaseSession",
     "type" : "MethodCall"
   }, {
-    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
-    "target" : "com.example.entities.IEntity",
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
+    "target" : "com.example.entities.Entity",
     "type" : "MethodCall"
   }, {
-    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
-    "target" : "com.example.items.IItem",
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
+    "target" : "com.example.items.Item",
     "type" : "MethodCall"
   }, {
-    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
     "target" : "java.lang.String",
     "type" : "MethodCall"
   }, {
@@ -744,7 +718,7 @@
     "type" : "ObjectCreate"
   }, {
     "source" : "com.example.sessions.ShopSession",
-    "target" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "target" : "com.example.sessions.ShopSession.ItemPurchaseSession",
     "type" : "ObjectCreate"
   }, {
     "source" : "com.example.sessions.ShopSession",
@@ -755,11 +729,15 @@
     "target" : "java.lang.StringBuilder",
     "type" : "ObjectCreate"
   }, {
-    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
     "target" : "com.example.commands.Command",
     "type" : "ObjectCreate"
   }, {
-    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
+    "target" : "java.lang.RuntimeException",
+    "type" : "ObjectCreate"
+  }, {
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
     "target" : "com.example.commands.QuitCommand",
     "type" : "ObjectCreate"
   }, {
@@ -767,7 +745,7 @@
     "target" : "com.example.sessions.Session",
     "type" : "Extends"
   }, {
-    "source" : "com.example.sessions.ShopSession.IItemPurchaseSession",
+    "source" : "com.example.sessions.ShopSession.ItemPurchaseSession",
     "target" : "com.example.sessions.Session",
     "type" : "Extends"
   }, {
@@ -784,7 +762,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.Session",
-    "target" : "java.util.Map<java.lang.String, com.example.commands.ICommand>",
+    "target" : "java.util.Map<java.lang.String, com.example.commands.Command>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.Session",
@@ -800,7 +778,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.Session",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.Session",
@@ -808,11 +786,11 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.Session",
-    "target" : "com.example.commands.ICommand",
+    "target" : "com.example.commands.Command",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.Session",
-    "target" : "java.util.List<? extends com.example.commands.ICommand>",
+    "target" : "java.util.List<? extends com.example.commands.Command>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.Session",
@@ -836,7 +814,7 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.Session",
-    "target" : "com.example.commands.ICommand",
+    "target" : "com.example.commands.Command",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.Session",
@@ -928,7 +906,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.BattleCommandSelectionSession",
-    "target" : "com.example.commands.ICommand",
+    "target" : "com.example.commands.Command",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.sessions.BattleCommandSelectionSession",
@@ -936,7 +914,7 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.BattleCommandSelectionSession",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.sessions.BattleCommandSelectionSession",
@@ -980,7 +958,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.commands.NormalAttack",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.commands.NormalAttack",
@@ -1000,7 +978,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.commands.HpHeal",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.commands.HpHeal",
@@ -1016,7 +994,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.commands.Command",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.commands.Command",
@@ -1030,10 +1008,6 @@
     "source" : "com.example.commands.Command",
     "target" : "java.lang.IllegalStateException",
     "type" : "ObjectCreate"
-  }, {
-    "source" : "com.example.commands.Command",
-    "target" : "com.example.commands.ICommand",
-    "type" : "Implements"
   }, {
     "source" : "com.example.commands.QuitCommand",
     "target" : "com.example.sessions.Session",
@@ -1051,22 +1025,6 @@
     "target" : "com.example.commands.Command",
     "type" : "Extends"
   }, {
-    "source" : "com.example.commands.ICommand",
-    "target" : "java.lang.String",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.commands.ICommand",
-    "target" : "void",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.commands.ICommand",
-    "target" : "com.example.entities.IEntity",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.commands.ICommand",
-    "target" : "boolean",
-    "type" : "TypeUse"
-  }, {
     "source" : "com.example.commands.FireBall",
     "target" : "boolean",
     "type" : "TypeUse"
@@ -1076,7 +1034,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.commands.FireBall",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.commands.FireBall",
@@ -1104,11 +1062,11 @@
     "type" : "Extends"
   }, {
     "source" : "com.example.items.HealPotion",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.HealPotion",
-    "target" : "java.util.List<com.example.commands.ICommand>",
+    "target" : "java.util.List<com.example.commands.Command>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.HealPotion.UseCommand",
@@ -1116,7 +1074,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.HealPotion.UseCommand",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.HealPotion",
@@ -1124,7 +1082,7 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.items.HealPotion.UseCommand",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.items.HealPotion.UseCommand",
@@ -1151,10 +1109,6 @@
     "target" : "com.example.commands.Command",
     "type" : "Extends"
   }, {
-    "source" : "com.example.items.HealPotion.UseCommand",
-    "target" : "com.example.commands.ICommand",
-    "type" : "Implements"
-  }, {
     "source" : "com.example.items.IronSword",
     "target" : "com.example.items.Weapon",
     "type" : "Extends"
@@ -1167,22 +1121,6 @@
     "target" : "com.example.items.Armor",
     "type" : "Extends"
   }, {
-    "source" : "com.example.items.IItem",
-    "target" : "java.lang.String",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.items.IItem",
-    "target" : "int",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.items.IItem",
-    "target" : "com.example.entities.IEntity",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.items.IItem",
-    "target" : "java.util.List<com.example.commands.ICommand>",
-    "type" : "TypeUse"
-  }, {
     "source" : "com.example.items.Item",
     "target" : "java.lang.String",
     "type" : "TypeUse"
@@ -1192,31 +1130,27 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.Item",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.Item",
-    "target" : "java.util.List<com.example.commands.ICommand>",
+    "target" : "java.util.List<com.example.commands.Command>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.Item",
     "target" : "com.example.items.Item",
     "type" : "MethodCall"
   }, {
-    "source" : "com.example.items.Item",
-    "target" : "com.example.items.IItem",
-    "type" : "Implements"
-  }, {
     "source" : "com.example.items.Armor",
     "target" : "int",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.Armor",
-    "target" : "java.util.List<com.example.commands.ICommand>",
+    "target" : "java.util.List<com.example.commands.Command>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.Armor",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.Armor.EquipCommand",
@@ -1232,7 +1166,7 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.items.Armor.EquipCommand",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.items.Armor.EquipCommand",
@@ -1260,11 +1194,11 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.Weapon",
-    "target" : "java.util.List<com.example.commands.ICommand>",
+    "target" : "java.util.List<com.example.commands.Command>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.Weapon",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.items.Weapon.EquipCommand",
@@ -1280,7 +1214,7 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.items.Weapon.EquipCommand",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.items.Weapon.EquipCommand",
@@ -1304,7 +1238,7 @@
     "type" : "Extends"
   }, {
     "source" : "com.example.entities.ItemBox",
-    "target" : "java.util.List<com.example.items.IItem>",
+    "target" : "java.util.List<com.example.items.Item>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.ItemBox",
@@ -1316,7 +1250,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.ItemBox",
-    "target" : "com.example.items.IItem",
+    "target" : "com.example.items.Item",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.ItemBox",
@@ -1324,18 +1258,18 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.ItemBox",
-    "target" : "java.util.Map<java.lang.String, com.example.entities.ItemBox.IItemCount>",
+    "target" : "java.util.Map<java.lang.String, com.example.entities.ItemBox.ItemCount>",
     "type" : "TypeUse"
   }, {
-    "source" : "com.example.entities.ItemBox.IItemCount",
-    "target" : "com.example.items.IItem",
+    "source" : "com.example.entities.ItemBox.ItemCount",
+    "target" : "com.example.items.Item",
     "type" : "TypeUse"
   }, {
-    "source" : "com.example.entities.ItemBox.IItemCount",
+    "source" : "com.example.entities.ItemBox.ItemCount",
     "target" : "int",
     "type" : "TypeUse"
   }, {
-    "source" : "com.example.entities.ItemBox.IItemCount",
+    "source" : "com.example.entities.ItemBox.ItemCount",
     "target" : "java.lang.String",
     "type" : "TypeUse"
   }, {
@@ -1348,7 +1282,7 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.entities.ItemBox",
-    "target" : "com.example.items.IItem",
+    "target" : "com.example.items.Item",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.entities.ItemBox",
@@ -1359,8 +1293,8 @@
     "target" : "java.lang.Math",
     "type" : "MethodCall"
   }, {
-    "source" : "com.example.entities.ItemBox.IItemCount",
-    "target" : "com.example.items.IItem",
+    "source" : "com.example.entities.ItemBox.ItemCount",
+    "target" : "com.example.items.Item",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.entities.ItemBox",
@@ -1372,56 +1306,8 @@
     "type" : "ObjectCreate"
   }, {
     "source" : "com.example.entities.ItemBox",
-    "target" : "com.example.entities.ItemBox.IItemCount",
+    "target" : "com.example.entities.ItemBox.ItemCount",
     "type" : "ObjectCreate"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "java.lang.String",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "int",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "com.example.items.Weapon",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "com.example.items.Armor",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "java.util.List<com.example.commands.ICommand>",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "void",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "com.example.commands.ICommand",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "com.example.entities.IEntity",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "java.util.List<com.example.items.IItem>",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "com.example.items.IItem",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "boolean",
-    "type" : "TypeUse"
-  }, {
-    "source" : "com.example.entities.IEntity",
-    "target" : "com.example.entities.ItemBox",
-    "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.Player",
     "target" : "java.lang.String",
@@ -1492,7 +1378,7 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.Monster",
-    "target" : "java.util.List<com.example.commands.ICommand>",
+    "target" : "java.util.List<com.example.commands.Command>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.Monster",
@@ -1536,11 +1422,11 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.Entity",
-    "target" : "java.util.List<com.example.commands.ICommand>",
+    "target" : "java.util.List<com.example.commands.Command>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.Entity",
-    "target" : "com.example.entities.IEntity",
+    "target" : "com.example.entities.Entity",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.Entity",
@@ -1552,15 +1438,15 @@
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.Entity",
-    "target" : "com.example.commands.ICommand",
+    "target" : "com.example.commands.Command",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.Entity",
-    "target" : "java.util.List<com.example.items.IItem>",
+    "target" : "java.util.List<com.example.items.Item>",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.Entity",
-    "target" : "com.example.items.IItem",
+    "target" : "com.example.items.Item",
     "type" : "TypeUse"
   }, {
     "source" : "com.example.entities.Entity",
@@ -1600,7 +1486,7 @@
     "type" : "MethodCall"
   }, {
     "source" : "com.example.entities.Entity",
-    "target" : "com.example.commands.ICommand",
+    "target" : "com.example.commands.Command",
     "type" : "MethodCall"
   }, {
     "source" : "com.example.entities.Entity",
@@ -1638,10 +1524,6 @@
     "source" : "com.example.entities.Entity",
     "target" : "java.lang.IllegalStateException",
     "type" : "ObjectCreate"
-  }, {
-    "source" : "com.example.entities.Entity",
-    "target" : "com.example.entities.IEntity",
-    "type" : "Implements"
   }, {
     "source" : "com.example.entities.Dragon",
     "target" : "int",
