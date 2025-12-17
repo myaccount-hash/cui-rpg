@@ -8,9 +8,8 @@ public class HpHeal extends Magic {
   }
 
   @Override
-  public boolean execute() {
+  protected void performMagic() {
     executor.heal(30);
     setCommandLog(executor.getName() + "は回復魔法を使った！");
-    return true;
   }
 }

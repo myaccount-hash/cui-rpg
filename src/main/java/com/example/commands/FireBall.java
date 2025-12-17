@@ -8,10 +8,9 @@ public class FireBall extends Magic {
   }
 
   @Override
-  public boolean execute() {
+  protected void performMagic() {
     int damage = 30 + executor.getAttack() - getTarget().getDefence();
     getTarget().takeDamage(damage);
     setCommandLog(executor.getName() + "はファイアボールを使った！");
-    return true;
   }
 }

@@ -14,8 +14,12 @@ public class Dragon extends Monster {
   private static final int DRAGON_BASE_ATTACK = 25;
   private static final int DRAGON_BASE_DEFENCE = 10;
   private static final int DRAGON_BASE_DROP_EXP = 50;
-  private static final String DRAGON_ICON =
-      "      . \n" + " .>   )\\;`a__\n" + "(  _ _)/ /-.\" ~~\n" + " `( )_ )/\n" + "  <_  <_ ";
+  private static final String DRAGON_ICON = """
+      .
+       .>   )\\;`a__
+      (  _ _)/ /-.\" ~~
+       `( )_ )/
+        <_  <_ """;
 
   public Dragon(int level) {
     super(
