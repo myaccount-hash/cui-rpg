@@ -1,13 +1,14 @@
 package com.example.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.commands.Command;
 import com.example.commands.Magic;
 import com.example.items.Armor;
 import com.example.items.Item;
 import com.example.items.Weapon;
 import com.example.utils.Utils;
-import java.util.ArrayList;
-import java.util.List;
 
 // プレイヤーやモンスターを含む抽象クラス。
 public abstract class Entity {
@@ -22,7 +23,7 @@ public abstract class Entity {
   private int baseDefence;
   protected Weapon weapon;
   protected Armor armor;
-  private List<Command> skills = new ArrayList<>();
+  private final List<Command> skills = new ArrayList<>();
   private Entity battleTarget;
 
   // ItemBoxでアイテムとゴールドを管理
@@ -44,8 +45,8 @@ public abstract class Entity {
     this.baseDefence = baseDefence;
 
     // 初期HPとMPを設定
-    this.hp = getMaxHp();
-    this.mp = getMaxMp();
+    this.hp = baseHp;
+    this.mp = baseMp;
     this.exp = 0;
 
     // デフォルトの武器と防具を匿名クラスで作成
