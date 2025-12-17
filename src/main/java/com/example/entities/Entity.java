@@ -150,8 +150,7 @@ public abstract class Entity {
     List<Command> available = new ArrayList<>();
     for (Command action : skills) {
       // 使用可能判定をここで直接実行
-      if (action instanceof Magic) {
-        Magic magic = (Magic) action;
+      if (action instanceof Magic magic) {
         if (getMp() >= magic.getMpCost()) {
           available.add(action);
         }
