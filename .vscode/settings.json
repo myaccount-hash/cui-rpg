@@ -3,6 +3,8 @@
    "forceGraphViewer.edgeOpacity": 2,
    "forceGraphViewer.nodeOpacity": 1,
    "forceGraphViewer.analyzerId": "java",
-   "forceGraphViewer.enableForwardSlice": false
+   "forceGraphViewer.enableForwardSlice": false,
+   "forceGraphViewer.focusDistance": 250,
+   "forceGraphViewer.showParticles": false
 
 }
