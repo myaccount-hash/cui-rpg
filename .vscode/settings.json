@@ -1,23 +1,8 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive",
-    "java.debug.settings.onBuildFailureProceed": true,
-    "forceGraphViewer.is3DMode": true,
-    "forceGraphViewer.nodeSizeByLoc": false,
-    "forceGraphViewer.hideIsolatedNodes": true,
-    "forceGraphViewer.showStackTrace": true,
-    "forceGraphViewer.showNames": true,
-    "forceGraphViewer.shortNames": true,
-    "forceGraphViewer.linkWidth": 1,
-    "forceGraphViewer.nodeOpacity": 1,
-    "forceGraphViewer.arrowSize": 3,
-    "forceGraphViewer.enableForwardSlice": false,
-    "forceGraphViewer.enableBackwardSlice": false,
-    "forceGraphViewer.focusDistance": 150,
-    "forceGraphViewer.sliceDepth": 1,
-    "forceGraphViewer.dimOpacity": 0.1,
-    "forceGraphViewer.search": "",
-    "forceGraphViewer.analyzerId": "java",
-    "forceGraphViewer.callStackSelection": [
-        "f51511cd-0df8-4e93-9cbb-321862ccae0d-1766044700349"
-    ],
+   "forceGraphViewer.is3DMode": true,
+   "forceGraphViewer.edgeOpacity": 2,
+   "forceGraphViewer.nodeOpacity": 1,
+   "forceGraphViewer.analyzerId": "java",
+   "forceGraphViewer.enableForwardSlice": false
+
 }

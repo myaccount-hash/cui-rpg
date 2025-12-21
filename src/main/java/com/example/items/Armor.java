@@ -30,7 +30,7 @@ public abstract class Armor extends Item {
     public String getLabel() {
       return "装備する";
     }
-
+    @Override
     public boolean execute() {
       executor.setArmor((Armor) Armor.this);
       setCommandLog(getTarget().getName() + "は" + Armor.this.getName() + "を装備した！");

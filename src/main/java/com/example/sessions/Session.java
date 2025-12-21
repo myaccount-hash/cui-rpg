@@ -50,6 +50,7 @@ public abstract class Session {
   // セッションを開始するメソッド
   public void run() {
     running = true;
+    updateMenu();
     refreshDisplay();
     while (isRunning()) {
       String input = scanner.nextLine();

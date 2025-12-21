@@ -1,15 +1,14 @@
 package com.example.items;
 
-import com.example.commands.Command;
-import com.example.entities.Entity;
 import java.util.List;
 
+import com.example.commands.Command;
+import com.example.entities.Entity;
+
 public class HealPotion extends Item {
-  Entity owner;
 
   public HealPotion(Entity owner) {
     super("ヒールポーション", "HPを50回復", 10, owner);
-    this.owner = owner;
   }
 
   @Override
