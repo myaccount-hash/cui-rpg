@@ -1,18 +1,19 @@
 package com.example.sessions;
 
-import com.example.commands.Command;
-import com.example.entities.Entity;
-import com.example.utils.Utils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import com.example.commands.Command;
+import com.example.entities.Entity;
+import com.example.utils.Utils;
+
 /*
- * 全てのセッションの抽象クラス。メニュー・ディスプレイ・ログの表示、コマンドの実行を管理。
- * セッションを開始するにはSession.run()を呼び出す。
- * 左側にディスプレイ、右側にメニューが表示される。メニューには登録されたコマンドが一覧表示される。
+ * 全てのセッションの抽象クラス．メニュー・ディスプレイ・ログの表示，コマンドの実行を管理．
+ * セッションを開始するにはSession.run()を呼び出す．
+ * 左側にディスプレイ，右側にメニューが表示される．メニューには登録されたコマンドが一覧表示される．
  */
 public abstract class Session {
   // 定数
@@ -60,7 +61,7 @@ public abstract class Session {
         continue;
       }
       if (input.trim().isEmpty()) {
-        // 何も入力せずEnterの場合、1番目のコマンドを実行
+        // 何も入力せずEnterの場合，1番目のコマンドを実行
         if (!commandNames.isEmpty()) {
           processInput("1");
           afterCommandExecuted();
@@ -124,7 +125,7 @@ public abstract class Session {
    * protected メンバ
    */
 
-  // セッションにコマンドを追加するメソッド。サブクラスはこれを使いセッションにコマンドを登録
+  // セッションにコマンドを追加するメソッド．サブクラスはこれを使いセッションにコマンドを登録
   protected void addCommand(Command command) {
     String key = command.getName().toLowerCase();
     commands.put(key, command);
@@ -162,7 +163,7 @@ public abstract class Session {
     }
   }
 
-  // コマンド実行ごとにメニューを更新するためのフック。サブクラスでオーバーライド可。
+  // コマンド実行ごとにメニューを更新するためのフック．サブクラスでオーバーライド可．
   protected void updateMenu() {}
 
   /*

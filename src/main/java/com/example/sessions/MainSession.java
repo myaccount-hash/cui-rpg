@@ -7,7 +7,7 @@ import com.example.entities.Entity;
 import com.example.entities.Player;
 
 /*
- * はじめに開始されるセッション。メインメニュー。
+ * はじめに開始されるセッション．メインメニュー．
  */
 public class MainSession extends Session {
   private final Player player;
@@ -52,7 +52,7 @@ public class MainSession extends Session {
     addCommand(new QuitCommand(this, sessionOwner));
 
     // 初期表示テキストを設定
-    setDisplayText("ゲームを開始しました。");
+    setDisplayText("ゲームを開始しました．");
   }
 
   public Player getPlayer() {

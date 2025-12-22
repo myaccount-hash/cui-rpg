@@ -10,7 +10,7 @@ import com.example.items.Item;
 import com.example.items.Weapon;
 import com.example.utils.Utils;
 
-// プレイヤーやモンスターを含む抽象クラス。
+// プレイヤーやモンスターを含む抽象クラス．
 public abstract class Entity {
   private String name;
   private int hp;
@@ -232,7 +232,7 @@ public abstract class Entity {
 
   public Entity getBattleTarget() {
     if (battleTarget == null) {
-      throw new IllegalStateException("battleTargetが設定されていません。");
+      throw new IllegalStateException("battleTargetが設定されていません．");
     }
     return battleTarget;
   }

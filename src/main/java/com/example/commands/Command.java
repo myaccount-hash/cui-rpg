@@ -3,7 +3,7 @@ package com.example.commands;
 import com.example.entities.Entity;
 
 /*
- * コマンドの抽象クラス。メニュー項目、プレイヤーの行動、モンスターの行動等は全てCommandとして記述される。
+ * コマンドの抽象クラス．メニュー項目，プレイヤーの行動，モンスターの行動等は全てCommandとして記述される．
  */
 public abstract class Command {
   protected String name;
@@ -26,7 +26,7 @@ public abstract class Command {
 
   public Entity getTarget() {
     if (target == null) {
-      throw new IllegalStateException("ターゲットが設定されていません。");
+      throw new IllegalStateException("ターゲットが設定されていません．");
     }
     return target;
   }
@@ -43,7 +43,7 @@ public abstract class Command {
     this.target = target;
   }
 
-  // コマンド内部でログをセットすれば、親セッションでログが表示される
+  // コマンド内部でログをセットすれば，親セッションでログが表示される
   public void setCommandLog(String commandLog) {
     this.commandLog = commandLog;
   }

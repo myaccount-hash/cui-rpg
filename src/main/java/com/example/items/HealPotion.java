@@ -24,7 +24,7 @@ public class HealPotion extends Item {
     @Override
     public boolean execute() {
       getExecutor().heal(50);
-      setCommandLog(getExecutor().getName() + "はヒールポーションを使い、HPが50回復した！");
+      setCommandLog(getExecutor().getName() + "はヒールポーションを使い，HPが50回復した！");
       getExecutor().getItems().remove(HealPotion.this);
       return true;
     }

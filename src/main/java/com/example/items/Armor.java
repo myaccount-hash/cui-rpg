@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.commands.Command;
 import com.example.entities.Entity;
 
-// 防具の抽象クラス。Entity.javaのarmorフィールドに脱着可能。
+// 防具の抽象クラス．Entity.javaのarmorフィールドに脱着可能．
 public abstract class Armor extends Item {
   protected int defense;
 

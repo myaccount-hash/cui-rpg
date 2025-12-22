@@ -6,7 +6,7 @@ import com.example.entities.Entity;
 import com.example.entities.Monster;
 
 /*
-プレイヤーの行動、モンスターの行動、ログ、勝敗判定等を制御するセッション。
+プレイヤーの行動，モンスターの行動，ログ，勝敗判定等を制御するセッション．
 */
 public class BattleSession extends Session {
 
@@ -27,7 +27,7 @@ public class BattleSession extends Session {
           @Override
           public boolean execute() {
             if (battleEnded) {
-              showMessage("戦闘は終了しています。");
+              showMessage("戦闘は終了しています．");
               return true;
             }
 

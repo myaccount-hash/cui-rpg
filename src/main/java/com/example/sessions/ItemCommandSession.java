@@ -6,7 +6,7 @@ import com.example.entities.Entity;
 import com.example.items.Item;
 
 /*
- * 特定のItemに対して行うCommandを選ぶセッション。
+ * 特定のItemに対して行うCommandを選ぶセッション．
  */
 public class ItemCommandSession extends Session {
   public ItemCommandSession(Item item, Session parentSession, Entity sessionOwner) {

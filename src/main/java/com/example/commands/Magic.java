@@ -3,7 +3,7 @@ package com.example.commands;
 import com.example.entities.Entity;
 
 /*
- * 魔法の抽象クラス。mpを消費するCommand。
+ * 魔法の抽象クラス．mpを消費するCommand．
  */
 public abstract class Magic extends Command {
   protected final int mpCost;

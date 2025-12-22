@@ -1,11 +1,12 @@
 package com.example.items;
 
-import com.example.commands.Command;
-import com.example.entities.Entity;
 import java.util.List;
 
+import com.example.commands.Command;
+import com.example.entities.Entity;
+
 /*
- * 武器の抽象クラス。一部の攻撃を強化する。Entity.javaのweaponフィールドに脱着可能。
+ * 武器の抽象クラス．一部の攻撃を強化する．Entity.javaのweaponフィールドに脱着可能．
  */
 public abstract class Weapon extends Item {
   protected int attack;

@@ -3,7 +3,7 @@ package com.example.commands;
 import com.example.entities.Entity;
 
 /*
- * 通常攻撃。全てのEntityがこれを可能。
+ * 通常攻撃．全てのEntityがこれを可能．
  */
 public class NormalAttack extends Command {
   public NormalAttack(Entity executer, Entity target) {

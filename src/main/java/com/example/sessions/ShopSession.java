@@ -24,7 +24,7 @@ public class ShopSession extends Session {
 
   private List<Item> initializeItems() {
     List<Item> items = new ArrayList<>();
-    // TODO: 店主のエンティティを作り、アイテムの受け渡しで実装。
+    // TODO: 店主のエンティティを作り，アイテムの受け渡しで実装．
     items.add(new IronSword(sessionOwner));
     items.add(new IronArmor(sessionOwner));
     items.add(new HealPotion(sessionOwner));
@@ -91,7 +91,7 @@ public class ShopSession extends Session {
             @Override
             public boolean execute() {
               if (sessionOwner.getGold() < item.getPrice()) {
-                showMessage("お金が足りません。");
+                showMessage("お金が足りません．");
                 return false;
               }
               sessionOwner.subtractGold(item.getPrice());

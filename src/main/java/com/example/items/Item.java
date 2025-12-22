@@ -1,11 +1,12 @@
 package com.example.items;
 
-import com.example.commands.Command;
-import com.example.entities.Entity;
 import java.util.List;
 
+import com.example.commands.Command;
+import com.example.entities.Entity;
+
 /*
- * アイテムの抽象クラス。装備, 消費等のアクションはCommandとして記述する。
+ * アイテムの抽象クラス．装備, 消費等のアクションはCommandとして記述する．
  */
 public abstract class Item {
   protected String name;

@@ -6,8 +6,8 @@ import com.example.entities.Entity;
 import com.example.entities.ItemBox.ItemCount;
 
 /*
- * Playerの所有するItemの一覧を表示するセッション。
- * メニューからItemを選ぶとCommandSessionに推移しCommandを選択できる。
+ * Playerの所有するItemの一覧を表示するセッション．
+ * メニューからItemを選ぶとCommandSessionに推移しCommandを選択できる．
  */
 public class PlayerItemListSession extends Session {
 

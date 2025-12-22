@@ -1,14 +1,14 @@
 
 # 概要
-Javaプログラミングの学習用に製作しています。
-RPG形式でモンスターと戦うゲームです。CUI上で動作しています。
+Javaプログラミングの学習用に製作しています．
+RPG形式でモンスターと戦うゲームです．CUI上で動作しています．
 
 # 構成
-Session.javaとその内部クラスであるCommandクラスを中心として設計されています。
-主要なクラスは以下です。
-- Session: 全体の統一的な制御を提供。
-- BattleSession: バトルを制御するSession。
-- Command: Sessionが実行する処理。
+Session.javaとその内部クラスであるCommandクラスを中心として設計されています．
+主要なクラスは以下です．
+- Session: 全体の統一的な制御を提供．
+- BattleSession: バトルを制御するSession．
+- Command: Sessionが実行する処理．
 - Item: 全てのアイテムの抽象クラス
-- Entity: プレイヤー、モンスター等の抽象クラス
+- Entity: プレイヤー，モンスター等の抽象クラス
 

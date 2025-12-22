@@ -5,8 +5,8 @@ import com.example.commands.QuitCommand;
 import com.example.entities.Entity;
 
 /*
- * Playerの持つスキル等から、攻撃や魔法等のアクションを選択するセッション。
- * BattleSessionから推移する。
+ * Playerの持つスキル等から，攻撃や魔法等のアクションを選択するセッション．
+ * BattleSessionから推移する．
  */
 public class BattleCommandSelectionSession extends Session {
 
