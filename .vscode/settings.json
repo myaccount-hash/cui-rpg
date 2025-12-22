@@ -1,10 +1,16 @@
 {
    "forceGraphViewer.is3DMode": true,
-   "forceGraphViewer.edgeOpacity": 2,
+   "forceGraphViewer.edgeOpacity": 1,
    "forceGraphViewer.nodeOpacity": 1,
    "forceGraphViewer.analyzerId": "java",
-   "forceGraphViewer.enableForwardSlice": false,
+   "forceGraphViewer.enableForwardSlice": true,
    "forceGraphViewer.focusDistance": 250,
-   "forceGraphViewer.showParticles": false
+   "forceGraphViewer.showParticles": false,
+   "forceGraphViewer.hideIsolatedNodes": false,
+   "forceGraphViewer.enableBackwardSlice": true,
+   "forceGraphViewer.nodeSizeByLoc": false,
+   "forceGraphViewer.linkDistance": 20,
+   "forceGraphViewer.sliceDepth": 1,
+   "forceGraphViewer.linkWidth": 0.5
 
 }
