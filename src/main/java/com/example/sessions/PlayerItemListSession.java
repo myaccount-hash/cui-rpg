@@ -3,7 +3,7 @@ package com.example.sessions;
 import com.example.commands.Command;
 import com.example.commands.QuitCommand;
 import com.example.entities.Entity;
-import com.example.entities.ItemBox.ItemCount;
+import com.example.entities.Entity.ItemBox.ItemCount;
 
 /*
  * Playerの所有するItemの一覧を表示するセッション．
