@@ -3,7 +3,7 @@ package com.example.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.commands.Action;
+import com.example.actions.Action;
 import com.example.utils.Utils;
 
 // モンスターの抽象クラス

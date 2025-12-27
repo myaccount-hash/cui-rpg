@@ -1,6 +1,6 @@
 package com.example.sessions;
 
-import com.example.commands.Action;
+import com.example.actions.Action;
 import com.example.commands.ActionCommandAdapter;
 import com.example.commands.QuitCommand;
 import com.example.entities.Entity;

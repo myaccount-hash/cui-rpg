@@ -2,7 +2,7 @@ package com.example.items;
 
 import java.util.List;
 
-import com.example.commands.Action;
+import com.example.actions.Action;
 import com.example.entities.Entity;
 
 /*

@@ -3,8 +3,8 @@ package com.example.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.commands.Action;
-import com.example.commands.Magic;
+import com.example.actions.Action;
+import com.example.actions.Magic;
 import com.example.items.Armor;
 import com.example.items.Item;
 import com.example.items.Weapon;
@@ -54,7 +54,7 @@ public abstract class Entity {
     this.armor = new Armor("素肌", "何も着ていない", 0, this, 0) {};
 
     // デフォルトで通常攻撃を追加
-    this.skills.add(new com.example.commands.NormalAttack(this, null));
+    this.skills.add(new com.example.actions.NormalAttack(this, null));
     // スキルを設定
     if (skills != null) {
       this.skills.addAll(skills);

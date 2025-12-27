@@ -1,5 +1,7 @@
 package com.example.commands;
 
+import com.example.actions.Action;
+
 /*
  * ActionをCommandとして扱うためのアダプタ．
  */

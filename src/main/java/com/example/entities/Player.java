@@ -2,8 +2,8 @@ package com.example.entities;
 
 import java.util.ArrayList;
 
-import com.example.commands.FireBall;
-import com.example.commands.HpHeal;
+import com.example.actions.FireBall;
+import com.example.actions.HpHeal;
 import com.example.items.BronzeSword;
 import com.example.items.LeatherArmor;
 import com.example.utils.Utils;
