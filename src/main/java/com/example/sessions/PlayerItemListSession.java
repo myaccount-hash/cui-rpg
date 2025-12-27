@@ -30,8 +30,7 @@ public class PlayerItemListSession extends Session {
     // ItemBoxに集計処理を委譲
     for (ItemCount itemCount : sessionOwner.getItemBox().getItemCounts().values()) {
       addCommand(
-          new Command(
-              itemCount.getDisplayName(), itemCount.item.getDescription(), sessionOwner) {
+          new Command(itemCount.getDisplayName(), itemCount.item.getDescription()) {
             @Override
             public boolean execute() {
               new ItemCommandSession(itemCount.item, PlayerItemListSession.this, sessionOwner)
@@ -41,6 +40,6 @@ public class PlayerItemListSession extends Session {
           });
     }
 
-    addCommand(new QuitCommand(this, sessionOwner));
+    addCommand(new QuitCommand(this));
   }
 }

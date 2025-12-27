@@ -2,7 +2,7 @@ package com.example.items;
 
 import java.util.List;
 
-import com.example.commands.Command;
+import com.example.commands.Action;
 import com.example.entities.Entity;
 
 // 防具の抽象クラス．Entity.javaのarmorフィールドに脱着可能．
@@ -19,12 +19,12 @@ public abstract class Armor extends Item {
   }
 
   @Override
-  protected List<Command> createCommands(Entity source) {
-    return List.of(new EquipCommand(source));
+  protected List<Action> createActions(Entity source) {
+    return List.of(new EquipAction(source));
   }
 
-  public class EquipCommand extends Command {
-    public EquipCommand(Entity executor) {
+  public class EquipAction extends Action {
+    public EquipAction(Entity executor) {
       super("装備", "装備する", executor);
     }
 
@@ -34,7 +34,7 @@ public abstract class Armor extends Item {
     @Override
     public boolean execute() {
       executor.setArmor((Armor) Armor.this);
-      setCommandLog(getTarget().getName() + "は" + Armor.this.getName() + "を装備した！");
+      setCommandLog(executor.getName() + "は" + Armor.this.getName() + "を装備した！");
       return true;
     }
   }

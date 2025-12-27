@@ -2,11 +2,11 @@ package com.example.items;
 
 import java.util.List;
 
-import com.example.commands.Command;
+import com.example.commands.Action;
 import com.example.entities.Entity;
 
 /*
- * アイテムの抽象クラス．装備, 消費等のアクションはCommandとして記述する．
+ * アイテムの抽象クラス．装備, 消費等のアクションはActionとして記述する．
  */
 public abstract class Item {
   protected String name;
@@ -37,9 +37,9 @@ public abstract class Item {
     return owner;
   }
 
-  protected abstract List<Command> createCommands(Entity source);
+  protected abstract List<Action> createActions(Entity source);
 
-  public final List<Command> getCommands(Entity source) {
-    return createCommands(source);
+  public final List<Action> getActions(Entity source) {
+    return createActions(source);
   }
 }

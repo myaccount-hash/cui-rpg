@@ -1,6 +1,7 @@
 package com.example.sessions;
 
-import com.example.commands.Command;
+import com.example.commands.Action;
+import com.example.commands.ActionCommandAdapter;
 import com.example.commands.QuitCommand;
 import com.example.entities.Entity;
 import com.example.items.Item;
@@ -14,12 +15,12 @@ public class ItemCommandSession extends Session {
     setDisplayText(buildItemDetail(item));
 
     // TODO:バトルセッション中でのターゲットを適切に選択
-    var itemCommands = item.getCommands(sessionOwner);
-    for (Command action : itemCommands) {
+    var itemActions = item.getActions(sessionOwner);
+    for (Action action : itemActions) {
       action.setTarget(sessionOwner);
-      addCommand(action);
+      addCommand(new ActionCommandAdapter(action));
     }
-    addCommand(new QuitCommand(this, sessionOwner));
+    addCommand(new QuitCommand(this));
   }
 
   private String buildItemDetail(Item item) {
@@ -31,4 +32,3 @@ public class ItemCommandSession extends Session {
     stop();
   }
 }
-

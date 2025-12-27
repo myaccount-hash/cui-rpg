@@ -3,12 +3,12 @@ package com.example.commands;
 import com.example.entities.Entity;
 
 /*
- * 魔法の抽象クラス．mpを消費するCommand．
+ * 魔法の抽象クラス．mpを消費するAction．
  */
-public abstract class Magic extends Command {
+public abstract class Magic extends Action {
   protected final int mpCost;
 
-  public Magic(String name, String description, String commandName, int mpCost, Entity executer) {
+  public Magic(String name, String description, int mpCost, Entity executer) {
     super(name, description, executer);
     this.mpCost = mpCost;
   }

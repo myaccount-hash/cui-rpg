@@ -2,7 +2,7 @@ package com.example.items;
 
 import java.util.List;
 
-import com.example.commands.Command;
+import com.example.commands.Action;
 import com.example.entities.Entity;
 
 /*
@@ -21,13 +21,13 @@ public abstract class Weapon extends Item {
   }
 
   @Override
-  protected List<Command> createCommands(Entity source) {
-    return List.of(new EquipCommand());
+  protected List<Action> createActions(Entity source) {
+    return List.of(new EquipAction(source));
   }
 
-  public class EquipCommand extends Command {
-    public EquipCommand() {
-      super("装備", "装備する", owner);
+  public class EquipAction extends Action {
+    public EquipAction(Entity executor) {
+      super("装備", "装備する", executor);
     }
 
     public String getLabel() {

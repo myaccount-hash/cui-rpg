@@ -17,7 +17,7 @@ public class MainSession extends Session {
     this.player = new Player();
 
     addCommand(
-        new Command("dragon", "ドラゴンバトルセッションを開始します", sessionOwner) {
+        new Command("dragon", "ドラゴンバトルセッションを開始します") {
           @Override
           public boolean execute() {
             new BattleSession(
@@ -27,7 +27,7 @@ public class MainSession extends Session {
           }
         });
     addCommand(
-        new Command("items", "所持アイテム一覧を表示", sessionOwner) {
+        new Command("items", "所持アイテム一覧を表示") {
           @Override
           public boolean execute() {
             new PlayerItemListSession(MainSession.this, sessionOwner).run();
@@ -35,7 +35,7 @@ public class MainSession extends Session {
           }
         });
     addCommand(
-        new Command("shop", "ショップに入る", sessionOwner) {
+        new Command("shop", "ショップに入る") {
           @Override
           public boolean execute() {
             new ShopSession(MainSession.this, sessionOwner).run();
@@ -43,13 +43,13 @@ public class MainSession extends Session {
           }
         });
     addCommand(
-        new Command("error", "意図的にエラーを発生させる", sessionOwner) {
+        new Command("error", "意図的にエラーを発生させる") {
           @Override
           public boolean execute() {
             throw new RuntimeException("デバッグ用: 意図的に発生させたエラー");
           }
         });
-    addCommand(new QuitCommand(this, sessionOwner));
+    addCommand(new QuitCommand(this));
 
     // 初期表示テキストを設定
     setDisplayText("ゲームを開始しました．");

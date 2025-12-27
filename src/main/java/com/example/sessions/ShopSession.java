@@ -39,10 +39,7 @@ public class ShopSession extends Session {
 
     for (Item item : itemsForSale) {
       addCommand(
-          new Command(
-              item.getName(),
-              item.getDescription() + " (" + item.getPrice() + "G)",
-              sessionOwner) {
+          new Command(item.getName(), item.getDescription() + " (" + item.getPrice() + "G)") {
             @Override
             public String getName() {
               int count = getItemCount(item);
@@ -57,7 +54,7 @@ public class ShopSession extends Session {
           });
     }
 
-    addCommand(new QuitCommand(this, sessionOwner));
+    addCommand(new QuitCommand(this));
   }
 
   private String buildShopInfo() {
@@ -87,7 +84,7 @@ public class ShopSession extends Session {
       setDisplayText(buildItemDetail(item));
 
       addCommand(
-          new Command("buy", "購入する", sessionOwner) {
+          new Command("buy", "購入する") {
             @Override
             public boolean execute() {
               if (sessionOwner.getGold() < item.getPrice()) {
@@ -102,13 +99,13 @@ public class ShopSession extends Session {
             }
           });
       addCommand(
-          new Command("error", "意図的にエラーを発生させる", sessionOwner) {
+          new Command("error", "意図的にエラーを発生させる") {
             @Override
             public boolean execute() {
               throw new RuntimeException("デバッグ用: 意図的に発生させたエラー");
             }
           });
-      addCommand(new QuitCommand(this, sessionOwner));
+      addCommand(new QuitCommand(this));
     }
 
     private String buildItemDetail(Item item) {

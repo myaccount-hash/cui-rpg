@@ -3,7 +3,7 @@ package com.example.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.commands.Command;
+import com.example.commands.Action;
 import com.example.commands.Magic;
 import com.example.items.Armor;
 import com.example.items.Item;
@@ -23,7 +23,7 @@ public abstract class Entity {
   private int baseDefence;
   protected Weapon weapon;
   protected Armor armor;
-  private final List<Command> skills = new ArrayList<>();
+  private final List<Action> skills = new ArrayList<>();
   private Entity battleTarget;
 
   // ItemBoxでアイテムとゴールドを管理
@@ -36,7 +36,7 @@ public abstract class Entity {
       int baseAttack,
       int baseDefence,
       int level,
-      List<Command> skills) {
+      List<Action> skills) {
     this.name = name;
     this.level = level;
     this.baseHp = baseHp;
@@ -129,15 +129,15 @@ public abstract class Entity {
   }
 
   // スキル管理
-  public List<Command> getSkills() {
+  public List<Action> getSkills() {
     return skills;
   }
 
-  public void addSkill(Command skill) {
+  public void addSkill(Action skill) {
     skills.add(skill);
   }
 
-  public void removeSkill(Command skill) {
+  public void removeSkill(Action skill) {
     skills.remove(skill);
   }
 
@@ -146,9 +146,9 @@ public abstract class Entity {
   }
 
   // 使用可能なアクションを取得
-  public List<Command> getAvailableCommands() {
-    List<Command> available = new ArrayList<>();
-    for (Command action : skills) {
+  public List<Action> getAvailableActions() {
+    List<Action> available = new ArrayList<>();
+    for (Action action : skills) {
       // 使用可能判定をここで直接実行
       if (action instanceof Magic magic) {
         if (getMp() >= magic.getMpCost()) {
@@ -225,7 +225,7 @@ public abstract class Entity {
 
   public void setBattleTarget(Entity battleTarget) {
     this.battleTarget = battleTarget;
-    for (Command skill : skills) {
+    for (Action skill : skills) {
       skill.setTarget(battleTarget);
     }
   }

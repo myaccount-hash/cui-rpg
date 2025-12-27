@@ -8,9 +8,12 @@
    "forceGraphViewer.showParticles": false,
    "forceGraphViewer.hideIsolatedNodes": false,
    "forceGraphViewer.enableBackwardSlice": true,
-   "forceGraphViewer.nodeSizeByLoc": false,
+   "forceGraphViewer.nodeSizeByLoc": true,
    "forceGraphViewer.linkDistance": 20,
    "forceGraphViewer.sliceDepth": 1,
-   "forceGraphViewer.linkWidth": 0.5
+   "forceGraphViewer.linkWidth": 0.5,
+   "forceGraphViewer.callStackSelection": [],
+   "forceGraphViewer.textSize": 15,
+   "forceGraphViewer.shortNames": true
 
 }

@@ -23,7 +23,7 @@ public class BattleSession extends Session {
     this.monster = monster;
 
     addCommand(
-        new Command("action", "アクションを選択", sessionOwner) {
+        new Command("action", "アクションを選択") {
           @Override
           public boolean execute() {
             if (battleEnded) {
@@ -46,14 +46,14 @@ public class BattleSession extends Session {
           }
         });
     addCommand(
-        new Command("status", "ステータスメニュー", sessionOwner) {
+        new Command("status", "ステータスメニュー") {
           @Override
           public boolean execute() {
             new PlayerItemListSession(BattleSession.this, sessionOwner).run();
             return true;
           }
         });
-    addCommand(new QuitCommand(this, sessionOwner));
+    addCommand(new QuitCommand(this));
     setDisplayText(getBattleInfo());
   }
 
@@ -82,14 +82,14 @@ public class BattleSession extends Session {
   }
 
   private static String executeRandomAction(Monster monster, Entity sessionOwner) {
-    var availableCommands = monster.getAvailableCommands();
+    var availableActions = monster.getAvailableActions();
     java.util.Random random = new java.util.Random();
 
-    if (!availableCommands.isEmpty()) {
-      var selectedCommand = availableCommands.get(random.nextInt(availableCommands.size()));
-      selectedCommand.setTarget(sessionOwner);
-      selectedCommand.execute();
-      return selectedCommand.getCommandLog();
+    if (!availableActions.isEmpty()) {
+      var selectedAction = availableActions.get(random.nextInt(availableActions.size()));
+      selectedAction.setTarget(sessionOwner);
+      selectedAction.execute();
+      return selectedAction.getCommandLog();
     }
     // 通常攻撃
     var normalAttack = new com.example.commands.NormalAttack(monster, sessionOwner);

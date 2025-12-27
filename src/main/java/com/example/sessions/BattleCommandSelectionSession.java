@@ -1,6 +1,7 @@
 package com.example.sessions;
 
-import com.example.commands.Command;
+import com.example.commands.Action;
+import com.example.commands.ActionCommandAdapter;
 import com.example.commands.QuitCommand;
 import com.example.entities.Entity;
 
@@ -17,11 +18,11 @@ public class BattleCommandSelectionSession extends Session {
 
     // プレイヤーの戦闘コマンドを取得（ターゲット設定済み）
     sessionOwner.setBattleTarget(battleSession.getMonster());
-    for (Command action : sessionOwner.getSkills()) {
-      addCommand(action);
+    for (Action action : sessionOwner.getSkills()) {
+      addCommand(new ActionCommandAdapter(action));
     }
 
-    addCommand(new QuitCommand(this, sessionOwner));
+    addCommand(new QuitCommand(this));
   }
 
   @Override

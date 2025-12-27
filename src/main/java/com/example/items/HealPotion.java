@@ -2,7 +2,7 @@ package com.example.items;
 
 import java.util.List;
 
-import com.example.commands.Command;
+import com.example.commands.Action;
 import com.example.entities.Entity;
 
 public class HealPotion extends Item {
@@ -12,25 +12,21 @@ public class HealPotion extends Item {
   }
 
   @Override
-  protected List<Command> createCommands(Entity source) {
-    return List.of(new UseCommand(owner));
+  protected List<Action> createActions(Entity source) {
+    return List.of(new UseAction(source));
   }
 
-  public class UseCommand extends Command {
-    public UseCommand(Entity executor) {
+  public class UseAction extends Action {
+    public UseAction(Entity executor) {
       super("使う", "HPを50回復する", executor);
     }
 
     @Override
     public boolean execute() {
-      getExecutor().heal(50);
-      setCommandLog(getExecutor().getName() + "はヒールポーションを使い，HPが50回復した！");
-      getExecutor().getItems().remove(HealPotion.this);
+      executor.heal(50);
+      setCommandLog(executor.getName() + "はヒールポーションを使い，HPが50回復した！");
+      executor.getItems().remove(HealPotion.this);
       return true;
-    }
-
-    private Entity getExecutor() {
-      return super.executor;
     }
   }
 }

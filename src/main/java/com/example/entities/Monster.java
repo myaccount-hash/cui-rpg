@@ -3,7 +3,7 @@ package com.example.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.commands.Command;
+import com.example.commands.Action;
 import com.example.utils.Utils;
 
 // モンスターの抽象クラス
@@ -25,8 +25,8 @@ public abstract class Monster extends Entity {
     this.icon = icon;
   }
 
-  private static List<Command> createDefaultSkills() {
-    List<Command> skills = new ArrayList<>();
+  private static List<Action> createDefaultSkills() {
+    List<Action> skills = new ArrayList<>();
     // skills.add(new FireBall(this)); // static文脈でthisは使えないためコメントアウト
     // skills.add(new HpHeal(this));
     // デフォルトスキルは空のリスト（サブクラスで設定）
