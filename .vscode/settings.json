@@ -1,5 +1,5 @@
 {
-   "forceGraphViewer.is3DMode": true,
+   "forceGraphViewer.is3DMode": false,
    "forceGraphViewer.edgeOpacity": 1,
    "forceGraphViewer.nodeOpacity": 1,
    "forceGraphViewer.analyzerId": "java",
@@ -8,12 +8,13 @@
    "forceGraphViewer.showParticles": false,
    "forceGraphViewer.hideIsolatedNodes": false,
    "forceGraphViewer.enableBackwardSlice": true,
-   "forceGraphViewer.nodeSizeByLoc": true,
-   "forceGraphViewer.linkDistance": 20,
+   "forceGraphViewer.nodeSizeByLoc": false,
+   "forceGraphViewer.linkDistance": 10,
    "forceGraphViewer.sliceDepth": 1,
-   "forceGraphViewer.linkWidth": 0.5,
+   "forceGraphViewer.linkWidth": 1,
    "forceGraphViewer.callStackSelection": [],
-   "forceGraphViewer.textSize": 15,
-   "forceGraphViewer.shortNames": true
+   "forceGraphViewer.textSize": 5,
+   "forceGraphViewer.shortNames": true,
+   "forceGraphViewer.search": "NOT name: NOT Utils"
 
 }
